@@ -1,8 +1,12 @@
 <template>
-  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <nav
+    class="navbar is-fixed-top"
+    role="navigation"
+    aria-label="main navigation"
+  >
     <div class="navbar-brand">
       <a class="navbar-item is-uppercase" href="#">
-        {{displayName}}
+        {{ displayName }}
       </a>
 
       <a
@@ -19,7 +23,11 @@
       </a>
     </div>
 
-    <div id="mobile-menu" class="navbar-menu" :class="{'is-active': isActive}">
+    <div
+      id="mobile-menu"
+      class="navbar-menu"
+      :class="{ 'is-active': isActive }"
+    >
       <div class="navbar-start">
         <a class="navbar-item" href="#home" v-smooth-scroll>
           Home
@@ -46,7 +54,11 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-link is-rounded" href="#contact" v-smooth-scroll>
+            <a
+              class="button is-link is-rounded"
+              href="#contact"
+              v-smooth-scroll
+            >
               Contact
             </a>
           </div>
@@ -60,24 +72,22 @@
 export default {
   data: function() {
     return {
-      userName: 'Jonathan Peraza Feliciano',
-      isActive: false,
-    }
+      userName: "Jonathan Peraza Feliciano",
+      isActive: false
+    };
   },
   computed: {
     displayName: function() {
-      const lastWordIndex = this.userName.lastIndexOf(' ')
-      return this.userName.substring(0, lastWordIndex)
+      const lastWordIndex = this.userName.lastIndexOf(" ");
+      return this.userName.substring(0, lastWordIndex);
     }
   },
   methods: {
     toggleMenu: function() {
-      this.isActive = !this.isActive
+      this.isActive = !this.isActive;
     }
   }
-}
+};
 </script>
 
-<style lang="scss" scoped>
-</style>
-
+<style lang="scss" scoped></style>

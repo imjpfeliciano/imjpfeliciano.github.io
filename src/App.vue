@@ -11,16 +11,16 @@
 </template>
 
 <script>
-import Navbar from './components/navbar/Navbar'
-import Hero from './components/hero/Hero'
-import About from './components/about/About'
-import Experience from './components/experience/Experience'
-import Services from './components/services/Services'
-import ContactForm from './components/contactForm/ContactForm'
-import CopyFooter from './components/footer/Footer'
+import Navbar from "./components/navbar/Navbar";
+import Hero from "./components/hero/Hero";
+import About from "./components/about/About";
+import Experience from "./components/experience/Experience";
+import Services from "./components/services/Services";
+import ContactForm from "./components/contactForm/ContactForm";
+import CopyFooter from "./components/footer/Footer";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     Navbar,
     Hero,
@@ -28,13 +28,13 @@ export default {
     Experience,
     Services,
     ContactForm,
-    CopyFooter,
+    CopyFooter
   }
-}
+};
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed");
 .card {
   border-radius: 5px;
 }
@@ -49,8 +49,9 @@ export default {
 
 .is-primary-color {
   background-color: #1a4ea3 !important;
-  
-  .title, .subtitle {
+
+  .title,
+  .subtitle {
     color: white !important;
   }
 }
