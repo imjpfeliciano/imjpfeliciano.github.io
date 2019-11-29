@@ -1,7 +1,7 @@
 <template>
   <section
-    class="hero is-primary-color is-fullheight"
     id="home"
+    class="hero is-primary-color is-fullheight"
     :style="{
       backgroundImage: `
       linear-gradient(#3f51b5, rgba(63, 81, 181, 0.35)),
@@ -37,19 +37,19 @@
 </template>
 
 <script>
-import HeroBackground from "../../assets/images/image.png";
-import CVFile from "../../assets/docs/EN_resume_cv.pdf";
+import HeroBackground from '../../assets/images/image.png';
+import CVFile from '../../assets/docs/EN_resume_cv.pdf';
 
 export default {
-  data: function() {
+  data() {
     return {
-      userName: "Jonathan Peraza Feliciano",
+      userName: 'Jonathan Peraza Feliciano',
       description:
-        "Full-Stack Software Engineer with experience for over 6 years. My expertise is to create and design Websites, Apps, Templates and more ...",
+        'Full-Stack Software Engineer with experience for over 6 years. My expertise is to create and design Websites, Apps, Templates and more ...',
       bgImage: HeroBackground,
-      resumeLink: CVFile
+      resumeLink: CVFile,
     };
-  }
+  },
 };
 </script>
 
