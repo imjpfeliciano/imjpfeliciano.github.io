@@ -5,7 +5,10 @@
     aria-label="main navigation"
   >
     <div class="navbar-brand">
-      <a class="navbar-item is-uppercase" href="#">
+      <a
+        class="navbar-item is-uppercase"
+        href="#"
+      >
         {{ displayName }}
       </a>
 
@@ -17,9 +20,9 @@
         data-target="mobile-menu"
         @click.prevent="toggleMenu"
       >
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
       </a>
     </div>
 
@@ -29,19 +32,35 @@
       :class="{ 'is-active': isActive }"
     >
       <div class="navbar-start">
-        <a class="navbar-item" href="#home" v-smooth-scroll>
+        <a
+          v-smooth-scroll
+          class="navbar-item"
+          href="#home"
+        >
           Home
         </a>
 
-        <a class="navbar-item" href="#about" v-smooth-scroll>
+        <a
+          v-smooth-scroll
+          class="navbar-item"
+          href="#about"
+        >
           About
         </a>
 
-        <a class="navbar-item" href="#experience" v-smooth-scroll>
+        <a
+          v-smooth-scroll
+          class="navbar-item"
+          href="#experience"
+        >
           Experience
         </a>
 
-        <a class="navbar-item" href="#services" v-smooth-scroll>
+        <a
+          v-smooth-scroll
+          class="navbar-item"
+          href="#services"
+        >
           Services
         </a>
 
@@ -55,9 +74,9 @@
         <div class="navbar-item">
           <div class="buttons">
             <a
+              v-smooth-scroll
               class="button is-link is-rounded"
               href="#contact"
-              v-smooth-scroll
             >
               Contact
             </a>
@@ -70,23 +89,23 @@
 
 <script>
 export default {
-  data: function() {
+  data() {
     return {
-      userName: "Jonathan Peraza Feliciano",
-      isActive: false
+      userName: 'Jonathan Peraza Feliciano',
+      isActive: false,
     };
   },
   computed: {
-    displayName: function() {
-      const lastWordIndex = this.userName.lastIndexOf(" ");
+    displayName() {
+      const lastWordIndex = this.userName.lastIndexOf(' ');
       return this.userName.substring(0, lastWordIndex);
-    }
+    },
   },
   methods: {
-    toggleMenu: function() {
+    toggleMenu() {
       this.isActive = !this.isActive;
-    }
-  }
+    },
+  },
 };
 </script>
 
