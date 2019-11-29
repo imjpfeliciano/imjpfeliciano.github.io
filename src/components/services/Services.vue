@@ -9,10 +9,10 @@
               <div class="icon-container has-text-centered">
                 <i :class="item.icon" />
               </div>
-              <div class="subtitle has-text-centered">{{item.title}}</div>
+              <div class="subtitle has-text-centered">{{ item.title }}</div>
               <div class="content">
                 <p class="has-text-centered">
-                  {{item.description}}
+                  {{ item.description }}
                 </p>
               </div>
             </div>
@@ -28,14 +28,34 @@ export default {
   data: function() {
     return {
       services: [
-        { icon: 'fas fa-desktop', title: 'Web Design', description: 'Design your site according to your section requirements, personal blogs, cms, landing pages, etc...' },
-        { icon: 'fas fa-mobile-alt', title: 'Responsive', description: 'You don\'t need to pay for different devices designs, projects includes mocks that can perfectly work on distinct devices.' },
-        { icon: 'fab fa-wordpress-simple', title: 'Integrations', description: 'Take your ideas and integrates it with your current CMS.' },
-        { icon: 'fas fa-users', title: 'Workshops', description: 'Different topics to help your team to improve its technical skills.' },
-      ],
-    }
+        {
+          icon: "fas fa-desktop",
+          title: "Web Design",
+          description:
+            "Design your site according to your section requirements, personal blogs, cms, landing pages, etc..."
+        },
+        {
+          icon: "fas fa-mobile-alt",
+          title: "Responsive",
+          description:
+            "You don't need to pay for different devices designs, projects includes mocks that can perfectly work on distinct devices."
+        },
+        {
+          icon: "fab fa-wordpress-simple",
+          title: "Integrations",
+          description:
+            "Take your ideas and integrates it with your current CMS."
+        },
+        {
+          icon: "fas fa-users",
+          title: "Workshops",
+          description:
+            "Different topics to help your team to improve its technical skills."
+        }
+      ]
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

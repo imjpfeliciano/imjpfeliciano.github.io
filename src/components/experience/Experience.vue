@@ -8,21 +8,33 @@
             Having 6 years experience
           </p>
           <p class="subtitle">
-            <b>Working with different <span class="has-text-link">companies</span> and <span class="has-text-link">technologies</span>.</b>
+            <b
+              >Working with different
+              <span class="has-text-link">companies</span> and
+              <span class="has-text-link">technologies</span>.</b
+            >
           </p>
 
           <p class="has-text-left">
-            Started as a competitive programmer on 2009, I’m focused on improving my technical skills. I had the opportunity to start my career as Software Engineer with web technologies such as Javascript and Bash scripting, as well as languages like C++ and Python.
+            Started as a competitive programmer on 2009, I’m focused on
+            improving my technical skills. I had the opportunity to start my
+            career as Software Engineer with web technologies such as Javascript
+            and Bash scripting, as well as languages like C++ and Python.
           </p>
 
           <p class="has-text-left">
-            Currently my main technologies are Javascript based, but I can easily adapt to any kind of programming languages or projects.
+            Currently my main technologies are Javascript based, but I can
+            easily adapt to any kind of programming languages or projects.
           </p>
         </div>
 
         <div class="column">
           <div class="columns is-multiline">
-            <div class="column is-half" v-for="(company, index) in companies" :key="index">
+            <div
+              class="column is-half"
+              v-for="(company, index) in companies"
+              :key="index"
+            >
               <div class="card">
                 <div class="card-content">
                   <div class="media">
@@ -32,8 +44,12 @@
                       </figure>
                     </div>
                     <div class="media-content">
-                      <p class="title is-5 has-text-centered">{{company.name}}</p>
-                      <p class="subtitle is-6 has-text-centered">{{company.period}}</p>
+                      <p class="title is-5 has-text-centered">
+                        {{ company.name }}
+                      </p>
+                      <p class="subtitle is-6 has-text-centered">
+                        {{ company.period }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -43,30 +59,27 @@
         </div>
       </div>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
-  import WizelineLogo from '../../assets/images/companies/wizeline-round-logo.png'
-  import SalesupLogo from '../../assets/images/companies/salesup-logo.png'
-  import PricetravelLogo from '../../assets/images/companies/pricetravel-logo.jpg'
-  import TuricunLogo from '../../assets/images/companies/turicun-logo.gif'
-  
-  export default {
-    data: function() {
-      return {
-        companies: [
-          { logo: WizelineLogo, name: 'WIZELINE', period: '2017 - Present' },
-          { logo: SalesupLogo, name: 'SalesUp!', period: '2016 - 2017' },
-          { logo: PricetravelLogo, name: 'PriceTravel Holding', period: '2015' },
-          { logo: TuricunLogo, name: 'Turicun', period: '2011' },
-        ],
-      }
-    }
-    
+import WizelineLogo from "../../assets/images/companies/wizeline-round-logo.png";
+import SalesupLogo from "../../assets/images/companies/salesup-logo.png";
+import PricetravelLogo from "../../assets/images/companies/pricetravel-logo.jpg";
+import TuricunLogo from "../../assets/images/companies/turicun-logo.gif";
+
+export default {
+  data: function() {
+    return {
+      companies: [
+        { logo: WizelineLogo, name: "WIZELINE", period: "2017 - Present" },
+        { logo: SalesupLogo, name: "SalesUp!", period: "2016 - 2017" },
+        { logo: PricetravelLogo, name: "PriceTravel Holding", period: "2015" },
+        { logo: TuricunLogo, name: "Turicun", period: "2011" }
+      ]
+    };
   }
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
