@@ -17,6 +17,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
+    "tailwindcss": "^1.4.5",
     "vue": "^2.6.11",
     "vue-router": "^3.0.2",
     "vue2-smooth-scroll": "^1.0.5"
@@ -27,11 +28,13 @@
     "@vue/cli-plugin-babel": "^3.2.3",
     "@vue/cli-plugin-eslint": "^3.2.3",
     "@vue/cli-service": "^3.2.3",
+    "autoprefixer": "^9.7.6",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
     "babel-preset-vue": "^2.0.2",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
+    "postcss-cli": "^7.1.1",
     "vue-loader": "^15.8.3",
     "vue-template-compiler": "^2.6.11"
   },
@@ -47,11 +50,6 @@
     "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
     }
   },
   "browserslist": [
