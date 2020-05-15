@@ -1,19 +1,34 @@
 module.exports = {
   'Wizeline': [
-    { title: 'Software Engineer II', description: 'Sit commodo veniam sit aliqua. Occaecat ullamco tempor ex esse aliquip mollit. Lorem sunt mollit exercitation nisi minim elit minim proident cillum.' },
-    { title: 'Software Engineer', description: 'Enim nulla eiusmod adipisicing excepteur excepteur id nostrud magna sunt ipsum duis. Quis dolor sit velit ut duis magna ipsum qui veniam velit magna aute cupidatat ipsum. Culpa dolore sunt qui ex eu reprehenderit ex elit est voluptate ex nostrud.' },
-    { title: 'Software Engineer Trainee', description: 'Excepteur non sit in aute deserunt id nisi duis sint. Excepteur proident velit nulla eiusmod labore dolor enim. Exercitation eu duis eiusmod laboris aliquip aute cupidatat magna sunt aute id sit aliquip pariatur. Et officia Lorem nisi labore enim velit nulla ad Lorem est do qui. Esse esse cupidatat nisi dolor reprehenderit tempor pariatur officia et quis. Anim nulla consequat duis tempor commodo eiusmod occaecat eiusmod elit velit duis laborum labore. Ipsum incididunt amet aliqua nisi labore officia aliqua est.' },
+    {
+      title: 'Software Engineer II',
+      description: 'Developed with Vuejs & Apollo Client, a Social Network for a private university in Mexico, which impacts thousands of students.',
+    },
+    {
+      title: 'Software Engineer',
+      description: 'Developed with PHP and vanilla javascript a plugin to customize a CMS to post company offices locations and contacts to call in case of emergencies.',
+    },
+    {
+      title: 'Software Engineer Trainee',
+      description: 'Developed with React, I helped to develop an internal tool which impacts the company in a positive way giving the collaborators to ask questions to e-staff members directly.',
+    },
   ],
   'SalesUp!': [
-    { title: 'Software Developer Engineer', description: 'Nulla nostrud do dolor cupidatat consequat adipisicing laborum tempor. Amet Lorem non sit culpa ipsum consequat sunt pariatur aute ad veniam. Aliquip minim laboris dolor ipsum elit duis. Ullamco Lorem duis in quis enim est enim officia eiusmod esse nisi.' },
+    {
+      title: 'Software Developer Engineer',
+      description: 'I helped by improving the framework to serve the frontend pages using technologies such as vanilla javascript and handlebars templates, but also I helped with a migration of the file management system by doing a re-platform for the system always thinking in a cloud environment using AWS services such as SQS, EC2, Lambdas.',
+    },
   ],
   'PriceTravel Holding': [
-    { title: 'Software Developer Intern', description: 'Exercitation occaecat elit elit minim magna fugiat enim. Aliqua ea exercitation fugiat fugiat deserunt sit aliquip consectetur elit sunt elit. Voluptate do exercitation et ad et id. Quis aliquip amet enim duis esse Lorem esse officia.' }
-  ],
-  'Expediente Medico': [
-    { title: 'Software Developer Intern', description: 'Nostrud qui ea sit enim reprehenderit. Excepteur quis esse aliqua irure do ipsum tempor ad id nulla proident velit. Consectetur eiusmod sit consequat aliquip ea incididunt ex consectetur eiusmod.' },
+    {
+      title: 'Software Developer Intern',
+      description: 'As a trainee, I helped to develop a web platform which displays product sales into a dashboard by accessing the location of each item sold and placing it in a world map. For this project we used leaflet as our map provides and webRTC for the real time sockets connection. Also as a trainee, I helped in the replatform of a web-mobile application by separating concerns into server-side and client-side improving the load time from almost 10s to 200ms.',
+    }
   ],
   'Turicun': [
-    { title: 'Software Developer Intern', description: 'Veniam magna reprehenderit dolor proident amet reprehenderit sint laboris dolor qui. Nisi laborum aliquip elit ea ipsum pariatur non excepteur consectetur. Magna pariatur exercitation fugiat officia non culpa cupidatat fugiat exercitation exercitation labore. Eu proident magna sunt reprehenderit veniam. Mollit laborum laboris fugiat aliqua esse laboris dolor nulla aliquip ex. Lorem aute nisi duis dolore fugiat nisi.'}
+    {
+      title: 'Software Developer Intern',
+      description: 'As an Intern, I helped with some bash scripting to migrate SQL files to get information from those and migrating it to KML files to be consumed in a web application to display public transportation routes into a map of the city.',
+    }
   ],  
 }

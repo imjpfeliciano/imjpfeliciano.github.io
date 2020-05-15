@@ -1,12 +1,14 @@
 <template>
-  <card class="mx-auto">
-    <div class="form bg-white p-4 my-5 relative mx-auto">
-      <h3 class="text-2xl text-bold font-semibold">
-        Work Experience
-      </h3>
-      <timeline :items="timelineItems" />
-    </div>
-  </card>
+  <div class="container mt-8 mx-auto">
+    <h1 class="text-4xl text-bold font-semibold text-center">
+      Work Experience
+    </h1>
+    <card class="mx-auto">
+      <div class="form bg-white p-4 my-5 relative mx-auto">
+        <timeline :items="timelineItems" />
+      </div>
+    </card>
+  </div>
 </template>
 
 <script>
