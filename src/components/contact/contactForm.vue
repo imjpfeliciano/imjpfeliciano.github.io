@@ -1,10 +1,15 @@
 <template>
-  <div class="container mt-8 mx-auto">
+  <div class="container mt-8 mx-auto" id="contact">
     <h1 class="text-4xl text-bold font-semibold text-center">
       Let me call you!
     </h1>
     <card class="mx-auto">
-      <form class="form bg-white p-4 my-5 relative mx-auto">
+      <form
+        class="form bg-white p-4 my-5 relative mx-auto"
+        :action="`https://formspree.io/${userEmail}`"
+        method="POST"
+        @submit="validateForm"
+      >
         <p class="text-gray-600">
           To help you choose your properly
         </p>
@@ -15,6 +20,7 @@
             name=""
             placeholder="Your Name"
             class="border p-2  w-1/2"
+            v-model="contactName"
           >
           <input
             id=""
@@ -22,6 +28,7 @@
             name=""
             placeholder="Your Number"
             class="border p-2 w-1/2"
+            v-model="contactPhone"
           >
         </div>
         <input
@@ -30,6 +37,7 @@
           name=""
           placeholder="Your Email"
           class="border p-2 w-full mt-3"
+          v-model="contactEmail"
         >
         <textarea
           id=""
@@ -38,6 +46,7 @@
           rows="3"
           placeholder="Tell me about desired property"
           class="border p-2 mt-3 w-full"
+          v-model="contactMessage"
         />
         <p class="font-bold text-sm mt-3">
           GDPR Agreement *
@@ -48,6 +57,7 @@
             type="checkbox"
             name=""
             class="inline-block"
+            v-model="contactGDPRAgreement"
           >
           <p class="text-gray-600 text-sm">
             I consent to having this website store my submitted information so they can respond to my inquiry.
@@ -70,6 +80,34 @@ import Card from '../ui/card';
 export default {
   components: {
     Card,
+  },
+  data() {
+    return {
+      userEmail: 'jperazafeliciano@gmail.com',
+      contactName: '',
+      contactPhone: '',
+      contactEmail: '',
+      contactMessage: '',
+      contactGDPRAgreement: false,
+      formErrors: [],
+    };
+  },
+  methods: {
+    validateForm(event) {
+      this.formErrors = [];
+      if (this.contactName && this.contactEmail) return true;
+
+      if (!this.contactName) {
+        this.formErrors.push('Name required.');
+      }
+
+      if (!this.contactEmail) {
+        this.formErrors.push('Email required.');
+      }
+
+      event.preventDefault();
+      return false;
+    },
   },
 };
 </script>

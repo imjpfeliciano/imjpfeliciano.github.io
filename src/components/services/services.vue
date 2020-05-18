@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-8 mx-auto">
+  <div class="container mt-8 mx-auto" id="services">
     <h3 class="text-4xl text-bold font-semibold text-center">
       Services
     </h3>
