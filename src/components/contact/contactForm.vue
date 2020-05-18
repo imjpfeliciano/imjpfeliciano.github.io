@@ -17,7 +17,7 @@
           <input
             id=""
             type="text"
-            name=""
+            name="name"
             placeholder="Your Name"
             class="border p-2  w-1/2"
             v-model="contactName"
@@ -25,7 +25,7 @@
           <input
             id=""
             type="tel"
-            name=""
+            name="phone"
             placeholder="Your Number"
             class="border p-2 w-1/2"
             v-model="contactPhone"
@@ -34,14 +34,14 @@
         <input
           id=""
           type="email"
-          name=""
+          name="email"
           placeholder="Your Email"
           class="border p-2 w-full mt-3"
           v-model="contactEmail"
         >
         <textarea
           id=""
-          name=""
+          name="message"
           cols="10"
           rows="3"
           placeholder="Tell me about desired property"
@@ -55,7 +55,7 @@
           <input
             id=""
             type="checkbox"
-            name=""
+            name="gdpr-agreement"
             class="inline-block"
             v-model="contactGDPRAgreement"
           >
@@ -95,7 +95,7 @@ export default {
   methods: {
     validateForm(event) {
       this.formErrors = [];
-      if (this.contactName && this.contactEmail) return true;
+      if (this.contactName && this.contactEmail && this.contactGDPRAgreement) return true;
 
       if (!this.contactName) {
         this.formErrors.push('Name required.');
@@ -103,6 +103,10 @@ export default {
 
       if (!this.contactEmail) {
         this.formErrors.push('Email required.');
+      }
+
+      if (!this.contactGDPRAgreement) {
+        this.formErrors.push('GDPR check required.');
       }
 
       event.preventDefault();
