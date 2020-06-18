@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: npm run ci
+
+    - name: Run lint javascript
+      run: npm run lint
+
+    - name: Run build
+      run: npm run build
+
+    - name: Deploy to GH Pages
+      run: npm run deploy
+    
