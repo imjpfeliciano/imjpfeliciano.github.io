@@ -1,7 +1,7 @@
-name: CI
+name: CD
 
 on:
-  pull_request:
+  push:
     branches: [ dev ]
 
 jobs:
@@ -31,3 +31,11 @@ jobs:
 
       - name: Run build
         run: npm run build
+
+      - name: Deploy to GH Pages
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: master
+          FOLDER: dist
+      
