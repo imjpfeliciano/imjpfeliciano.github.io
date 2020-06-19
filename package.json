@@ -25,6 +25,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "@storybook/vue": "^5.3.8",
     "@vue/cli-plugin-babel": "^3.2.3",
     "@vue/cli-plugin-eslint": "^3.2.3",
@@ -35,6 +37,7 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "file-loader": "^6.0.0",
+    "husky": "^4.2.5",
     "postcss-cli": "^7.1.1",
     "vue-loader": "^15.8.3",
     "vue-template-compiler": "^2.6.11"
