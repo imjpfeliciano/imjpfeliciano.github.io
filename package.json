@@ -15,7 +15,7 @@
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.14.1",
     "sass-loader": "^7.1.0",
     "tailwindcss": "^1.4.5",
     "vue": "^2.6.11",
@@ -34,6 +34,7 @@
     "babel-preset-vue": "^2.0.2",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
+    "file-loader": "^6.0.0",
     "postcss-cli": "^7.1.1",
     "vue-loader": "^15.8.3",
     "vue-template-compiler": "^2.6.11"
