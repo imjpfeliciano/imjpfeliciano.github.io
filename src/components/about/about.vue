@@ -44,7 +44,7 @@ export default {
   computed: {
     heroImage() {
       // eslint-disable-next-line
-      return require(`../../assets/images/${this.PageInformation.image}`);
+      return require(`../../assets/images/${this.PageInformation.image}`).default;
     },
   },
 };
