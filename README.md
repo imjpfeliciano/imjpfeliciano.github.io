@@ -1,5 +1,5 @@
 # imJPFeliciano.github.io
 
-![CI](https://github.com/imJPFeliciano/imJPFeliciano.github.io/workflows/CI/badge.svg)
+![CD](https://github.com/imJPFeliciano/imJPFeliciano.github.io/workflows/CD/badge.svg)
 
 Landing page - JPFeliciano
