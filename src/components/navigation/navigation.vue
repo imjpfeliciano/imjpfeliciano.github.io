@@ -55,9 +55,10 @@
       </div>
       <div>
         <a
-          href="#"
+          :href="resumeLink"
           class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white
             hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0"
+          download="jpfeliciano_en"
         >Download</a>
       </div>
     </div>
@@ -65,8 +66,16 @@
 </template>
 
 <script>
+import Resume from '../../assets/docs/EN_resume_cv.pdf';
+
 export default {
+  data() {
+    return {
+      resumeLink: Resume,
+    };
+  },
 };
+
 </script>
 
 <style lang="scss" scoped>
