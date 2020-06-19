@@ -35,7 +35,7 @@ export default {
   computed: {
     serviceImage() {
       // eslint-disable-next-line
-      return require(`../../assets/images/services/${this.product.image}.svg`);
+      return require(`../../assets/images/services/${this.product.image}.svg`).default;
     },
   },
 };
