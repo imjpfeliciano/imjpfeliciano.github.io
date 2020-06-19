@@ -13,6 +13,7 @@ module.exports = {
   ],
   extends: ['airbnb-base', 'plugin:vue/recommended'],
   rules: {
+    'max-len': ['error', { code: 120 }],
     'import/extensions': ['error', 'always', {
       js: 'never',
       vue: 'never',

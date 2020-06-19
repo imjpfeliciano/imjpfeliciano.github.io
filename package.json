@@ -4,30 +4,40 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
+    "storybook": "start-storybook",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "deploy": "git subtree push --prefix dist origin master"
   },
   "dependencies": {
+    "autoprefixer": "^9.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
     "node-sass": "^4.14.1",
     "sass-loader": "^7.1.0",
-    "vue": "^2.5.21",
+    "tailwindcss": "^1.4.5",
+    "vue": "^2.6.11",
     "vue-router": "^3.0.2",
     "vue2-smooth-scroll": "^1.0.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@storybook/vue": "^5.3.8",
     "@vue/cli-plugin-babel": "^3.2.3",
     "@vue/cli-plugin-eslint": "^3.2.3",
     "@vue/cli-service": "^3.2.3",
     "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
+    "babel-preset-vue": "^2.0.2",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "file-loader": "^6.0.0",
-    "vue-template-compiler": "^2.5.21"
+    "postcss-cli": "^7.1.1",
+    "vue-loader": "^15.8.3",
+    "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
     "root": true,
@@ -41,11 +51,6 @@
     "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
     }
   },
   "browserslist": [
