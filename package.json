@@ -8,7 +8,8 @@
     "storybook": "start-storybook",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "git subtree push --prefix dist origin master"
+    "deploy": "git subtree push --prefix dist origin master",
+    "test": ""
   },
   "dependencies": {
     "autoprefixer": "^9.8.0",
@@ -41,6 +42,12 @@
     "postcss-cli": "^7.1.1",
     "vue-loader": "^15.8.3",
     "vue-template-compiler": "^2.6.11"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run test"
+    }
   },
   "eslintConfig": {
     "root": true,
