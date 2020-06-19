@@ -9,8 +9,10 @@
       </div>
       <div class="md:flex-auto md:flex-row-reverse mt-2 flex-row flex">
         <a
-          href="/#"
+          :href="`https://twitter.com/${twitter}`"
           class="w-6 mx-1"
+          target="_blank"
+          rel="noopener"
         >
           <svg
             class="fill-current cursor-pointer text-indigo-200 hover:text-indigo-200"
@@ -45,8 +47,10 @@
         </a>
 
         <a
-          href="/#"
+          :href="`https://facebook.com/${facebook}`"
           class="w-6 mx-1"
+          target="_blank"
+          rel="noopener"
         >
           <svg
             class="fill-current cursor-pointer text-indigo-200 hover:text-indigo-200"
@@ -72,8 +76,10 @@
         </a>
 
         <a
-          href="/#"
+          :href="youtube"
           class="w-6 mx-1"
+          target="_blank"
+          rel="noopener"
         >
           <svg
             class="fill-current cursor-pointer text-indigo-200 hover:text-indigo-200"
@@ -117,8 +123,10 @@
         </a>
 
         <a
-          href="/#"
+          :href="`https://linkedin.com/in/${linkedIn}`"
           class="w-6 mx-1"
+          target="_blank"
+          rel="noopener"
         >
           <svg
             class="fill-current cursor-pointer text-indigo-200 hover:text-indigo-200"
@@ -158,6 +166,14 @@
 
 <script>
 export default {
+  data() {
+    return {
+      twitter: 'JonathanPerazaF',
+      facebook: 'jperazafeliciano',
+      youtube: 'https://www.youtube.com/channel/UC9tV6FFeNPX6M--hJV_fJvQ?view_as=subscriber',
+      linkedIn: 'jpfeliciano',
+    };
+  },
 };
 </script>
 
