@@ -24,5 +24,9 @@ jobs:
       run: npm run build
 
     - name: Deploy to GH Pages
-      run: npm run deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: master
+        FOLDER: dist
     
