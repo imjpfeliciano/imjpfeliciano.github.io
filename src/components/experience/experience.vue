@@ -1,5 +1,8 @@
 <template>
-  <div class="container mt-8 mx-auto" id="experience">
+  <div
+    id="experience"
+    class="container mt-8 mx-auto"
+  >
     <h1 class="text-4xl text-bold font-semibold text-center">
       Work Experience
     </h1>
@@ -24,7 +27,7 @@ export default {
   data() {
     return {
       timelineItems: workExperienceItems,
-    }
+    };
   },
 };
 </script>

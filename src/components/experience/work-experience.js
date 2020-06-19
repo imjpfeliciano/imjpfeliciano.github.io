@@ -1,5 +1,7 @@
+/* eslint-disable */
+
 module.exports = {
-  'Wizeline': [
+  Wizeline: [
     {
       title: 'Software Engineer II',
       description: 'Developed with Vuejs & Apollo Client, a Social Network for a private university in Mexico, which impacts thousands of students.',
@@ -23,12 +25,12 @@ module.exports = {
     {
       title: 'Software Developer Intern',
       description: 'As a trainee, I helped to develop a web platform which displays product sales into a dashboard by accessing the location of each item sold and placing it in a world map. For this project we used leaflet as our map provides and webRTC for the real time sockets connection. Also as a trainee, I helped in the replatform of a web-mobile application by separating concerns into server-side and client-side improving the load time from almost 10s to 200ms.',
-    }
+    },
   ],
-  'Turicun': [
+  Turicun: [
     {
       title: 'Software Developer Intern',
       description: 'As an Intern, I helped with some bash scripting to migrate SQL files to get information from those and migrating it to KML files to be consumed in a web application to display public transportation routes into a map of the city.',
-    }
-  ],  
-}
+    },
+  ],
+};

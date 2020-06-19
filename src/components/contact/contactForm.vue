@@ -1,5 +1,8 @@
 <template>
-  <div class="container mt-8 mx-auto" id="contact">
+  <div
+    id="contact"
+    class="container mt-8 mx-auto"
+  >
     <h1 class="text-4xl text-bold font-semibold text-center">
       Let me call you!
     </h1>
@@ -16,37 +19,37 @@
         <div class="flex space-x-5 mt-3">
           <input
             id=""
+            v-model="contactName"
             type="text"
             name="name"
             placeholder="Your Name"
             class="border p-2  w-1/2"
-            v-model="contactName"
           >
           <input
             id=""
+            v-model="contactPhone"
             type="tel"
             name="phone"
             placeholder="Your Number"
             class="border p-2 w-1/2"
-            v-model="contactPhone"
           >
         </div>
         <input
           id=""
+          v-model="contactEmail"
           type="email"
           name="email"
           placeholder="Your Email"
           class="border p-2 w-full mt-3"
-          v-model="contactEmail"
         >
         <textarea
           id=""
+          v-model="contactMessage"
           name="message"
           cols="10"
           rows="3"
           placeholder="Tell me about desired property"
           class="border p-2 mt-3 w-full"
-          v-model="contactMessage"
         />
         <p class="font-bold text-sm mt-3">
           GDPR Agreement *
@@ -54,10 +57,10 @@
         <div class="flex items-baseline space-x-2 mt-2">
           <input
             id=""
+            v-model="contactGDPRAgreement"
             type="checkbox"
             name="gdpr-agreement"
             class="inline-block"
-            v-model="contactGDPRAgreement"
           >
           <p class="text-gray-600 text-sm">
             I consent to having this website store my submitted information so they can respond to my inquiry.
@@ -71,7 +74,6 @@
       </form>
     </card>
   </div>
-  
 </template>
 
 <script>

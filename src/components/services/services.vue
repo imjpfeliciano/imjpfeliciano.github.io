@@ -1,5 +1,8 @@
 <template>
-  <div class="container mt-8 mx-auto" id="services">
+  <div
+    id="services"
+    class="container mt-8 mx-auto"
+  >
     <h3 class="text-4xl text-bold font-semibold text-center">
       Services
     </h3>
@@ -14,13 +17,11 @@
 </template>
 
 <script>
-import Card from '../ui/card';
 import ServicesItems from './services-items';
 import ServiceItem from './service-item';
 
 export default {
   components: {
-    Card,
     ServiceItem,
   },
   data() {

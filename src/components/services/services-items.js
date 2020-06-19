@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 module.exports = [
   {
     title: 'Responsive Design & Web development',

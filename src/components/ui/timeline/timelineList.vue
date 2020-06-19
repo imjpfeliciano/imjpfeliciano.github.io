@@ -1,8 +1,9 @@
 <template>
   <div class="relative w-100 m-8">
-    <div class=""
+    <div
       v-for="(item, key) in items"
       :key="key"
+      class=""
     >
       <span class="ml-8 text-xl font-semibold text-gray-900">{{ key }}</span>
       <div
@@ -11,13 +12,12 @@
       />
 
       <ul class="list-none m-0 p-0">
-
-      <timeline-list-item
-        v-for="(job, jobIndex) in items[key]"
-        :key="jobIndex"
-        :title="job.title"
-        :description="job.description"
-      />
+        <timeline-list-item
+          v-for="(job, jobIndex) in items[key]"
+          :key="jobIndex"
+          :title="job.title"
+          :description="job.description"
+        />
       </ul>
     </div>
   </div>
