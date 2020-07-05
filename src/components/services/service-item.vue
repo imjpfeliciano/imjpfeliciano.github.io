@@ -1,5 +1,5 @@
 <template>
-  <card class="w-1/4 mx-1 overflow-hidden">
+  <card class="sm:w-1/2 md:w-1/2 lg:w-1/4 sm:flex-auto">
     <div>
       <img
         class="w-full h-64"
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Card from '../ui/card';
+import { Card } from 'UI-Components';
 
 export default {
   components: {

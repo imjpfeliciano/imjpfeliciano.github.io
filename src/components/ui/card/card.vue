@@ -1,6 +1,6 @@
 <template>
-  <div class="container mt-8">
-    <div class="mx-auto max-w-lg h-full lg:max-w-full lg:flex rounded overflow-hidden shadow-lg bg-white">
+  <div class="p-1">
+    <div class="w-auto bg-white rounded p-4 h-full">
       <slot />
     </div>
   </div>
