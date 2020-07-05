@@ -26,8 +26,8 @@ module.exports = {
     },
     resolve: {
       alias: {
-        'UI-Components': path.resolve(__dirname, 'src/components/ui/')
-      }
-    }
+        'UI-Components': path.resolve(__dirname, 'src/components/ui/'),
+      },
+    },
   },
 };
