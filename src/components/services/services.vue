@@ -1,27 +1,30 @@
 <template>
-  <div
-    id="services"
-    class="container mt-8 mx-auto"
-  >
-    <h3 class="text-4xl text-bold font-semibold text-center">
-      Services
-    </h3>
-    <div class="flex">
-      <service-item
-        v-for="(service, index) in ServicesItems"
-        :key="index"
-        :product="service"
-      />
+  <container>
+    <div
+      id="services"
+    >
+      <h3 class="text-4xl text-bold font-semibold text-center">
+        Services
+      </h3>
+      <div class="block sm:flex sm:flex-wrap">
+        <service-item
+          v-for="(service, index) in ServicesItems"
+          :key="index"
+          :product="service"
+        />
+      </div>
     </div>
-  </div>
+  </container>
 </template>
 
 <script>
+import { Container } from 'UI-Components';
 import ServicesItems from './services-items';
 import ServiceItem from './service-item';
 
 export default {
   components: {
+    Container,
     ServiceItem,
   },
   data() {

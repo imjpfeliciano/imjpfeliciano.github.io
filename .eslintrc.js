@@ -19,16 +19,7 @@ module.exports = {
       vue: 'never',
     }],
     quotes: ['error', 'single'],
-  },
-  settings: {
-    'import/resolver': {
-      node: {
-        paths: ['src'],
-        extensions: [
-          '.js',
-          '.vue',
-        ],
-      },
-    },
-  },
+    'import/extensions': 'off',
+    'import/no-unresolved': 'off'
+  }
 };

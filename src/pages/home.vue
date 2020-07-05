@@ -1,10 +1,12 @@
 <template>
-  <div class="page">
+  <div class="w-full">
     <navigation />
+
     <about />
     <experience />
     <services-list />
     <contact-form />
+
     <footer-nav />
   </div>
 </template>

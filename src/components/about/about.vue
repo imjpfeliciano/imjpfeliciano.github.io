@@ -1,7 +1,7 @@
 <template>
   <div
     id="about"
-    class="flex bg-white"
+    class="flex bg-white w-auto"
     style="height: 600px;"
   >
     <div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
@@ -23,7 +23,7 @@
       style="clip-path:polygon(10% 0, 100% 0%, 100% 100%, 0 100%)"
     >
       <div
-        class="bg-no-repeat h-screen object-fill"
+        class="bg-no-repeat bg-right-top h-full object-fill"
         :style="{ 'background-image': `url(${heroImage})` }"
       >
         <div class="h-full bg-black opacity-25" />
