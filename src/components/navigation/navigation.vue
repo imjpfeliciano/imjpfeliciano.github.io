@@ -7,7 +7,7 @@
       <button
         class="flex items-center px-3 py-2 border rounded text-indigo-200
           border-indigo-400 hover:text-white hover:border-white"
-        @click.prevent="showMenu"
+        @click.prevent="handleMenu"
       >
         <svg
           class="fill-current h-3 w-3"
@@ -79,8 +79,8 @@ export default {
     },
   },
   methods: {
-    showMenu() {
-      this.displayMenu = true;
+    handleMenu() {
+      this.displayMenu = !this.displayMenu;
     },
     hideMenu() {
       this.displayMenu = false;
