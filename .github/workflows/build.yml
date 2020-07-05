@@ -1,11 +1,11 @@
-name: CD
+name: Build and Deploy
 
 on:
   push:
     branches: [ dev ]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,6 +33,9 @@ jobs:
 
       - name: Run unit tests
         run: npm run test
+
+      - name: Build
+        run: npm run build
 
       - name: Deploy to GH Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3

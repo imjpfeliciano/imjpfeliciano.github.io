@@ -1,11 +1,11 @@
-name: CI
+name: PR Review
 
 on:
   pull_request:
     branches: [ dev ]
 
 jobs:
-  build:
+  lint-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,19 +31,3 @@ jobs:
 
       - name: Run unit tests
         run: npm run test
-
-      - name: Remove previous files
-        run: rm -rf dist
-
-      - name: Run build
-        run: npm run build
-      
-      - name: Commit build files
-        uses: EndBug/add-and-commit@v4
-        with:
-          author_name: Jonathan Peraza
-          author_email: jperazafeliciano@gmail.com
-          message: "feat: add build"
-          add: "."
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
