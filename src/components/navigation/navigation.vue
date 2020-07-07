@@ -20,27 +20,27 @@
       <div class="text-sm lg:flex-grow">
         <navigation-item
           id="#about"
-          :onClick="handleMenu"
+          :on-click="handleMenu"
           label="About"
         />
 
         <navigation-item
           id="#experience"
-          :onClick="handleMenu"
+          :on-click="handleMenu"
           label="Experience"
         />
 
         <navigation-item
           id="#services"
-          :onClick="handleMenu"
+          :on-click="handleMenu"
           label="Services"
         />
 
         <navigation-item
           id="#contact"
-          :onClick="handleMenu"
+          :on-click="handleMenu"
           label="Contact"
-          isLastItem
+          is-last-item
         />
       </div>
       <div>
@@ -56,9 +56,9 @@
 </template>
 
 <script>
+import { Theme } from 'UI-Components';
 import Resume from '../../assets/docs/EN_resume_cv.pdf';
 import NavigationItem from './navigation-item';
-import { Theme } from 'UI-Components';
 
 export default {
   components: {

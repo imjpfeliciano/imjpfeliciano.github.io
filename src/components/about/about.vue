@@ -33,8 +33,8 @@
 </template>
 
 <script>
-import PageInformation from './hero-info';
 import { Theme } from 'UI-Components';
+import PageInformation from './hero-info';
 
 export default {
   data() {
