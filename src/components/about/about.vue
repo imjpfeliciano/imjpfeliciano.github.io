@@ -12,7 +12,7 @@
         <p
           v-for="(paragraph, index) in PageInformation.description"
           :key="index"
-          :class="`mt-2 text-sm text-${Theme.colors.fontPrimary} md:text-base`"
+          :class="`mt-2 text-lg text-${Theme.colors.fontPrimary}`"
         >
           {{ paragraph }}
         </p>

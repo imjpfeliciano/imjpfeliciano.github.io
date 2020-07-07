@@ -17,7 +17,7 @@
       </button>
     </div>
     <div :class="`w-full flex-grow lg:flex lg:items-center lg:w-auto ${menuStatus}`">
-      <div class="text-sm lg:flex-grow">
+      <div class="text-base lg:flex-grow">
         <navigation-item
           id="#about"
           :on-click="handleMenu"
@@ -25,15 +25,15 @@
         />
 
         <navigation-item
-          id="#experience"
-          :on-click="handleMenu"
-          label="Experience"
-        />
-
-        <navigation-item
           id="#services"
           :on-click="handleMenu"
           label="Services"
+        />
+
+        <navigation-item
+          id="#experience"
+          :on-click="handleMenu"
+          label="Experience"
         />
 
         <navigation-item
@@ -46,7 +46,7 @@
       <div>
         <a
           :href="resumeLink"
-          :class="`inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white
+          :class="`inline-block text-base px-4 py-2 leading-none border rounded text-white border-white
             hover:border-transparent hover:text-${Theme.colors.primaryDark} hover:bg-white mt-4 lg:mt-0`"
           download="jpfeliciano_en"
         >Download Resume</a>

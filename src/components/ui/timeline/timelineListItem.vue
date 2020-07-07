@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <div :class="`ml-12 text-${Theme.colors.fontPrimary}`">
+    <div :class="`ml-12 text-${Theme.colors.fontPrimary} text-base`">
       {{ description }}
     </div>
   </li>
@@ -31,7 +31,7 @@ export default {
     return {
       Theme,
     };
-  }
+  },
 };
 </script>
 
