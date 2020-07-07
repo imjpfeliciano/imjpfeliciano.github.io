@@ -170,7 +170,7 @@ export default {
     return {
       twitter: 'JonathanPerazaF',
       facebook: 'jperazafeliciano',
-      youtube: 'https://www.youtube.com/channel/UC9tV6FFeNPX6M--hJV_fJvQ?view_as=subscriber',
+      youtube: 'https://www.youtube.com/channel/UClzqhP91W1tmNyOZcVVSLdA',
       linkedIn: 'jpfeliciano',
     };
   },
