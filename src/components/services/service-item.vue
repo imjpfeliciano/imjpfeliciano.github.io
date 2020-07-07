@@ -7,7 +7,7 @@
         alt="Sunset in the mountains"
       >
       <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2 text-center">
+        <div :class="`font-bold text-xl mb-2 text-center text-${Theme.colors.fontDarker}`">
           {{ product.title }}
         </div>
 
