@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import SquareButton from '../ui/SquareButton';
 
+// FIXME: Sticky navbar
 const NavbarContainer = styled.div`
     display: flex;
     justify-content: space-between;

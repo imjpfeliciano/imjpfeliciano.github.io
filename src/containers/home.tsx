@@ -4,6 +4,8 @@ import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import Theme from '../utils/theme';
 import {ContactSection, ExperienceSection, PortfolioSection, ServicesSection} from '../components/Sections';
+import AboutSection from '../components/Sections/about';
+import Footer from '../components/Footer';
 
 const Home = () => {
     return (
@@ -12,10 +14,12 @@ const Home = () => {
                 <title>Home</title>
             </Head>
             <Navbar />
+            <AboutSection />
             <ServicesSection />
             <ExperienceSection />
             <PortfolioSection />
             <ContactSection />
+            <Footer />
         </ThemeProvider>
     );
 }

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const AppContainer = styled.div`
   background-color: #edf2f7;
-  height: 100vh;
 `;
 
 function MyApp({ Component, pageProps }: AppProps) {
