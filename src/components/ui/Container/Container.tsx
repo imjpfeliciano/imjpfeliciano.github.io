@@ -2,8 +2,10 @@ import styled from 'styled-components';
 
 const Container = styled.div`
     display: flex;
-    margin: 0 2rem;
     flex-direction: column;
+
+    max-width: 80%;
+    margin: 0 auto;
 `;
 
 export default Container;

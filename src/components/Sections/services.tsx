@@ -6,8 +6,8 @@ import Card from '../ui/Card';
 
 const CardContainer = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    flex-wrap: wrap;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
     justify-content: center;
 `;
 
@@ -31,10 +31,10 @@ const ServiceDescription = styled.p`
 
 // TODO: Fix image size for mobile devices
 const ServiceImage = styled.img`
-    max-height: 150px;
     display: flex;
     margin: 0 auto;
     margin-bottom: 1.25rem;
+    width: -webkit-fill-available;
 `;
 
 const ServicesSection = () => {

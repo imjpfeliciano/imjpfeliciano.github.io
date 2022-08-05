@@ -96,8 +96,6 @@ const TimelineItem = ({
     isOdd,
     color,
 }: TimelineItem) => {
-    const itemColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-
     return (
         <TimelineItemContainer isOdd={isOdd}>
             <ItemContentContainer>
@@ -114,7 +112,7 @@ const TimelineItem = ({
                     <Date>{date}</Date>
                     <Separator bgColor={color} />
                     <Title bgColor={color}>{company} - {title}</Title>
-                    <>{description}</>
+                    <div dangerouslySetInnerHTML={{ __html: description }} />
                 </CompanyCardContent>
                 
             </ItemContentContainer>

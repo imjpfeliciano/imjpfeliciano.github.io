@@ -37,8 +37,8 @@ const Navbar = () => {
                 <Link href="#about">About</Link>
                 <Link href="#services">Services</Link>
                 <Link href="#experience">Experience</Link>
-                <Link href="#portfolio">Portfolio</Link>
-                <Link href="#contact">Contact</Link>
+                {/* <Link href="#portfolio">Portfolio</Link> */}
+                {/* <Link href="#contact">Contact</Link> */}
             </LinkContainer>
             <SquareButton onClick={() => {}}>Download Resume</SquareButton>
         </NavbarContainer>
