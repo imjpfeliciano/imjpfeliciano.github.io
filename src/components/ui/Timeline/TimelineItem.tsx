@@ -5,10 +5,9 @@ interface TimelineItem {
     company: string;
     date: string;
     description: string;
-    companyUrl: string;
+    companyUrl?: string;
     companyLogo: string;
-    location: string;
-    isOdd: boolean;
+    isOdd?: boolean;
     color: string;
 }
 
@@ -92,8 +91,7 @@ const TimelineItem = ({
     description,
     companyUrl,
     companyLogo,
-    location,
-    isOdd,
+    isOdd = false,
     color,
 }: TimelineItem) => {
     return (

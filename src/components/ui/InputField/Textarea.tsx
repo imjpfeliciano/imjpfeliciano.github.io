@@ -14,7 +14,9 @@ const StyledIArea = styled.textarea`
 `;
 
 interface InputFieldProps {
+    placeholder: string;
 }
+
 const InputField = (inputProps: InputFieldProps) => {
     return (
         <StyledIArea {...inputProps} />

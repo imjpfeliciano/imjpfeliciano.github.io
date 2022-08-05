@@ -22,7 +22,6 @@ const experiences = [
         description: '',
         companyUrl: 'https://humanapi.co',
         companyLogo: 'https://avatars.githubusercontent.com/u/4932106?s=200&v=4',
-        location: 'San Francisco, CA',
         color: '#0d6cfb',
     },
     {
