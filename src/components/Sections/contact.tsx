@@ -44,7 +44,7 @@ const RoundedButton = styled.button`
     }
 `;
 
-const USER_EMAIL = 'jperazafeliciano@gmail.com';
+const FORM_ID = 'xgeqwqnl';
 
 // TODO: Add calendly widget to book a call
 const ContactSection = () => {
@@ -57,7 +57,7 @@ const ContactSection = () => {
 
             <Card>
                 <FormContainer
-                    action={`https://formspree.io/f/${USER_EMAIL}`}
+                    action={`https://formspree.io/f/${FORM_ID}`}
                     method="POST"
                 >
                     <FormLabel>To help you choose properly</FormLabel>
