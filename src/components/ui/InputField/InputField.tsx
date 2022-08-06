@@ -17,6 +17,7 @@ interface InputFieldProps {
     type: 'text' | 'email' | 'password';
     name: string;
     placeholder: string;
+    required?: boolean;
 }
 const InputField = (inputProps: InputFieldProps) => {
     return (

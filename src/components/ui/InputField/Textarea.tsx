@@ -8,6 +8,8 @@ const StyledIArea = styled.textarea`
     margin: 0.5rem 0;
     margin-right: 0.5rem;
 
+    font-family: inherit;
+
     &:last-of-type {
         margin-right: 0;
     }
@@ -16,6 +18,7 @@ const StyledIArea = styled.textarea`
 interface TextAreaProps {
     placeholder: string;
     name: string;
+    required?: boolean;
 }
 
 const TextArea = (inputProps: TextAreaProps) => {

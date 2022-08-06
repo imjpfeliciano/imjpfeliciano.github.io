@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Card from '../ui/Card';
 import Container from '../ui/Container/Container';
 import InputField, { Textarea } from '../ui/InputField';
+import Checkbox from '../ui/InputField/Checkbox';
 import SectionDescription from '../ui/SectionDescription';
 
 const FormContainer = styled.form`
@@ -19,12 +20,6 @@ const FormLabel = styled.p`
 const InputContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-`;
-
-const CheckContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    margin-top: 1rem;
 `;
 
 const RoundedButton = styled.button`
@@ -44,6 +39,7 @@ const RoundedButton = styled.button`
     }
 `;
 
+// This form id comes from formspree.io, if you want to generate your own form id, go to formspree.io
 const FORM_ID = 'xgeqwqnl';
 
 // TODO: Add calendly widget to book a call
@@ -66,26 +62,29 @@ const ContactSection = () => {
                             type="text"
                             name="name"
                             placeholder="Name"
+                            required
                         />
                         <InputField
                             type="email"
                             name="email"
                             placeholder="Email"
+                            required
                         />
                     </InputContainer>
 
                     <Textarea
                         name="message"
                         placeholder="Message"
+                        required
                     />
-                    {/* FIXME: Placeholder font family */}
                     
-
                     <b>GDPR Agreement *</b>
-                    <CheckContainer>
-                        <input type="checkbox" name="agreement" />
-                        <label>I consent to having this website store my submitted information so they can respond to my inquiry.</label>
-                    </CheckContainer>
+    
+                    <Checkbox
+                        name="agreement"
+                        label="I consent to having this website store my submitted information so they can respond to my inquiry."
+                        required
+                    />
 
                     <RoundedButton type="submit">Submit</RoundedButton>
                 </FormContainer>
