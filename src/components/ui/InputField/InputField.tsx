@@ -15,6 +15,7 @@ const StyledInput = styled.input`
 
 interface InputFieldProps {
     type: 'text' | 'email' | 'password';
+    name: string;
     placeholder: string;
 }
 const InputField = (inputProps: InputFieldProps) => {

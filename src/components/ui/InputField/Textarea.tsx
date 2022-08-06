@@ -13,14 +13,15 @@ const StyledIArea = styled.textarea`
     }
 `;
 
-interface InputFieldProps {
+interface TextAreaProps {
     placeholder: string;
+    name: string;
 }
 
-const InputField = (inputProps: InputFieldProps) => {
+const TextArea = (inputProps: TextAreaProps) => {
     return (
         <StyledIArea {...inputProps} />
     )
 }
 
-export default InputField;
+export default TextArea;

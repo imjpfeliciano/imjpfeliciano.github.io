@@ -5,7 +5,7 @@ import Container from '../ui/Container/Container';
 import InputField, { Textarea } from '../ui/InputField';
 import SectionDescription from '../ui/SectionDescription';
 
-const FormContainer = styled.div`
+const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
     font-size: 1rem;
@@ -44,6 +44,8 @@ const RoundedButton = styled.button`
     }
 `;
 
+const USER_EMAIL = 'jperazafeliciano@gmail.com';
+
 // TODO: Add calendly widget to book a call
 const ContactSection = () => {
     return (
@@ -54,24 +56,38 @@ const ContactSection = () => {
             />
 
             <Card>
-                <FormContainer>
+                <FormContainer
+                    action={`https://formspree.io/f/${USER_EMAIL}`}
+                    method="POST"
+                >
                     <FormLabel>To help you choose properly</FormLabel>
                     <InputContainer>
-                        <InputField type="text" placeholder="Name" />
-                        <InputField type="text" placeholder="Email" />
+                        <InputField
+                            type="text"
+                            name="name"
+                            placeholder="Name"
+                        />
+                        <InputField
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                        />
                     </InputContainer>
 
-                    <Textarea placeholder="Message" />
+                    <Textarea
+                        name="message"
+                        placeholder="Message"
+                    />
                     {/* FIXME: Placeholder font family */}
                     
 
                     <b>GDPR Agreement *</b>
                     <CheckContainer>
-                        <input type="checkbox" />
+                        <input type="checkbox" name="agreement" />
                         <label>I consent to having this website store my submitted information so they can respond to my inquiry.</label>
                     </CheckContainer>
 
-                    <RoundedButton onClick={() => { }}>Submit</RoundedButton>
+                    <RoundedButton type="submit">Submit</RoundedButton>
                 </FormContainer>
 
             </Card>
