@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-const StyledIArea = styled.textarea`
-`;
-
 const CheckContainer = styled.div`
     display: flex;
     flex-direction: row;

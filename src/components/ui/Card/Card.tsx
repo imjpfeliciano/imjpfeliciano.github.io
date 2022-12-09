@@ -8,6 +8,8 @@ const CardContainer = styled.div`
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 1rem;
+    height: 100%;
+    width: 100%;
 
     &:not(:last-child) {
         margin-right: 1rem;

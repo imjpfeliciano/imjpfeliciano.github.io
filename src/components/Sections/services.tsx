@@ -5,15 +5,32 @@ import SectionDescription from '../ui/SectionDescription';
 import Card from '../ui/Card';
 
 const CardContainer = styled.div`
-    display: grid;
-    grid-auto-columns: minmax(0, 1fr);
-    grid-auto-flow: column;
-    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    overflow: hidden ;
 `;
 
-const ServiceItemCard = styled(Card)`
+const ServiceItemCardContent = styled.div`
+    margin: 0;
+
+    display: flex;
     flex-direction: column;
-    padding: 1rem;
+`;
+
+const ServiceContent = styled.div`
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+
+    @media (min-width: 768px) {
+        width: 48%;
+    }
+
+    @media (min-width: 1366px) {
+        width: 24%;
+    }
 `;
 
 const ServiceTitle = styled.div`
@@ -21,21 +38,47 @@ const ServiceTitle = styled.div`
     font-weight: bold;
     margin-bottom: 1rem;
     text-align: center;
+    height: 33%;
 `;
 
 const ServiceDescription = styled.p`
     color: #718096;
     font-size: 1rem;
     text-align: center;
+    height: 33%;
 `;
 
-// TODO: Fix image size for mobile devices
 const ServiceImage = styled.img`
     display: flex;
     margin: 0 auto;
     margin-bottom: 1.25rem;
     width: -webkit-fill-available;
+
+    height: 33%;
 `;
+
+const services = [
+    {
+        title: 'Responsive Design & Web Development',
+        description: 'I have experience on different projects since mobile optimization, developed plugins for different CMS platforms, React & Vue advanced level. Figma & Zeplin for web design.',
+        image: '/assets/web-mobile.svg',
+    },
+    {
+        title: 'Migrate your source code to version control',
+        description: 'Migrate your codebase to cloud environments using git protocol, allowing your collaborators to easily contribute in the development process.',
+        image: '/assets/version-control.svg',
+    },
+    {
+        title: 'Migrate your infraestructure to cloud environments',
+        description: 'Automation of procceses to validate the quality of the project by setting up unit and functional testing checks and coverage, code standards, automatic builds and automatic deployments to cloud environments.',
+        image: '/assets/launch.svg',
+    },
+    {
+        title: 'Staff Training',
+        description: 'I have imparted different workshops related to new technologies, best practices and product development, which can boost your team by taking them to the next level of collaboration.',
+        image: '/assets/mentoring.svg',
+    },
+];
 
 const ServicesSection = () => {
     return (
@@ -45,37 +88,21 @@ const ServicesSection = () => {
                 description="My Services"
             />
             <CardContainer>
-                <ServiceItemCard>
-                    <ServiceImage src="/assets/web-mobile.svg" alt="web-mobile" />
-                    <ServiceTitle>Responsive Design & Web Development</ServiceTitle>
-                    <ServiceDescription>
-                        I have experience on different projects since mobile optimization, developed plugins for different CMS platforms, React & Vue advanced level. Figma & Zeplin for web design.
-                    </ServiceDescription>
-                </ServiceItemCard>
+                {
+                    services.map((service, index) => (
+                        <ServiceContent key={index}>
+                            <Card>
+                                <ServiceItemCardContent>
+                                    <ServiceImage src={service.image} />
+                                    <ServiceTitle>{service.title}</ServiceTitle>
+                                    <ServiceDescription>{service.description}</ServiceDescription>
+                                </ServiceItemCardContent>
+                            </Card>
 
-                <ServiceItemCard>
-                    <ServiceImage src="/assets/version-control.svg" alt="version-control" />
-                    <ServiceTitle>Migrate your source code to version control</ServiceTitle>
-                    <ServiceDescription>
-                        Migrate your codebase to cloud environments using git protocol, allowing your collaborators to easily contribute in the development process.
-                    </ServiceDescription>
-                </ServiceItemCard>
+                        </ServiceContent>
 
-                <ServiceItemCard>
-                    <ServiceImage src="/assets/launch.svg" alt="launch-to-cloud" />
-                    <ServiceTitle>Migrate your infraestructure to cloud environments</ServiceTitle>
-                    <ServiceDescription>
-                        Automation of procceses to validate the quality of the project by setting up unit and functional testing checks and coverage, code standards, automatic builds and automatic deployments to cloud environments.
-                    </ServiceDescription>
-                </ServiceItemCard>
-
-                <ServiceItemCard>
-                    <ServiceImage src="/assets/mentoring.svg" alt="mentoring" />
-                    <ServiceTitle>Staff Training</ServiceTitle>
-                    <ServiceDescription>
-                        I have imparted different workshops related to new technologies, best practices and product development, which can boost your team by taking them to the next level of collaboration.
-                    </ServiceDescription>
-                </ServiceItemCard>
+                    ))
+                }
             </CardContainer>
         </Container>
     )

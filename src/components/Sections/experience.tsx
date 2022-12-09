@@ -49,7 +49,7 @@ const experiences = [
         color: '#ea0074',
         title: 'Software Developer Intern',
         company: 'PriceTravel Holding',
-        companyLogo: 'https://scontent.fgdl13-1.fna.fbcdn.net/v/t1.6435-9/59642737_10157072782465340_2547879483088568320_n.png?_nc_cat=100&ccb=1-7&_nc_sid=174925&_nc_eui2=AeHSe2pjiapjylnffy44AKR5OAdPMbEj7Sk4B08xsSPtKbFJLmFECbW_rThEot8loWiSdLxHXpbXcugg3JmrjCTX&_nc_ohc=YgpgfcGU3WcAX_bzanc&_nc_ht=scontent.fgdl13-1.fna&oh=00_AT80WZ3wloQmdN7DyluYe9IGxU3qLgUc7MPFrAmEPcqwEA&oe=630E4DBB',
+        companyLogo: 'https://play-lh.googleusercontent.com/IT8prIt5YlwCbK-J9CUcbqmdLLK1DN8nGp0n9qC05YuMt7YvK4L84qQGHp2oPECflq9Y',
         date: '2015',
         description: `
             <p>As a trainee, I helped to develop a web platform which displays product sales into a dashboard by accessing the location of each item sold and placing it in a world map. For this project we used leaflet as our map provides and webRTC for the real time sockets connection</p>
@@ -80,7 +80,7 @@ const ServicesSection = () => {
                     <Timeline items={experiences} />
                 </TimelineContainer>
             </Card>
-            
+
         </Container>
     )
 }

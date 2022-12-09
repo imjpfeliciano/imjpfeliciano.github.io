@@ -41,13 +41,11 @@ const Logo = styled.img`
     width: 100%;
     height: 100%;
     overflow: hidden;
-`
-
-const Separator = styled.div<ItemColor>``;
+`;
 
 const VerticalSeparator = styled.div<ItemColor>`
     width: 48px;
-    height: 180px;
+    height: 200px;
     background-color: ${props => props.bgColor};
     margin-left: 1rem;
     margin-right: 1rem;
@@ -100,7 +98,6 @@ const TimelineItem = ({
                 <CompanyLogoContainer bgColor={color}>
                     <Logo src={companyLogo} alt="company-logo" />
                 </CompanyLogoContainer>
-                <Separator bgColor={color} />
             </ItemContentContainer>
 
             <VerticalSeparator bgColor={color} />
@@ -108,7 +105,6 @@ const TimelineItem = ({
             <ItemContentContainer>
                 <CompanyCardContent>
                     <Date>{date}</Date>
-                    <Separator bgColor={color} />
                     <Title bgColor={color}>{company} - {title}</Title>
                     <div dangerouslySetInnerHTML={{ __html: description }} />
                 </CompanyCardContent>
