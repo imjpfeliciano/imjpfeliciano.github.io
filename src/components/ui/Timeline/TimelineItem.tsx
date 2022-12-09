@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Card from '../Card';
 
 interface TimelineItem {
     title: string;
@@ -15,71 +16,98 @@ interface ItemColor {
     bgColor: string;
 }
 
-const TimelineItemContainer = styled.div<{ isOdd: Boolean }>`
-    display: flex;
-    flex-direction: ${props => props.isOdd ? 'row-reverse' : 'row'};
-    justify-content: center;
-    align-items: center;
-
-    margin-bottom: 1rem;
-    color: ${props => props.theme.colors.gray};
+const Title = styled.span`
+    font-size: 2rem;
+    position: relative;
+    color: ${({ color }) => color};
+    font-weight: bold;
+    
+    /* Timeline dot */
+    &::before {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: white;
+        border: 3px solid #7f9cf5;
+    }
 `;
 
-const CompanyLogoContainer = styled.div<ItemColor>`
-    width: 100px;
-    height: 100px;
-    border: 8px solid ${props => props.bgColor};
-    border-radius: 50%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-`;
-
-const Logo = styled.img`
+const TimelineItemContainer = styled.div`
+    position: relative;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+
+    &:nth-child(odd) {
+        
+        padding: 30px 0 30px 30px;
+
+        &:before {
+            left: 0;
+            top: -5px;
+            bottom: -5px;
+            border-width: 5px 0 5px 5px;
+            border-radius: 50px 0 0 50px;
+        }
+
+        ${Title} {
+            text-align: left;
+
+            &::before {
+                left: -67px;
+            }
+        }
+    }
+
+    &:nth-child(even) {
+        text-align: right;
+        padding: 30px 30px 30px 0;
+
+        &:before {
+            right: 0;
+            top: 0;
+            bottom: 0;
+            border-width: 5px 5px 5px 0;
+            border-radius: 0 50px 50px 0;
+        }
+
+        ${Title}::before {
+            right: -67px;
+        }
+    }
+
+    &:first-of-type::before {
+        border-top: 0;
+        border-top-left-radius: 0;
+    }
+
+    &:last-of-type {
+        &:nth-child(odd)::before {
+            border-bottom-left-radius: 0;
+            border-bottom: 0;
+        }
+
+        &:nth-child(even)::before {
+            border-bottom-right-radius: 0;
+            border-bottom: 0;
+        }
+    }
+    
+    &:before {
+        content: '';
+        position: absolute;
+        width: 50%;
+        border: solid #7f9cf5;
+    }
 `;
 
-const VerticalSeparator = styled.div<ItemColor>`
-    width: 48px;
-    height: 200px;
-    background-color: ${props => props.bgColor};
-    margin-left: 1rem;
-    margin-right: 1rem;
-    border-radius: 25px;
+const Description = styled.div`
+    text-align: left;
+    color: ${({ theme }) => theme.colors.gray};
 `;
 
-const ItemContentContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    width: calc(100% - 28px);
-`;
-
-const Date = styled.h2`
-    color: ${props => props.theme.colors.black};
-    font-family: monospace;
-    font-size: 4rem;
-    margin: 0 auto;
-`;
-const Title = styled.h4<ItemColor>`
-    color: ${props => props.bgColor};
-    text-transform: uppercase;
-`
-
-const CompanyCardContent = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    padding: 2rem;
+const CardContent = styled.div`
+    padding: 1rem;
 `;
 
 const TimelineItem = ({
@@ -89,29 +117,21 @@ const TimelineItem = ({
     description,
     companyUrl,
     companyLogo,
-    isOdd = false,
     color,
 }: TimelineItem) => {
     return (
-        <TimelineItemContainer isOdd={isOdd}>
-            <ItemContentContainer>
-                <CompanyLogoContainer bgColor={color}>
-                    <Logo src={companyLogo} alt="company-logo" />
-                </CompanyLogoContainer>
-            </ItemContentContainer>
-
-            <VerticalSeparator bgColor={color} />
-
-            <ItemContentContainer>
-                <CompanyCardContent>
-                    <Date>{date}</Date>
-                    <Title bgColor={color}>{company} - {title}</Title>
-                    <div dangerouslySetInnerHTML={{ __html: description }} />
-                </CompanyCardContent>
-                
-            </ItemContentContainer>
-
+        <TimelineItemContainer>
+            <Card>
+                <CardContent>
+                    <Title color={color}>{title}</Title>
+                    <h2>{company} - {date}</h2>
+                    <Description dangerouslySetInnerHTML={{
+                        __html: description
+                    }} />
+                </CardContent>
+            </Card>
         </TimelineItemContainer>
+
     )
 }
 

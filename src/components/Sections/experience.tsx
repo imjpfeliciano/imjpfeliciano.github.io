@@ -77,11 +77,11 @@ const ServicesSection = () => {
                 description="My Resume"
             />
 
-            <Card>
-                <TimelineContainer>
-                    <Timeline items={experiences} />
-                </TimelineContainer>
-            </Card>
+
+            <TimelineContainer>
+                <Timeline items={experiences} />
+            </TimelineContainer>
+
 
         </Container>
     )

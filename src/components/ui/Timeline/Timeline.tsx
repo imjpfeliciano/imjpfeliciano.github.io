@@ -6,7 +6,7 @@ interface TimelineProps {
 
 const Timeline = ({ items }: TimelineProps) => {
     return (
-        <div>
+        <>
             {
                 items.map((item, index) => {
                     return (
@@ -14,7 +14,7 @@ const Timeline = ({ items }: TimelineProps) => {
                     )
                 })
             }
-        </div>
+        </>
     )
 };
 
