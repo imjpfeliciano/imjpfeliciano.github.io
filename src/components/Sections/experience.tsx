@@ -5,6 +5,8 @@ import Container from '../ui/Container/Container';
 import SectionDescription from '../ui/SectionDescription';
 import Timeline from '../ui/Timeline';
 
+// import PriceTravelLogo from '../../assets/images/PriceTravelLogo.png';
+
 const TimelineContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -21,13 +23,13 @@ const experiences = [
         date: '2021',
         description: '',
         companyUrl: 'https://humanapi.co',
-        companyLogo: 'https://avatars.githubusercontent.com/u/4932106?s=200&v=4',
+        companyLogo: '/assets/images/experience/human-api.png',
         color: '#0d6cfb',
     },
     {
         color: '#e93d44',
         title: 'Software Engineer III',
-        companyLogo: 'https://avatars.githubusercontent.com/u/6192875?s=200&v=4',
+        companyLogo: '/assets/images/experience/wizeline.png',
         company: 'Wizeline',
         date: '2017',
         description: `
@@ -41,7 +43,7 @@ const experiences = [
         color: '#80388D',
         title: 'Software Developer',
         company: 'SalesUp!',
-        companyLogo: 'https://www.comparasoftware.es/wp-content/uploads/2018/10/LogoSalesUP.png',
+        companyLogo: '/assets/images/experience/salesup.png',
         date: '2016',
         description: 'I helped by improving the framework to serve the frontend pages using technologies such as vanilla javascript and handlebars templates, but also I helped with a migration of the file management system by doing a re-platform for the system always thinking in a cloud environment using AWS services such as SQS, EC2, Lambdas.'
     },
@@ -49,7 +51,7 @@ const experiences = [
         color: '#ea0074',
         title: 'Software Developer Intern',
         company: 'PriceTravel Holding',
-        companyLogo: 'https://play-lh.googleusercontent.com/IT8prIt5YlwCbK-J9CUcbqmdLLK1DN8nGp0n9qC05YuMt7YvK4L84qQGHp2oPECflq9Y',
+        companyLogo: '/assets/images/experience/price-travel.png',
         date: '2015',
         description: `
             <p>As a trainee, I helped to develop a web platform which displays product sales into a dashboard by accessing the location of each item sold and placing it in a world map. For this project we used leaflet as our map provides and webRTC for the real time sockets connection</p>
@@ -60,7 +62,7 @@ const experiences = [
         color: '#0ED3CF',
         title: 'Software Developer Intern',
         company: 'Turicun',
-        companyLogo: 'https://pbs.twimg.com/profile_images/3765046803/293b7ba896e864a4ba57b66805559c50_400x400.jpeg',
+        companyLogo: '/assets/images/experience/turicun.jpeg',
         date: '2012',
         description: 'As an Intern, I helped with some bash scripting to migrate SQL files to get information from those and migrating it to KML files to be consumed in a web application to display public transportation routes into a map of the city.'
     },
