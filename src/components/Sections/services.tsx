@@ -53,8 +53,7 @@ const ServiceImage = styled.img`
     margin: 0 auto;
     margin-bottom: 1.25rem;
     width: -webkit-fill-available;
-
-    height: 33%;
+    height: 250px;
 `;
 
 const services = [
