@@ -1,4 +1,35 @@
-import React from "react"
-import Theme from "../../utils/theme"
+import React, { useEffect } from "react"
 
-export const ThemeContext = React.createContext({ theme: Theme })
+export const themes = {
+    dark: "dark-content",
+    light: "light-content",
+}
+
+export const ThemeContext = React.createContext({
+    activeTheme: themes.light,
+    changeTheme: () => { },
+})
+
+export const CustomThemeProvider = ({ children }) => {
+    const [activeTheme, setTheme] = React.useState(themes.light)
+
+    const changeTheme = () => {
+        console.log('Changing theme...')
+        setTheme(activeTheme === themes.light ? themes.dark : themes.light)
+    }
+
+    return (
+        <ThemeContext.Provider value={{ activeTheme, changeTheme }}>
+            {children}
+        </ThemeContext.Provider>
+    )
+}
+
+export const useTheme = () => {
+    console.log('Using theme...')
+    const context = React.useContext(ThemeContext)
+    if (context === undefined) {
+        throw new Error("useTheme must be used within a ThemeProvider")
+    }
+    return context;
+}

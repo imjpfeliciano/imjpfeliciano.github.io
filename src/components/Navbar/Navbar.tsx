@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import SquareButton from "../ui/SquareButton";
+import { useTheme } from "../../state/context/ThemeContext";
 
 // FIXME: Sticky navbar
 const NavbarContainer = styled.div`
@@ -20,8 +21,8 @@ interface LinkProps {
 }
 
 const Link = styled.a<LinkProps>`
-  color: ${(props) =>
-    props.isBold ? props.theme.colors.white : props.theme.colors.indigo200};
+  color: ${({ isBold, theme }) =>
+    isBold ? theme.font.color.primary : theme.font.color.secondary};
   text-decoration: none;
   font-weight: ${(props) => (props.isBold ? "bold" : "normal")};
   margin-right: 1rem;
@@ -36,6 +37,8 @@ const LinkContainer = styled.div`
 `;
 
 const Navbar = () => {
+  const { changeTheme } = useTheme();
+
   return (
     <NavbarContainer>
       <LinkContainer>
@@ -48,7 +51,8 @@ const Navbar = () => {
         {/* <Link href="#portfolio">Portfolio</Link> */}
         <Link href="#contact">Contact</Link>
       </LinkContainer>
-      <SquareButton onClick={() => {}}>Download Resume</SquareButton>
+      <SquareButton onClick={changeTheme}>Change Theme</SquareButton>
+      <SquareButton onClick={() => { }}>Download Resume</SquareButton>
     </NavbarContainer>
   );
 };

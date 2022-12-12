@@ -1,26 +1,22 @@
-import React from 'react';
-import { ThemeProvider } from 'styled-components';
+
 import Head from 'next/head';
-import Navbar from '../components/Navbar';
-import Theme from '../utils/theme';
-import { ContactSection, ExperienceSection, PortfolioSection, ServicesSection } from '../components/Sections';
-import AboutSection from '../components/Sections/about';
-import Footer from '../components/Footer';
+
+import {
+    CustomThemeProvider
+} from '../state/context/ThemeContext';
+import App from '../../src/App';
+
 
 const Home = () => {
     return (
-        <ThemeProvider theme={Theme}>
-            <Head>
-                <title>imjpfeliciano.dev</title>
-            </Head>
-            <Navbar />
-            <AboutSection />
-            <ServicesSection />
-            <ExperienceSection />
-            {/* <PortfolioSection /> */}
-            <ContactSection />
-            <Footer />
-        </ThemeProvider>
+        <>
+            <CustomThemeProvider>
+                <Head>
+                    <title>imjpfeliciano.dev</title>
+                </Head>
+                <App />
+            </CustomThemeProvider>
+        </>
     );
 }
 
