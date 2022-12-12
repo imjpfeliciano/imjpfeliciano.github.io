@@ -10,7 +10,7 @@ export const ThemeContext = React.createContext({
     changeTheme: () => { },
 })
 
-export const CustomThemeProvider = ({ children }) => {
+export const CustomThemeProvider = ({ children }: { children: any }) => {
     const [activeTheme, setTheme] = React.useState(themes.dark)
 
     const changeTheme = () => {
