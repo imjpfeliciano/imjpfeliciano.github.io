@@ -54,6 +54,12 @@ const ServiceImage = styled.img`
     margin-bottom: 1.25rem;
     width: -webkit-fill-available;
     height: 250px;
+
+    & svg {
+        path {
+            fill: red;
+        }
+    }
 `;
 
 const services = [

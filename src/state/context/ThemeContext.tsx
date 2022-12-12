@@ -6,12 +6,12 @@ export const themes = {
 }
 
 export const ThemeContext = React.createContext({
-    activeTheme: themes.light,
+    activeTheme: themes.dark,
     changeTheme: () => { },
 })
 
 export const CustomThemeProvider = ({ children }) => {
-    const [activeTheme, setTheme] = React.useState(themes.light)
+    const [activeTheme, setTheme] = React.useState(themes.dark)
 
     const changeTheme = () => {
         console.log('Changing theme...')

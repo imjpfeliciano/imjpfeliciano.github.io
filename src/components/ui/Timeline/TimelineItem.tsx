@@ -12,10 +12,6 @@ interface TimelineItem {
     color: string;
 }
 
-interface ItemColor {
-    bgColor: string;
-}
-
 const Title = styled.span`
     font-size: 2rem;
     position: relative;
@@ -29,8 +25,8 @@ const Title = styled.span`
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background-color: white;
-        border: 3px solid #7f9cf5;
+        background-color: ${({ theme }) => theme.colors.primary};
+        border: 3px solid ${({ theme }) => theme.colors.primaryDark};
     }
 `;
 
@@ -97,13 +93,13 @@ const TimelineItemContainer = styled.div`
         content: '';
         position: absolute;
         width: 50%;
-        border: solid #7f9cf5;
+        border: solid ${({ theme }) => theme.colors.primaryDark};
     }
 `;
 
 const Description = styled.div`
     text-align: left;
-    color: ${({ theme }) => theme.font.color.secondary};
+    color: ${({ theme }) => theme.font.color.primary};
 `;
 
 const CardContent = styled.div`
@@ -111,7 +107,7 @@ const CardContent = styled.div`
 `;
 
 const Subtitle = styled.h2`
-    color: ${({ theme }) => theme.font.color.primary};
+    color: ${({ theme }) => theme.font.color.secondary};
 `;
 
 const TimelineItem = ({
@@ -119,8 +115,6 @@ const TimelineItem = ({
     company,
     date,
     description,
-    companyUrl,
-    companyLogo,
     color,
 }: TimelineItem) => {
     return (

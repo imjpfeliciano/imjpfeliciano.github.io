@@ -25,10 +25,11 @@ const LightTheme = {
         black: '#000000',
         cardBg: '#ffffff',
         bgColor: '#f7fafc',
+        buttonText: 'white',
     },
     font: {
         color: {
-            primary: '#fff',
+            primary: '#718096',
             secondary: '#ddd',
         }
     }
@@ -47,11 +48,13 @@ const DarkTheme = {
         black: '#000',
         cardBg: 'rgb(51 65 85);',
         bgColor: 'black',
+        buttonText: 'white',
     },
     font: {
         color: {
-            primary: 'white',
-            secondary: '#718096',
+            primary: '#718096',
+            secondary: '#ddd',
+            title: "white",
         }
     }
 }

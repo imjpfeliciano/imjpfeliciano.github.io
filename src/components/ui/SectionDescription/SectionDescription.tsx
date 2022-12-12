@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const SectionDescriptionContainer = styled.div`
     display: flex;
     flex-direction: column;
-    color: ${props => props.theme.font.color.primary};
+    color: ${props => props.theme.font.color.title};
 `;
 
 const Description = styled.h3`
@@ -20,7 +20,7 @@ const Description = styled.h3`
         height: 3px;
         margin: 0 1rem 0 0;
         transform: translateY(-5px);
-        background: linear-gradient(90deg,#c3dafe,#7f9cf5);
+        background: linear-gradient(90deg,#c3dafe, ${({ theme }) => theme.colors.primaryDark});
     }
 `;
 
