@@ -103,11 +103,15 @@ const TimelineItemContainer = styled.div`
 
 const Description = styled.div`
     text-align: left;
-    color: ${({ theme }) => theme.colors.gray};
+    color: ${({ theme }) => theme.font.color.secondary};
 `;
 
 const CardContent = styled.div`
     padding: 1rem;
+`;
+
+const Subtitle = styled.h2`
+    color: ${({ theme }) => theme.font.color.primary};
 `;
 
 const TimelineItem = ({
@@ -124,7 +128,7 @@ const TimelineItem = ({
             <Card>
                 <CardContent>
                     <Title color={color}>{title}</Title>
-                    <h2>{company} - {date}</h2>
+                    <Subtitle>{company} - {date}</Subtitle>
                     <Description dangerouslySetInnerHTML={{
                         __html: description
                     }} />

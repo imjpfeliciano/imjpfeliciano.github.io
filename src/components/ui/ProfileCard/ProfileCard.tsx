@@ -6,7 +6,7 @@ const ProfileCardContainer = styled.div`
     position: relative;
     margin-top: 8rem;
     text-align: center;
-    color: ${props => props.theme.colors.gray};
+    color: ${props => props.theme.font.color.secondary};
 `;
 
 const Avatar = styled.img`

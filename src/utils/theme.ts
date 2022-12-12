@@ -23,6 +23,8 @@ const LightTheme = {
         gray: '#718096',
         blueGray: '#e4e4e7',
         black: '#000000',
+        cardBg: '#ffffff',
+        bgColor: '#f7fafc',
     },
     font: {
         color: {
@@ -43,11 +45,13 @@ const DarkTheme = {
         gray: '#000',
         blueGray: '#000',
         black: '#000',
+        cardBg: 'rgb(51 65 85);',
+        bgColor: 'black',
     },
     font: {
         color: {
-            primary: '#fff',
-            secondary: '#ddd',
+            primary: 'white',
+            secondary: '#718096',
         }
     }
 }

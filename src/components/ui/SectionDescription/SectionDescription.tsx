@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const SectionDescriptionContainer = styled.div`
     display: flex;
     flex-direction: column;
-    color: ${props => props.theme.colors.black};
+    color: ${props => props.theme.font.color.primary};
 `;
 
 const Description = styled.h3`
