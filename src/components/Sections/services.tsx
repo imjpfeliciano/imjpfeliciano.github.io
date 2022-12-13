@@ -39,6 +39,8 @@ const ServiceTitle = styled.div`
     margin-bottom: 1rem;
     text-align: center;
     height: 33%;
+
+    color: ${({ theme }) => theme.font.color.serviceTitle};
 `;
 
 const ServiceDescription = styled.p`

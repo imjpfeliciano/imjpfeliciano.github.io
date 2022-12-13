@@ -14,7 +14,7 @@ const SquareButtonContainer = styled.button`
     &:hover {
         transform: scale(1.05);
         background-color: ${props => props.theme.colors.white};
-        color: ${props => props.theme.colors.primary};
+        color: ${props => props.theme.colors.primaryDark};
     }
 `;
 

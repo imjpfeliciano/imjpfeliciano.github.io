@@ -31,6 +31,8 @@ const LightTheme = {
         color: {
             primary: '#718096',
             secondary: '#ddd',
+            title: "white",
+            serviceTitle: "black",
         }
     }
 }
@@ -55,6 +57,7 @@ const DarkTheme = {
             primary: '#718096',
             secondary: '#ddd',
             title: "white",
+            serviceTitle: "#6b7280",
         }
     }
 }

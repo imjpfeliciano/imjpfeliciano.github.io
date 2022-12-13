@@ -14,6 +14,7 @@ const NavbarContainer = styled.div`
 
   width: 100%;
   padding-bottom: 1rem;
+  border-bottom: 1px solid ${(props) => props.theme.colors.primaryDark};
 `;
 
 interface LinkProps {
@@ -22,7 +23,7 @@ interface LinkProps {
 
 const Link = styled.a<LinkProps>`
   color: ${({ isBold, theme }) =>
-    isBold ? theme.font.color.primary : theme.font.color.secondary};
+    isBold ? theme.font.color.title : theme.font.color.secondary};
   text-decoration: none;
   font-weight: ${(props) => (props.isBold ? "bold" : "normal")};
   margin-right: 1rem;
