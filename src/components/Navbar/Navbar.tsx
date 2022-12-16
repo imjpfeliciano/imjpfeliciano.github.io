@@ -53,7 +53,7 @@ const Navbar = () => {
         <Link href="#contact">Contact</Link>
       </LinkContainer>
       <SquareButton onClick={changeTheme}>Change Theme</SquareButton>
-      <SquareButton onClick={() => { }}>Download Resume</SquareButton>
+      <SquareButton onClick={() => {}}>Download Resume</SquareButton>
     </NavbarContainer>
   );
 };
