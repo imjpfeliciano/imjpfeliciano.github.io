@@ -37,6 +37,20 @@ const LinkContainer = styled.div`
   justify-content: space-between;
 `;
 
+const SquareLink = styled.a`
+  text-decoration: none;
+  color: ${(props) => props.theme.font.color.secondary};
+  border: 1px solid ${(props) => props.theme.colors.primaryDark};
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.primaryDark};
+    color: ${(props) => props.theme.font.color.secondary};
+  }
+`;
+
 const Navbar = () => {
   const { changeTheme } = useTheme();
 
@@ -53,7 +67,9 @@ const Navbar = () => {
         <Link href="#contact">Contact</Link>
       </LinkContainer>
       <SquareButton onClick={changeTheme}>Change Theme</SquareButton>
-      <SquareButton onClick={() => {}}>Download Resume</SquareButton>
+      <SquareLink href="/assets/docs/resume.pdf" target="_blank">
+        Download Resume
+      </SquareLink>
     </NavbarContainer>
   );
 };
