@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import SquareButton from "../ui/SquareButton";
 import { useTheme } from "../../state/context/ThemeContext";
+import SquareLink from "../ui/SquareLink";
 
 // FIXME: Sticky navbar
 const NavbarContainer = styled.div`
@@ -35,20 +36,6 @@ const LinkContainer = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-`;
-
-const SquareLink = styled.a`
-  text-decoration: none;
-  color: ${(props) => props.theme.font.color.secondary};
-  border: 1px solid ${(props) => props.theme.colors.primaryDark};
-  padding: 0.5rem;
-  border-radius: 5px;
-  font-size: 0.75rem;
-
-  &:hover {
-    background-color: ${(props) => props.theme.colors.primaryDark};
-    color: ${(props) => props.theme.font.color.secondary};
-  }
 `;
 
 const Navbar = () => {
