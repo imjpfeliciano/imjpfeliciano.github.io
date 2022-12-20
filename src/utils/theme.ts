@@ -26,6 +26,7 @@ const LightTheme = {
     cardBg: "#ffffff",
     bgColor: "#f7fafc",
     buttonText: "white",
+    shadow: "#0000001a"
   },
   font: {
     color: {
@@ -52,6 +53,7 @@ const DarkTheme = {
     cardBg: "rgb(51 65 85);",
     bgColor: "black",
     buttonText: "white",
+    shadow: "#0000001a"
   },
   font: {
     color: {

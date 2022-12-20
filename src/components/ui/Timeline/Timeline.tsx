@@ -10,7 +10,7 @@ const Timeline = ({ items }: TimelineProps) => {
             {
                 items.map((item, index) => {
                     return (
-                        <TimelineItem key={index} {...item} isOdd={Boolean(index % 2)} />
+                        <TimelineItem key={index} {...item} />
                     )
                 })
             }

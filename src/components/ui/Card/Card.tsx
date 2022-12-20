@@ -6,7 +6,8 @@ const CardContainer = styled.div`
     margin-bottom: 2rem;
     background-color: ${props => props.theme.colors.cardBg};
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+    box-shadow: 0 0 10px ${({ theme }) => theme.colors.shadow};
     padding: 1rem;
     height: 100%;
     width: 100%;

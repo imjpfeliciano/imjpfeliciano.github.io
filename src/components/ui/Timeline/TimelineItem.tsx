@@ -6,9 +6,6 @@ interface TimelineItem {
     company: string;
     date: string;
     description: string;
-    companyUrl?: string;
-    companyLogo: string;
-    isOdd?: boolean;
     color: string;
 }
 
@@ -25,7 +22,7 @@ const Title = styled.span`
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background-color: ${({ theme }) => theme.colors.primary};
+        background-color: ${({ theme }) => theme.colors.bgColor};
         border: 3px solid ${({ theme }) => theme.colors.primaryDark};
     }
 `;
