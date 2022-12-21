@@ -11,7 +11,7 @@ import {
 } from "./components/Sections";
 
 const AppContent = styled.div`
-  background-color: ${(props) => props.theme.colors.bgColor};
+  background: ${(props) => props.theme.colors.bgColor};
 `;
 
 const App = () => {

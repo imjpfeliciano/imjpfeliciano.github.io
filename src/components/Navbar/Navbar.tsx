@@ -29,6 +29,10 @@ const Link = styled.a<LinkProps>`
   font-weight: ${(props) => (props.isBold ? "bold" : "normal")};
   margin-right: 1rem;
   font-size: 1.25rem;
+
+  &:hover {
+    color: ${(props) => props.theme.font.color.linkHover};
+  }
 `;
 
 const LinkContainer = styled.div`

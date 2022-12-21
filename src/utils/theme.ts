@@ -26,7 +26,7 @@ const LightTheme = {
     cardBg: "#ffffff",
     bgColor: "#f7fafc",
     buttonText: "white",
-    shadow: "#0000001a"
+    shadow: "#0000001a",
   },
   font: {
     color: {
@@ -35,6 +35,7 @@ const LightTheme = {
       title: "white",
       serviceTitle: "black",
       sectionTitle: "black",
+      linkHover: "#5a67d8",
     },
   },
 };
@@ -51,9 +52,10 @@ const DarkTheme = {
     blueGray: "#000",
     black: "#000",
     cardBg: "rgb(51 65 85);",
-    bgColor: "black",
+    bgColor:
+      "linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(17,15,15,1) 40%, rgba(31,41,43,1) 100%);",
     buttonText: "white",
-    shadow: "#0000001a"
+    shadow: "#0000001a",
   },
   font: {
     color: {
@@ -62,6 +64,7 @@ const DarkTheme = {
       title: "white",
       serviceTitle: "#6b7280",
       sectionTitle: "white",
+      linkHover: "greenyellow",
     },
   },
 };

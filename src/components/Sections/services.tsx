@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Container from "../ui/Container";
 import SectionDescription from "../ui/SectionDescription";
-import Card from "../ui/Card";
+import ServiceCard from "../ServiceCard";
 
 const CardContainer = styled.div`
   display: flex;
@@ -10,58 +10,6 @@ const CardContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   overflow: hidden;
-`;
-
-const ServiceItemCardContent = styled.div`
-  margin: 0;
-
-  display: flex;
-  flex-direction: column;
-`;
-
-const ServiceContent = styled.div`
-  width: 100%;
-  height: auto;
-  margin-bottom: 1rem;
-
-  @media (min-width: 768px) {
-    width: 48%;
-  }
-
-  @media (min-width: 1366px) {
-    width: 33%;
-  }
-`;
-
-const ServiceTitle = styled.div`
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  text-align: center;
-  height: 33%;
-
-  color: ${({ theme }) => theme.font.color.serviceTitle};
-`;
-
-const ServiceDescription = styled.p`
-  color: #718096;
-  font-size: 1rem;
-  text-align: center;
-  height: 33%;
-`;
-
-const ServiceImage = styled.img`
-  display: flex;
-  margin: 0 auto;
-  margin-bottom: 1.25rem;
-  width: -webkit-fill-available;
-  height: 250px;
-
-  & svg {
-    path {
-      fill: red;
-    }
-  }
 `;
 
 const services = [
@@ -78,7 +26,7 @@ const services = [
     image: "/assets/images/services/version-control.svg",
   },
   {
-    title: "Migrate your infraestructure to cloud environments",
+    title: "Migrate to cloud environments",
     description:
       "Automation of procceses to validate the quality of the project by setting up unit and functional testing checks and coverage, code standards, automatic builds and automatic deployments to cloud environments.",
     image: "/assets/images/services/launch.svg",
@@ -109,15 +57,7 @@ const ServicesSection = () => {
       <SectionDescription title="What Can I Do" description="My Services" />
       <CardContainer>
         {services.map((service, index) => (
-          <ServiceContent key={index}>
-            <Card>
-              <ServiceItemCardContent>
-                <ServiceImage src={service.image} />
-                <ServiceTitle>{service.title}</ServiceTitle>
-                <ServiceDescription>{service.description}</ServiceDescription>
-              </ServiceItemCardContent>
-            </Card>
-          </ServiceContent>
+          <ServiceCard key={index} {...service} />
         ))}
       </CardContainer>
     </Container>
