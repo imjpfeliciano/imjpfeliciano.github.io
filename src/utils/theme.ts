@@ -27,6 +27,7 @@ const LightTheme = {
     bgColor: "#f7fafc",
     buttonText: "white",
     shadow: "#0000001a",
+    particles: "#7f9cf5",
   },
   font: {
     color: {
@@ -44,7 +45,7 @@ const DarkTheme = {
   name: "dark-content",
   colors: {
     primary: "#000",
-    primaryDark: "greenyellow",
+    primaryDark: "#adff2f",
     white: "#000",
     indigo200: "#000",
     indigo500: "#000",
@@ -56,6 +57,7 @@ const DarkTheme = {
       "linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(17,15,15,1) 40%, rgba(31,41,43,1) 100%);",
     buttonText: "white",
     shadow: "#0000001a",
+    particles: "#ddd",
   },
   font: {
     color: {
@@ -64,7 +66,7 @@ const DarkTheme = {
       title: "white",
       serviceTitle: "#6b7280",
       sectionTitle: "white",
-      linkHover: "greenyellow",
+      linkHover: "#adff2f",
     },
   },
 };

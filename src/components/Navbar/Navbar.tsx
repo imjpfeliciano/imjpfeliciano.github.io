@@ -16,6 +16,7 @@ const NavbarContainer = styled.div`
   width: 100%;
   padding-bottom: 1rem;
   border-bottom: 1px solid ${(props) => props.theme.colors.primaryDark};
+  position: relative;
 `;
 
 interface LinkProps {

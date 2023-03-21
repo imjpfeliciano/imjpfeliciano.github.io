@@ -9,6 +9,7 @@ import {
   ExperienceSection,
   ContactSection,
 } from "./components/Sections";
+import ParticlesBackground from "./components/ui/ParticlesBackground";
 
 const AppContent = styled.div`
   background: ${(props) => props.theme.colors.bgColor};
@@ -20,6 +21,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={currentTheme}>
+      <ParticlesBackground />
       <AppContent>
         <Navbar />
         <AboutSection />
