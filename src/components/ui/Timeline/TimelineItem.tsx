@@ -22,8 +22,9 @@ const Title = styled.span`
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: ${({ theme }) => theme.colors.bgColor};
+    background-color: ${({ theme }) => theme.colors.primaryDark};
     border: 3px solid ${({ theme }) => theme.colors.primaryDark};
+    top: 15px;
   }
 `;
 
