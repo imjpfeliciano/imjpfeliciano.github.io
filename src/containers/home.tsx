@@ -8,6 +8,10 @@ const Home = () => {
     <CustomThemeProvider>
       <Head>
         <title>imjpfeliciano.dev</title>
+        <meta
+          name="description"
+          content="Welcome to Jonathan's personal page!"
+        />
       </Head>
       <App />
     </CustomThemeProvider>

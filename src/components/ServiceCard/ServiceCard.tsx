@@ -58,18 +58,20 @@ interface ServiceCardProps {
   image: string;
   title: string;
   description: string;
+  alt: string;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
   image,
   title,
   description,
+  alt,
 }) => {
   return (
     <ServiceContent>
       <Card>
         <ServiceItemCardContent>
-          <ServiceImage src={image} />
+          <ServiceImage src={image} alt={alt} />
           <ServiceTitle>{title}</ServiceTitle>
 
           <ServiceDescription>{description}</ServiceDescription>

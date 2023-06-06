@@ -48,7 +48,7 @@ const ProfileCard = () => {
     return (
         <Container>
             <ProfileCardContainer>
-                <Avatar src="/assets/pp-wl.jpeg" />
+                <Avatar src="/assets/pp-wl.jpeg" alt="profile-picture"/>
                 <Card>
                     <ProfileContainer>
                         <TitleContainer>
