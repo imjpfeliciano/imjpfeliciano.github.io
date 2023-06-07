@@ -9,10 +9,9 @@ interface TimelineItem {
   color: string;
 }
 
-const Title = styled.span`
+const Title = styled.h2`
   font-size: 2rem;
   position: relative;
-  color: ${({ color }) => color};
   font-weight: bold;
 
   /* Timeline dot */
@@ -112,17 +111,17 @@ const TimelineItem = ({
   company,
   date,
   description,
-  color,
 }: TimelineItem) => {
   return (
     <TimelineItemContainer>
       <Card>
         <CardContent>
-          <Title color={color}>{title}</Title>
-          <Subtitle>
+          <Title className="text-white font-bold text-2xl">{title}</Title>
+          <h3 className="text-slate-400 text-lg font-semibold">
             {company} - {date}
-          </Subtitle>
-          <Description
+          </h3>
+          <div
+            className="text-left text-slate-200 text-base"
             dangerouslySetInnerHTML={{
               __html: description,
             }}

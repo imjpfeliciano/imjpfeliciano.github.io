@@ -20,8 +20,8 @@ interface CheckboxProps {
 const Checkbox = ({ name, label, required}: CheckboxProps) => {
     return (
         <CheckContainer>
-            <input type="checkbox" name={name} required={required} />
-            <label>{label}</label>
+            <input type="checkbox" name={name} required={required} id={name}/>
+            <label htmlFor={name}>{label}</label>
         </CheckContainer>
     )
 }

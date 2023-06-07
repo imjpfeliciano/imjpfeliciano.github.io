@@ -23,7 +23,7 @@ interface TextAreaProps {
 
 const TextArea = (inputProps: TextAreaProps) => {
     return (
-        <StyledIArea {...inputProps} />
+        <StyledIArea {...inputProps} className="placeholder:text-gray-500" />
     )
 }
 

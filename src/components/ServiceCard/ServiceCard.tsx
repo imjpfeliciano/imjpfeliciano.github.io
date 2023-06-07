@@ -37,23 +37,6 @@ const ServiceImage = styled.img`
   }
 `;
 
-const ServiceTitle = styled.div`
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  text-align: center;
-  height: 33%;
-
-  color: ${({ theme }) => theme.font.color.serviceTitle};
-`;
-
-const ServiceDescription = styled.p`
-  color: #718096;
-  font-size: 1rem;
-  text-align: center;
-  height: 33%;
-`;
-
 interface ServiceCardProps {
   image: string;
   title: string;
@@ -70,11 +53,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   return (
     <ServiceContent>
       <Card>
-        <ServiceItemCardContent>
+        <ServiceItemCardContent className="text-center">
           <ServiceImage src={image} alt={alt} />
-          <ServiceTitle>{title}</ServiceTitle>
+          <span className="text-2xl text-gray-100 font-bold">{title}</span>
 
-          <ServiceDescription>{description}</ServiceDescription>
+          <p className="text-gray-200 text-base">{description}</p>
         </ServiceItemCardContent>
       </Card>
     </ServiceContent>
