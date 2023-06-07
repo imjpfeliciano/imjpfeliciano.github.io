@@ -60,7 +60,7 @@ const ProfileCard = () => {
                             <p className="text-base font-normal">Guadalajara, Jalisco, Mexico</p>
                         </TitleContainer>
 
-                        <ProfileDescription className="text-gray-200 text-base">
+                        <ProfileDescription className="text-slate-400 dark:text-slate-400 text-base">
                             <p>
                                 Jonathan has over 6 years of experience as Software Engineer,
                                 he is adept at solving problems in Frontend and has a deep knowledge of Javascript-based technologies.

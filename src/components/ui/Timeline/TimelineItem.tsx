@@ -121,7 +121,7 @@ const TimelineItem = ({
             {company} - {date}
           </h3>
           <div
-            className="text-left text-slate-200 text-base"
+            className="text-left text-slate-400 dark:text-slate-400 text-base"
             dangerouslySetInnerHTML={{
               __html: description,
             }}

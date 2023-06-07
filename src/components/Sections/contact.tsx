@@ -50,7 +50,7 @@ const FORM_ID = "xgeqwqnl";
 // TODO: Add calendly widget to book a call
 const ContactSection = () => {
   return (
-    <Container id="contact" className="text-white">
+    <Container id="contact" className="text-slate-400 dark:text-slate-400">
       <SectionDescription title="Get in Touch" description="contact me" />
 
       <Card>

@@ -57,7 +57,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           <ServiceImage src={image} alt={alt} />
           <span className="text-2xl text-gray-100 font-bold">{title}</span>
 
-          <p className="text-gray-200 text-base">{description}</p>
+          <p className="text-slate-400 dark:text-slate-400 text-base">{description}</p>
         </ServiceItemCardContent>
       </Card>
     </ServiceContent>

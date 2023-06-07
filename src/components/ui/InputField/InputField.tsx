@@ -24,7 +24,7 @@ interface InputFieldProps {
   required?: boolean;
 }
 const InputField = (inputProps: InputFieldProps) => {
-  return <StyledInput {...inputProps} className="placeholder:text-gray-500"/>;
+  return <StyledInput {...inputProps} className="placeholder:text-black font-semibold bg-white text-slate-500"/>;
 };
 
 export default InputField;
