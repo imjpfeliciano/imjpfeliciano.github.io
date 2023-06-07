@@ -10,12 +10,12 @@ const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   font-size: 1rem;
-  color: ${(props) => props.theme.font.color.primary};
+  // color: ${(props) => props.theme.font.color.primary};
 `;
 
 const FormLabel = styled.p`
   font-size: 1rem;
-  color: ${(props) => props.theme.font.color.primary};
+  // color: ${(props) => props.theme.font.color.primary};
 `;
 const InputContainer = styled.div`
   display: grid;
@@ -35,7 +35,7 @@ const RoundedButton = styled.button`
   cursor: pointer;
   border: 0;
   background-color: ${(props) => props.theme.colors.primaryDark};
-  color: ${(props) => props.theme.colors.buttonText};
+  // color: ${(props) => props.theme.colors.buttonText};
   margin-top: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
@@ -50,7 +50,7 @@ const FORM_ID = "xgeqwqnl";
 // TODO: Add calendly widget to book a call
 const ContactSection = () => {
   return (
-    <Container id="contact">
+    <Container id="contact" className="text-slate-400 dark:text-slate-400">
       <SectionDescription title="Get in Touch" description="contact me" />
 
       <Card>
@@ -79,7 +79,7 @@ const ContactSection = () => {
             required
           />
 
-          <RoundedButton type="submit">Submit</RoundedButton>
+          <RoundedButton type="submit" className="text-gray-700 font-bold uppercase">Submit</RoundedButton>
         </FormContainer>
       </Card>
     </Container>

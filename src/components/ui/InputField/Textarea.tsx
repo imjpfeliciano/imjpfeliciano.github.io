@@ -4,7 +4,7 @@ const StyledIArea = styled.textarea`
     border: 1px solid #e2e8f0;
     padding: 0.5rem;
     border-radius: 5px;
-    font-size: 1rem;
+    // font-size: 1rem;
     margin: 0.5rem 0;
     margin-right: 0.5rem;
 
@@ -23,7 +23,7 @@ interface TextAreaProps {
 
 const TextArea = (inputProps: TextAreaProps) => {
     return (
-        <StyledIArea {...inputProps} />
+        <StyledIArea {...inputProps} className="placeholder:text-black font-semibold bg-white text-slate-500" />
     )
 }
 

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const CardContainer = styled.div`
     margin: 0;
     margin-bottom: 2rem;
-    background-color: ${props => props.theme.colors.cardBg};
+    // background-color: ${props => props.theme.colors.cardBg};
     border-radius: 5px;
     
     box-shadow: 0 0 10px ${({ theme }) => theme.colors.shadow};
@@ -23,7 +23,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ children }) => {
     return (
-        <CardContainer>{children}</CardContainer>
+        <CardContainer className='bg-slate-800'>{children}</CardContainer>
     )
 };
 
