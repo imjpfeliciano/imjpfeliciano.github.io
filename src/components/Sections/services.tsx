@@ -2,14 +2,6 @@ import ServiceCard from "../ServiceCard";
 import Container from "../ui/Container";
 import SectionDescription from "../ui/SectionDescription";
 
-// const CardContainer = styled.div`
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: space-between;
-//   width: 100%;
-//   overflow: hidden;
-// `;
-
 interface serviceCardProps {
   title: string
   description: string
