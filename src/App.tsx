@@ -1,3 +1,4 @@
+import React from "react";
 import { useTheme } from "./state/context/ThemeContext";
 import Themes from "./utils/theme";
 import { ThemeProvider } from "styled-components";
@@ -11,25 +12,24 @@ import {
 } from "./components/Sections";
 import ParticlesBackground from "./components/ui/ParticlesBackground";
 
-const AppContent = styled.div`
-  background: ${(props) => props.theme.colors.bgColor};
-`;
 
-const App = () => {
-  const { activeTheme } = useTheme();
-  const currentTheme = Themes[activeTheme];
+interface AppProps {
+  theme: 'light' | 'dark';
+}
+
+const App: React.FC<AppProps> = ({ theme }) => {
 
   return (
-    <ThemeProvider theme={currentTheme}>
+    <div className={theme}>
       <ParticlesBackground />
-      <AppContent>
+      <div className="bg-white dark:bg-black">
         <Navbar />
         <AboutSection />
         <ServicesSection />
         <ExperienceSection />
         <ContactSection />
-      </AppContent>
-    </ThemeProvider>
+      </div>
+    </div>
   );
 };
 

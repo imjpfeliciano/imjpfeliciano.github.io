@@ -1,20 +1,13 @@
-import styled from "styled-components";
+import React from 'react';
 
-const Container = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
+interface ContainerProps {
+  children: React.ReactNode
+}
 
-  max-width: 95%;
-  margin: 0 auto;
-
-  @media (min-width: 768px) {
-    max-width: 80%;
-  }
-  
-  @media (min-width: 1366px) {
-    max-width: 50%;
-  }
-`;
+const Container: React.FC<ContainerProps> = ({ children }) => (
+  <div className="md:max-w-screen-xl flex flex-col justify-center items-center m-auto">
+    {children}
+  </div>
+)
 
 export default Container;

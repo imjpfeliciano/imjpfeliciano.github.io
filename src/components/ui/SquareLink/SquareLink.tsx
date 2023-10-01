@@ -1,19 +1,14 @@
-import styled from 'styled-components';
+import React from 'react';
 
-const SquareLink = styled.a`
-  text-decoration: none;
-  color: ${(props) => props.theme.font.color.secondary};
-  border: 1px solid ${(props) => props.theme.colors.primaryDark};
-  padding: 0.5rem;
-  border-radius: 5px;
-  font-size: 0.75rem;
-  transition: all 0.2s ease-in-out;
+interface SquareLinkProps {
+  href: string;
+  children: React.ReactNode;
+  target?: string;
+}
 
-  &:hover {
-    transform: scale(1.05);
-        background-color: ${props => props.theme.colors.white};
-        color: ${props => props.theme.colors.primaryDark};
-  }
-`;
-
+const SquareLink: React.FC<SquareLinkProps> = ({ href, children, target }) => (
+  <a href={href} target={target} className='border border-blue-200 dark:border-lime-400 dark:text-white hover:text-blue-600 dark:hover:text-lime-400 hover:scale-105 rounded-md shadow-md px-4 py-2 transition-all duration-200 ease-in-out'>
+    {children}
+  </a >
+)
 export default SquareLink;

@@ -1,3 +1,2 @@
 import Home from '../src/containers/home';
-
-export default Home
+export default Home;

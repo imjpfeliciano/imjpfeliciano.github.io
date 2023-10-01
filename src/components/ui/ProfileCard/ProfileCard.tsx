@@ -2,12 +2,11 @@ import styled from "styled-components";
 import Card from "../Card";
 import Container from "../Container";
 
-const ProfileCardContainer = styled.div`
-    position: relative;
-    margin-top: 8rem;
-    text-align: center;
-    color: ${props => props.theme.font.color.primary};
-`;
+const ProfileCardContainer = ({ children }) => (
+    <div className="relative mt-[8rem] text-center">
+        {children}
+    </div>
+)
 
 const Avatar = styled.img`
     width: 150px;
@@ -28,39 +27,23 @@ const ProfileContainer = styled.div`
     margin-right: 2rem;
 `;
 
-
-const TitleContainer = styled.div`
-    // h1 {
-    //     font-size: 2.25rem;
-    //     color: ${props => props.theme.colors.black};
-
-    //     span {
-    //         color: ${props => props.theme.colors.primaryDark};
-    //     }
-    // }
-`;
-
-const ProfileDescription = styled.div`
-    border-top: 1px solid ${props => props.theme.colors.blueGray};
-`;
-
 const ProfileCard = () => {
     return (
         <Container>
             <ProfileCardContainer>
-                <Avatar src="/assets/pp-wl.jpeg" alt="profile-picture"/>
+                <Avatar src="/assets/pp-wl.jpeg" alt="profile-picture" />
                 <Card>
                     <ProfileContainer>
-                        <TitleContainer className="text-white font-bold">
+                        <div className="text-white font-bold">
                             <h1 className="text-3xl">
                                 Jonathan <span className="text-lime-400">Peraza F.</span>
                             </h1>
                             <h2 className="text-xl">Software Engineer</h2>
 
                             <p className="text-base font-normal">Guadalajara, Jalisco, Mexico</p>
-                        </TitleContainer>
+                        </div>
 
-                        <ProfileDescription className="text-slate-400 dark:text-slate-400 text-base">
+                        <div className="text-slate-400 dark:text-slate-400 text-base">
                             <p>
                                 Jonathan has over 6 years of experience as Software Engineer,
                                 he is adept at solving problems in Frontend and has a deep knowledge of Javascript-based technologies.
@@ -75,7 +58,7 @@ const ProfileCard = () => {
                             <p>
                                 In his free time, he enjoys playing soccer and videogames.
                             </p>
-                        </ProfileDescription>
+                        </div>
                     </ProfileContainer>
                 </Card>
             </ProfileCardContainer>

@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect } from "react";
 
 export const themes = {
@@ -7,7 +8,7 @@ export const themes = {
 
 export const ThemeContext = React.createContext({
   activeTheme: themes.dark,
-  changeTheme: () => {},
+  changeTheme: () => { },
 });
 
 export const CustomThemeProvider = ({ children }: { children: any }) => {
@@ -30,5 +31,6 @@ export const useTheme = () => {
   if (context === undefined) {
     throw new Error("useTheme must be used within a ThemeProvider");
   }
+
   return context;
 };

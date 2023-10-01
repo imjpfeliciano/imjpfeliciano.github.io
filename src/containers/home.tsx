@@ -1,20 +1,15 @@
-import Head from "next/head";
+'use client';
 
-import { CustomThemeProvider } from "../state/context/ThemeContext";
 import App from "../../src/App";
+import { themes, useTheme } from "../state/context/ThemeContext";
 
 const Home = () => {
+  const { activeTheme } = useTheme();
+  console.log({ activeTheme })
+
   return (
-    <CustomThemeProvider>
-      <Head>
-        <title>imjpfeliciano.dev</title>
-        <meta
-          name="description"
-          content="Welcome to Jonathan's personal page!"
-        />
-      </Head>
-      <App />
-    </CustomThemeProvider>
+    <App theme={activeTheme === themes.light ? 'light' : 'dark'} />
+
   );
 };
 

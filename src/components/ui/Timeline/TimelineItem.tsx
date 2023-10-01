@@ -9,102 +9,106 @@ interface TimelineItem {
   color: string;
 }
 
-const Title = styled.h2`
-  font-size: 2rem;
-  position: relative;
-  font-weight: bold;
+// const Title = styled.h2`
+//   font-size: 2rem;
+//   position: relative;
+//   font-weight: bold;
 
-  /* Timeline dot */
-  &::before {
-    content: "";
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: ${({ theme }) => theme.colors.primaryDark};
-    border: 3px solid ${({ theme }) => theme.colors.primaryDark};
-    top: 15px;
-  }
-`;
+//   /* Timeline dot */
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     width: 10px;
+//     height: 10px;
+//     border-radius: 50%;
+//     background-color: ${({ theme }) => theme.colors.primaryDark};
+//     border: 3px solid ${({ theme }) => theme.colors.primaryDark};
+//     top: 15px;
+//   }
+// `;
 
-const TimelineItemContainer = styled.div`
-  position: relative;
-  width: 100%;
+const Title = ({ children }) => (
+  <h2 className="text-white font-bold text-2xl">{children}</h2>
+);
 
-  &:nth-child(odd) {
-    padding: 30px 0 30px 30px;
+// const TimelineItemContainer = styled.div`
+//   position: relative;
+//   width: 100%;
 
-    &:before {
-      left: 0;
-      top: -5px;
-      bottom: -5px;
-      border-width: 5px 0 5px 5px;
-      border-radius: 50px 0 0 50px;
-    }
+//   &:nth-child(odd) {
+//     padding: 30px 0 30px 30px;
 
-    ${Title} {
-      text-align: left;
+//     &:before {
+//       left: 0;
+//       top: -5px;
+//       bottom: -5px;
+//       border-width: 5px 0 5px 5px;
+//       border-radius: 50px 0 0 50px;
+//     }
 
-      &::before {
-        left: -67px;
-      }
-    }
-  }
+//     ${Title} {
+//       text-align: left;
 
-  &:nth-child(even) {
-    text-align: right;
-    padding: 30px 30px 30px 0;
+//       &::before {
+//         left: -67px;
+//       }
+//     }
+//   }
 
-    &:before {
-      right: 0;
-      top: 0;
-      bottom: 0;
-      border-width: 5px 5px 5px 0;
-      border-radius: 0 50px 50px 0;
-    }
+//   &:nth-child(even) {
+//     text-align: right;
+//     padding: 30px 30px 30px 0;
 
-    ${Title}::before {
-      right: -67px;
-    }
-  }
+//     &:before {
+//       right: 0;
+//       top: 0;
+//       bottom: 0;
+//       border-width: 5px 5px 5px 0;
+//       border-radius: 0 50px 50px 0;
+//     }
 
-  &:first-of-type::before {
-    border-top: 0;
-    border-top-left-radius: 0;
-  }
+//     ${Title}::before {
+//       right: -67px;
+//     }
+//   }
 
-  &:last-of-type {
-    &:nth-child(odd)::before {
-      border-bottom-left-radius: 0;
-      border-bottom: 0;
-    }
+//   &:first-of-type::before {
+//     border-top: 0;
+//     border-top-left-radius: 0;
+//   }
 
-    &:nth-child(even)::before {
-      border-bottom-right-radius: 0;
-      border-bottom: 0;
-    }
-  }
+//   &:last-of-type {
+//     &:nth-child(odd)::before {
+//       border-bottom-left-radius: 0;
+//       border-bottom: 0;
+//     }
 
-  &:before {
-    content: "";
-    position: absolute;
-    width: 50%;
-    border: solid ${({ theme }) => theme.colors.primaryDark};
-  }
-`;
+//     &:nth-child(even)::before {
+//       border-bottom-right-radius: 0;
+//       border-bottom: 0;
+//     }
+//   }
 
-const Description = styled.div`
-  text-align: left;
-  color: ${({ theme }) => theme.font.color.primary};
-`;
+//   &:before {
+//     content: "";
+//     position: absolute;
+//     width: 50%;
+//     border: solid ${({ theme }) => theme.colors.primaryDark};
+//   }
+// `;
 
-const CardContent = styled.div`
-  padding: 1rem;
-`;
+// const Description = styled.div`
+//   text-align: left;
+//   color: ${({ theme }) => theme.font.color.primary};
+// `;
 
-const Subtitle = styled.h2`
-  color: ${({ theme }) => theme.font.color.secondary};
-`;
+// const CardContent = styled.div`
+//   padding: 1rem;
+// `;
+
+// const Subtitle = styled.h2`
+//   color: ${({ theme }) => theme.font.color.secondary};
+// `;
 
 const TimelineItem = ({
   title,
@@ -113,10 +117,10 @@ const TimelineItem = ({
   description,
 }: TimelineItem) => {
   return (
-    <TimelineItemContainer>
+    <div>
       <Card>
-        <CardContent>
-          <Title className="text-white font-bold text-2xl">{title}</Title>
+        <div>
+          <Title>{title}</Title>
           <h3 className="text-slate-400 text-lg font-semibold">
             {company} - {date}
           </h3>
@@ -126,9 +130,9 @@ const TimelineItem = ({
               __html: description,
             }}
           />
-        </CardContent>
+        </div>
       </Card>
-    </TimelineItemContainer>
+    </div>
   );
 };
 
