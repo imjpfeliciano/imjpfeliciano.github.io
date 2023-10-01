@@ -1,20 +1,6 @@
 import React from "react";
 import Card from "../ui/Card";
-import styled from "styled-components";
 
-const ServiceImage = styled.img`
-  display: flex;
-  margin: 0 auto;
-  margin-bottom: 1.25rem;
-  width: -webkit-fill-available;
-  height: 250px;
-
-  & svg {
-    path {
-      fill: red;
-    }
-  }
-`;
 
 interface ServiceCardProps {
   image: string;
@@ -32,8 +18,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   return (
     <div className="w-full">
       <Card>
-        <div className="text-center flex flex-col gap-2">
-          <ServiceImage src={image} alt={alt} />
+        <div className="text-center flex flex-col gap-2 p-2">
+          {/* eslint-disable-next-line */}
+          <img src={image} alt={alt} className="flex m-auto mb-5 w-cover h-[250px]" />
           <h4 className="text-2xl text-black dark:text-white font-bold">{title}</h4>
 
           <p className="text-slate-400 dark:text-slate-400 text-base">{description}</p>

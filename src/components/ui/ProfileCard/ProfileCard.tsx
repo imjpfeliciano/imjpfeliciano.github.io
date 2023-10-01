@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import Card from "../Card";
 import Container from "../Container";
 
@@ -7,25 +6,6 @@ const ProfileCardContainer = ({ children }: { children: React.ReactNode }) => (
         {children}
     </div>
 )
-
-const Avatar = styled.img`
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    top: -75px;;
-    left: calc(50% - 75px);
-    border-radius: 50%;
-`;
-
-const ProfileContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 4rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-`;
 
 const ProfileCard = () => {
     return (
@@ -39,7 +19,7 @@ const ProfileCard = () => {
                         className="w-[150px] h-[150px] absolute top-[-75px] left-[calc(50%-75px)] rounded-full z-10 group-hover:scale-105 transition-all duration-200 ease-in-out"
                     />
                     <Card>
-                        <ProfileContainer>
+                        <div className="flex flex-col items-center justify-center mt-[4rem]">
                             <div className="text-black dark:text-white font-bold">
                                 <h1 className="text-3xl">
                                     Jonathan <span className="text-blue-700 dark:text-lime-400">Peraza F.</span>
@@ -65,7 +45,7 @@ const ProfileCard = () => {
                                     In his free time, he enjoys playing soccer and videogames.
                                 </p>
                             </div>
-                        </ProfileContainer>
+                        </div>
                     </Card>
                 </ProfileCardContainer>
             </div>
