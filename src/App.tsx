@@ -1,14 +1,9 @@
 import React from "react";
-import { useTheme } from "./state/context/ThemeContext";
-import Themes from "./utils/theme";
-import { ThemeProvider } from "styled-components";
 import Navbar from "./components/Navbar";
-import styled from "styled-components";
 import {
   AboutSection,
-  ServicesSection,
   ExperienceSection,
-  ContactSection,
+  ServicesSection
 } from "./components/Sections";
 import ParticlesBackground from "./components/ui/ParticlesBackground";
 
@@ -24,10 +19,12 @@ const App: React.FC<AppProps> = ({ theme }) => {
       <ParticlesBackground />
       <div className="bg-white dark:bg-black">
         <Navbar />
-        <AboutSection />
-        <ServicesSection />
-        <ExperienceSection />
-        <ContactSection />
+        <main className="flex flex-col gap-8 pb-[8rem]">
+          <AboutSection />
+          <ServicesSection />
+          <ExperienceSection />
+          {/* <ContactSection /> */}
+        </main>
       </div>
     </div>
   );

@@ -1,5 +1,3 @@
-import React from "react";
-import styled from "styled-components";
 import Card from "../ui/Card";
 import Container from "../ui/Container/Container";
 import InputField, { Textarea } from "../ui/InputField";
@@ -50,39 +48,51 @@ const FORM_ID = "xgeqwqnl";
 // TODO: Add calendly widget to book a call
 const ContactSection = () => {
   return (
-    <Container id="contact" className="text-slate-400 dark:text-slate-400">
+    <Container id="contact">
       <SectionDescription title="Get in Touch" description="contact me" />
 
-      <Card>
-        <form
-          action={`https://formspree.io/f/${FORM_ID}`}
-          method="POST"
-        >
-          <label>To help you choose properly</label>
-          <div>
-            <InputField type="text" name="name" placeholder="Name" required />
-            <InputField
-              type="email"
-              name="email"
-              placeholder="Email"
-              required
-            />
-          </div>
 
-          <Textarea name="message" placeholder="Message" required />
+      <div className="flex flex-col gap-2 mt-[2rem]">
+        <div>
+          <form
+            action={`https://formspree.io/f/${FORM_ID}`}
+            method="POST"
+            className="flex flex-col w-full"
+          >
+            <Card>
+              <div className="flex flex-col">
+                <label className="text-slate-400 dark:text-slate-400">To help you choose properly</label>
+                <div>
+                  <InputField type="text" name="name" placeholder="Name" required />
+                  <InputField
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                  />
+                </div>
 
-          <b>GDPR Agreement *</b>
+                <Textarea name="message" placeholder="Message" required />
 
-          <Checkbox
-            name="agreement"
-            label="I consent to having this website store my submitted information so they can respond to my inquiry."
-            required
-          />
+                <b>GDPR Agreement *</b>
 
-          <button type="submit" className="text-gray-700 font-bold uppercase">Submit</button>
-        </form>
-      </Card>
-    </Container>
+                <Checkbox
+                  name="agreement"
+                  label="I consent to having this website store my submitted information so they can respond to my inquiry."
+                  required
+                />
+
+                <button type="submit" className="text-gray-700 dark:text-white font-bold uppercase rounded-full bg-blue-200 dark:bg-lime-400 py-2">Submit</button>
+              </div>
+            </Card>
+
+
+          </form>
+        </div>
+
+      </div>
+
+    </Container >
   );
 };
 

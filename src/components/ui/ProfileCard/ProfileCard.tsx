@@ -34,7 +34,7 @@ const ProfileCard = () => {
                 <Avatar src="/assets/pp-wl.jpeg" alt="profile-picture" />
                 <Card>
                     <ProfileContainer>
-                        <div className="text-white font-bold">
+                        <div className="text-black dark:text-white font-bold">
                             <h1 className="text-3xl">
                                 Jonathan <span className="text-lime-400">Peraza F.</span>
                             </h1>

@@ -29,7 +29,7 @@ const Title = styled.h2`
 `;
 
 const TitleDecorator = () => (
-  <span className="w-[2rem] h-[5px] bg-white" />
+  <span className="w-[2rem] h-[5px] bg-black dark:bg-white" />
 );
 
 interface SectionDescriptionProps {
@@ -42,9 +42,9 @@ const SectionDescription: React.FC<SectionDescriptionProps> = ({
   description,
 }) => {
   return (
-    <div className="flex flex-col text-black dark:text-white">
-      <h3 className="text-xl uppercase flex flex-row items-center gap-2"><TitleDecorator /> {description}</h3>
-      <Title>{title}</Title>
+    <div className="flex flex-col text-black dark:text-white md-[2rem]">
+      <h3 className="text-xl uppercase flex flex-row items-center gap-2 font-bold"><TitleDecorator /> {description}</h3>
+      <h2 className="capitalize text-2xl font-bold">{title}</h2>
     </div>
   );
 };

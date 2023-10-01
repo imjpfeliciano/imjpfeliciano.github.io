@@ -4,13 +4,13 @@ import Container from "../ui/Container";
 import SectionDescription from "../ui/SectionDescription";
 import ServiceCard from "../ServiceCard";
 
-const CardContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-  overflow: hidden;
-`;
+// const CardContainer = styled.div`
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: space-between;
+//   width: 100%;
+//   overflow: hidden;
+// `;
 
 interface serviceCardProps {
   title: string
@@ -68,11 +68,11 @@ const ServicesSection = () => {
   return (
     <Container id="services">
       <SectionDescription title="What Can I Do" description="My Services" />
-      <CardContainer>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
         {services.map((service, index) => (
           <ServiceCard key={index} {...service} />
         ))}
-      </CardContainer>
+      </div>
     </Container>
   );
 };

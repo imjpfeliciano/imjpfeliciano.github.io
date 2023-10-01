@@ -2,34 +2,17 @@ import styled from "styled-components";
 import { useTheme } from "../../state/context/ThemeContext";
 import SquareButton from "../ui/SquareButton";
 import SquareLink from "../ui/SquareLink";
+import clsx from "clsx";
 
 interface LinkProps {
   isBold?: boolean;
 }
 
-// const Link = styled.a<LinkProps>`
-//   color: ${({ isBold, theme }) =>
-//     isBold ? theme.font.color.title : theme.font.color.secondary};
-//   text-decoration: none;
-//   font-weight: ${(props) => (props.isBold ? "bold" : "normal")};
-//   margin-right: 1rem;
-//   font-size: 1.25rem;
-
-//   &:hover {
-//     color: ${(props) => props.theme.font.color.linkHover};
-//   }
-// `;
-
-// const LinkContainer = styled.div`
-//   display: flex;
-//   flex-wrap: wrap;
-//   align-items: center;
-//   justify-content: space-between;
-// `;
-
 const Link = ({ href, children, isBold }: { href: string; children: React.ReactNode; isBold?: boolean; }) => {
   return (
-    <a href={href} className="text-lg font-medium text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300" style={{ marginRight: '1rem' }}>
+    <a href={href} className={clsx("text-lg font-medium text-gray-900 dark:text-gray-100 hover:text-blue-700 dark:hover:text-gray-300 mr-[1rem] hover:border-b-2 border-blue-700 dark:border-lime-400", {
+      "font-bold": isBold,
+    })}>
       {children}
     </a>
   )
@@ -42,7 +25,7 @@ const Navbar = () => {
 
     <div className="md:max-w-screen-xl flex flex-row justify-between m-auto py-2">
       <div className="flex flex-wrap itemx-center justify-between">
-        <Link href="/" isBold>
+        <Link href="#" isBold>
           Jonathan Peraza F
         </Link>
         <Link href="#about">About</Link>

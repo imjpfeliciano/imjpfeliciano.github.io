@@ -2,27 +2,6 @@ import React from "react";
 import Card from "../ui/Card";
 import styled from "styled-components";
 
-const ServiceContent = styled.div`
-  width: 100%;
-  height: auto;
-  margin-bottom: 1rem;
-
-  @media (min-width: 768px) {
-    width: 48%;
-  }
-
-  @media (min-width: 1366px) {
-    width: 33%;
-  }
-`;
-
-const ServiceItemCardContent = styled.div`
-  margin: 0;
-
-  display: flex;
-  flex-direction: column;
-`;
-
 const ServiceImage = styled.img`
   display: flex;
   margin: 0 auto;
@@ -51,16 +30,16 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   alt,
 }) => {
   return (
-    <ServiceContent>
+    <div className="w-full">
       <Card>
-        <ServiceItemCardContent className="text-center">
+        <div className="text-center flex flex-col gap-2">
           <ServiceImage src={image} alt={alt} />
-          <span className="text-2xl text-gray-100 font-bold">{title}</span>
+          <h4 className="text-2xl text-black dark:text-white font-bold">{title}</h4>
 
           <p className="text-slate-400 dark:text-slate-400 text-base">{description}</p>
-        </ServiceItemCardContent>
+        </div>
       </Card>
-    </ServiceContent>
+    </div>
   );
 };
 

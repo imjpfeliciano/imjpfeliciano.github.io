@@ -1,27 +1,23 @@
-import React from 'react';
-import styled from 'styled-components';
-import Card from '../ui/Card';
-import Container from '../ui/Container/Container';
-import SectionDescription from '../ui/SectionDescription';
-import Timeline from '../ui/Timeline';
-
-// import PriceTravelLogo from '../../assets/images/PriceTravelLogo.png';
+import styled from 'styled-components'
+import Container from '../ui/Container/Container'
+import SectionDescription from '../ui/SectionDescription'
+import Timeline from '../ui/Timeline'
 
 const TimelineContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-`;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+`
 
 const experiences = [
     {
         title: 'Senior Software Engineer',
         company: 'Human API',
         date: '2021',
-        description: '',
+        description: 'Full stack developer, working with React, Nodejs, MongoDB, AWS.',
         companyUrl: 'https://humanapi.co',
         companyLogo: '/assets/images/experience/human-api.png',
         color: '#0d6cfb',
@@ -37,7 +33,7 @@ const experiences = [
             <p>Developed with Vuejs & Apollo Client, a Social Network for a private university in Mexico, which impacts thousands of students.</p>
             <p>Developed with PHP and vanilla javascript a plugin to customize a CMS to post company offices locations and contacts to call in case of emergencies.</p>
             <p>Developed with React, I helped to develop an internal tool which impacts the company in a positive way giving the collaborators to ask questions to e-staff members directly.</p>
-        `
+        `,
     },
     {
         color: '#80388D',
@@ -45,7 +41,8 @@ const experiences = [
         company: 'SalesUp!',
         companyLogo: '/assets/images/experience/salesup.png',
         date: '2016',
-        description: 'I helped by improving the framework to serve the frontend pages using technologies such as vanilla javascript and handlebars templates, but also I helped with a migration of the file management system by doing a re-platform for the system always thinking in a cloud environment using AWS services such as SQS, EC2, Lambdas.'
+        description:
+            'I helped by improving the framework to serve the frontend pages using technologies such as vanilla javascript and handlebars templates, but also I helped with a migration of the file management system by doing a re-platform for the system always thinking in a cloud environment using AWS services such as SQS, EC2, Lambdas.',
     },
     {
         color: '#ea0074',
@@ -56,7 +53,7 @@ const experiences = [
         description: `
             <p>As a trainee, I helped to develop a web platform which displays product sales into a dashboard by accessing the location of each item sold and placing it in a world map. For this project we used leaflet as our map provides and webRTC for the real time sockets connection</p>
             <p>Also as a trainee, I helped in the replatform of a web-mobile application by separating concerns into server-side and client-side improving the load time from almost 10s to 200ms.</p>
-        `
+        `,
     },
     {
         color: '#0ED3CF',
@@ -64,10 +61,10 @@ const experiences = [
         company: 'Turicun',
         companyLogo: '/assets/images/experience/turicun.jpeg',
         date: '2012',
-        description: 'As an Intern, I helped with some bash scripting to migrate SQL files to get information from those and migrating it to KML files to be consumed in a web application to display public transportation routes into a map of the city.'
+        description:
+            'As an Intern, I helped with some bash scripting to migrate SQL files to get information from those and migrating it to KML files to be consumed in a web application to display public transportation routes into a map of the city.',
     },
-];
-
+]
 
 const ServicesSection = () => {
     return (
@@ -77,14 +74,11 @@ const ServicesSection = () => {
                 description="My Resume"
             />
 
-
-            <TimelineContainer>
+            <div className='flex flex-col mt-[2rem] gap-4'>
                 <Timeline items={experiences} />
-            </TimelineContainer>
-
-
+            </div>
         </Container>
     )
 }
 
-export default ServicesSection;
+export default ServicesSection

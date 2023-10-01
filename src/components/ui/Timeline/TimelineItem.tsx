@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import Card from "../Card";
 
 interface TimelineItem {
@@ -28,7 +27,7 @@ interface TimelineItem {
 // `;
 
 const Title = ({ children }) => (
-  <h2 className="text-white font-bold text-2xl">{children}</h2>
+  <h2 className="text-black dark:text-white font-bold text-2xl">{children}</h2>
 );
 
 // const TimelineItemContainer = styled.div`
