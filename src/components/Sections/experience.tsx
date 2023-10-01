@@ -1,16 +1,6 @@
-import styled from 'styled-components'
 import Container from '../ui/Container/Container'
 import SectionDescription from '../ui/SectionDescription'
 import Timeline from '../ui/Timeline'
-
-const TimelineContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 2rem;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-`
 
 const experiences = [
     {

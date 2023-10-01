@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Card from "../Card";
 import Container from "../Container";
 
-const ProfileCardContainer = ({ children }) => (
+const ProfileCardContainer = ({ children }: { children: React.ReactNode }) => (
     <div className="relative mt-[8rem] text-center">
         {children}
     </div>

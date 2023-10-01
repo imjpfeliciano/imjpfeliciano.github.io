@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from "react";
+import React from "react";
 
 export const themes = {
   dark: "dark-content",
@@ -11,7 +11,7 @@ export const ThemeContext = React.createContext({
   changeTheme: () => { },
 });
 
-export const CustomThemeProvider = ({ children }: { children: any }) => {
+export const CustomThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [activeTheme, setTheme] = React.useState(themes.dark);
 
   const changeTheme = () => {

@@ -26,7 +26,7 @@ interface TimelineItem {
 //   }
 // `;
 
-const Title = ({ children }) => (
+const Title = ({ children }: { children: React.ReactNode }) => (
   <h2 className="text-black dark:text-white font-bold text-2xl">{children}</h2>
 );
 

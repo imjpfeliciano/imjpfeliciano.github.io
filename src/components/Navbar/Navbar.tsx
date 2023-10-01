@@ -1,12 +1,7 @@
-import styled from "styled-components";
+import clsx from "clsx";
 import { useTheme } from "../../state/context/ThemeContext";
 import SquareButton from "../ui/SquareButton";
 import SquareLink from "../ui/SquareLink";
-import clsx from "clsx";
-
-interface LinkProps {
-  isBold?: boolean;
-}
 
 const Link = ({ href, children, isBold }: { href: string; children: React.ReactNode; isBold?: boolean; }) => {
   return (

@@ -5,9 +5,9 @@ interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Container: React.FC<ContainerProps> = ({ children, ...rest }) => (
-  <div className="md:max-w-screen-xl flex flex-col justify-center items-center m-auto" {...rest}>
+  <section className="md:max-w-screen-xl flex flex-col justify-center items-center m-auto" {...rest}>
     {children}
-  </div>
+  </section>
 )
 
 export default Container;
