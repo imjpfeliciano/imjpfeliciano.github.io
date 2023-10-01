@@ -1,8 +1,6 @@
-import React from "react";
-import styled from "styled-components";
+import ServiceCard from "../ServiceCard";
 import Container from "../ui/Container";
 import SectionDescription from "../ui/SectionDescription";
-import ServiceCard from "../ServiceCard";
 
 // const CardContainer = styled.div`
 //   display: flex;
@@ -68,7 +66,7 @@ const ServicesSection = () => {
   return (
     <Container id="services">
       <SectionDescription title="What Can I Do" description="My Services" />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {services.map((service, index) => (
           <ServiceCard key={index} {...service} />
         ))}

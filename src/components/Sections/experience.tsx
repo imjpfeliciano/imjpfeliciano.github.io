@@ -64,7 +64,7 @@ const ServicesSection = () => {
                 description="My Resume"
             />
 
-            <div className='flex flex-col mt-[2rem] gap-4'>
+            <div className='flex flex-col gap-4'>
                 <Timeline items={experiences} />
             </div>
         </Container>

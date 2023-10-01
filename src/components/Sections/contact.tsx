@@ -48,7 +48,7 @@ const ContactSection = () => {
     <Container id="contact">
       <SectionDescription title="Get in Touch" description="contact me" />
 
-      <div className="flex flex-col mt-[2rem] gap-4">
+      <div className="flex flex-col gap-4">
         <div className="flex flex-row">
           <div className="text-2xl text-black dark:text-white font-bold uppercase">
             Text
