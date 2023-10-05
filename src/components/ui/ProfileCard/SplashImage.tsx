@@ -10,7 +10,7 @@ const SplashImage: React.FC<SplashImageProps> = ({
     src, alt
 }) => {
     return (
-        <div className="splash-image m-[-60px]">
+        <div className="splash-image md:m-[-60px]">
             {/* eslint-disable-next-line */}
             <img
                 src={src}

@@ -3,7 +3,7 @@ import Container from "../Container";
 import SplashImage from "./SplashImage";
 
 const ProfileCardContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="flex flex-row gap-8 items-center justify-center text-center">
+    <div className="flex flex-col md:flex-row md:gap-8 items-center justify-center text-center">
         {children}
     </div>
 )
