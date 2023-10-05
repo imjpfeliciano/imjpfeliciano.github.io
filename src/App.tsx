@@ -19,7 +19,7 @@ const App: React.FC<AppProps> = ({ theme }) => {
       {/* <ParticlesBackground /> */}
       <div className="bg-white dark:bg-black">
         <Navbar />
-        <main className="flex flex-col gap-8 pb-[8rem]">
+        <main className="flex flex-col gap-8 mt-10 pb-[8rem]">
           <AboutSection />
           <ServicesSection />
           <ExperienceSection />
