@@ -24,7 +24,7 @@ const Navbar = () => {
         <Link href="#" isBold>
           Jonathan Peraza F
         </Link>
-        <Link href="#about">About</Link>
+        <Link href="#about">Biography</Link>
         <Link href="#services">Services</Link>
         <Link href="#experience">Experience</Link>
         {/* <Link href="#portfolio">Portfolio</Link> */}

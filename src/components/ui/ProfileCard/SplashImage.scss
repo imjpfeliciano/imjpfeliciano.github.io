@@ -1,0 +1,10 @@
+.splash-image {
+  -webkit-mask-image: url(../../../../styles/circle-brush.png);
+  mask-image: url(../../../../styles/circle-brush.png);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+
+  width: -webkit-fill-available;
+}
