@@ -10,7 +10,7 @@ const Footer = () => {
                     href='https://github.com/imjpfeliciano'
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='text-blue-700 dark:text-lime-400'
+                    className='text-blue-500 dark:text-lime-400'
                 >
                     Jonathan Peraza F
                 </a>

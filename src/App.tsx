@@ -6,7 +6,6 @@ import {
   ExperienceSection,
   ServicesSection
 } from "./components/Sections";
-import ParticlesBackground from "./components/ui/ParticlesBackground";
 
 
 interface AppProps {
@@ -17,7 +16,7 @@ const App: React.FC<AppProps> = ({ theme }) => {
 
   return (
     <div className={theme}>
-      <ParticlesBackground />
+      {/* <ParticlesBackground /> */}
       <div className="bg-white dark:bg-black">
         <Navbar />
         <main className="flex flex-col gap-8 pb-[8rem]">

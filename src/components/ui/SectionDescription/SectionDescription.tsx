@@ -14,9 +14,9 @@ const SectionDescription: React.FC<SectionDescriptionProps> = ({
   description,
 }) => {
   return (
-    <div className="flex flex-col text-black dark:text-white mb-[2rem]">
+    <div className="flex flex-col text-black dark:text-white mb-[2rem] justify-center items-center">
       <h3 className="text-xl uppercase flex flex-row items-center gap-2 font-bold"><TitleDecorator /> {description}</h3>
-      <h2 className="capitalize text-2xl font-bold">{title}</h2>
+      <h2 className="capitalize text-2xl font-bold text-blue-700 dark:text-lime-400">{title}</h2>
     </div>
   );
 };

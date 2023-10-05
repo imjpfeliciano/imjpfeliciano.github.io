@@ -8,33 +8,29 @@ interface TimelineItem {
   color: string;
 }
 
-const Title = ({ children }: { children: React.ReactNode }) => (
-  <h2 className="text-black dark:text-white font-bold text-2xl">{children}</h2>
-);
-
-const TimelineItem = ({
+const TimelineItem: React.FC<TimelineItem> = ({
   title,
   company,
   date,
   description,
-}: TimelineItem) => {
+}) => {
   return (
-    <div>
-      <Card>
-        <div>
-          <Title>{title}</Title>
-          <h3 className="text-slate-400 text-lg font-semibold">
-            {company} - {date}
-          </h3>
-          <div
-            className="text-left text-slate-400 dark:text-slate-400 text-base"
-            dangerouslySetInnerHTML={{
-              __html: description,
-            }}
-          />
-        </div>
-      </Card>
-    </div>
+    <Card>
+      <div className="text-center">
+        <h3 className="text-slate-800 dark:text-slate-500 text-lg font-light">
+          {`${company} { ${date} }`}
+        </h3>
+        <h2 className="text-black dark:text-white font-bold text-xl">{title}</h2>
+
+        <div
+          className="text-slate-600 dark:text-slate-400 text-base mt-2"
+          dangerouslySetInnerHTML={{
+            __html: description,
+          }}
+        />
+      </div>
+
+    </Card>
   );
 };
 

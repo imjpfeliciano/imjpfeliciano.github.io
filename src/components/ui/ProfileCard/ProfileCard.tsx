@@ -10,7 +10,7 @@ const ProfileCardContainer = ({ children }: { children: React.ReactNode }) => (
 const ProfileCard = () => {
     return (
         <Container>
-            <div className="group">
+            <div className="group max-w-screen-md">
                 <ProfileCardContainer>
                     {/* eslint-disable-next-line */}
                     <img
@@ -22,14 +22,14 @@ const ProfileCard = () => {
                         <div className="flex flex-col items-center justify-center mt-[4rem]">
                             <div className="text-black dark:text-white font-bold">
                                 <h1 className="text-3xl">
-                                    Jonathan <span className="text-blue-700 dark:text-lime-400">Peraza F.</span>
+                                    Jonathan <span className="text-blue-500 dark:text-lime-400">Peraza F.</span>
                                 </h1>
                                 <h2 className="text-xl">Software Engineer</h2>
 
                                 <p className="text-base font-normal">Guadalajara, Jalisco, Mexico</p>
                             </div>
 
-                            <div className="text-slate-400 dark:text-slate-400 text-base">
+                            <div className="text-slate-600 dark:text-slate-400 text-base">
                                 <p>
                                     Jonathan has over 6 years of experience as Software Engineer,
                                     he is adept at solving problems in Frontend and has a deep knowledge of Javascript-based technologies.

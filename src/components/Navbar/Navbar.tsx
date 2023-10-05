@@ -6,7 +6,7 @@ import SquareLink from "../ui/SquareLink";
 
 const Link = ({ href, children, isBold }: { href: string; children: React.ReactNode; isBold?: boolean; }) => {
   return (
-    <a href={href} className={clsx("text-lg font-medium text-gray-900 dark:text-gray-100 hover:text-blue-700 dark:hover:text-gray-300 mr-[1rem] hover:border-b-2 border-blue-700 dark:border-lime-400", {
+    <a href={href} className={clsx("text-lg font-medium text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-gray-300 mr-[1rem] hover:border-b-2 border-blue-700 dark:border-lime-400", {
       "font-bold": isBold,
     })}>
       {children}
