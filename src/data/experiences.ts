@@ -1,6 +1,6 @@
 export const experiences = [
   {
-    title: 'Senior Software Engineer',
+    title: 'Sr Software Engineer',
     company: 'Cerbyinc',
     date: '2023 - Current',
     description:
@@ -10,7 +10,7 @@ export const experiences = [
     color: '#0d6cfb',
   },
   {
-    title: 'Senior Software Engineer',
+    title: 'Sr Software Engineer',
     company: 'Human API',
     date: '2021 - 2023',
     description:
@@ -43,7 +43,7 @@ export const experiences = [
   },
   {
     color: '#ea0074',
-    title: 'Software Developer Intern',
+    title: 'Software Developer (Intern)',
     company: 'PriceTravel Holding',
     companyLogo: '/assets/images/experience/price-travel.png',
     date: '2015',
@@ -54,7 +54,7 @@ export const experiences = [
   },
   {
     color: '#0ED3CF',
-    title: 'Software Developer Intern',
+    title: 'Software Developer (Intern)',
     company: 'Turicun',
     companyLogo: '/assets/images/experience/turicun.jpeg',
     date: '2012',
