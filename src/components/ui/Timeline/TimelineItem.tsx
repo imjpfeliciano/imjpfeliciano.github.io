@@ -6,6 +6,7 @@ interface TimelineItem {
   date: string;
   description: string;
   color: string;
+  isLast: boolean;
 }
 
 const TimelineItem: React.FC<TimelineItem> = ({
@@ -13,25 +14,33 @@ const TimelineItem: React.FC<TimelineItem> = ({
   company,
   date,
   description,
+  isLast = false,
 }) => {
   return (
-    <Card>
-      <div className="flex flex-row gap-4">
-        <div className="w-1/3">
-          <h3 className="text-slate-800 dark:text-slate-500 text-lg font-light">
-            {`${company} { ${date} }`}
-          </h3>
-          <h2 className="text-black dark:text-white font-bold text-xl">{title}</h2>
-        </div>
+    <div className="flex flex-col justify-center items-center gap-2">
+      <Card>
+        <div className="flex flex-row gap-4">
+          <div className="w-1/3">
+            <h3 className="text-slate-800 dark:text-slate-500 text-lg font-light">
+              {`${company} { ${date} }`}
+            </h3>
+            <h2 className="text-black dark:text-white font-bold text-xl">{title}</h2>
+          </div>
 
-        <div
-          className="text-slate-600 dark:text-slate-400 text-base w-2/3"
-          dangerouslySetInnerHTML={{
-            __html: description,
-          }}
-        />
-      </div>
-    </Card>
+          <div
+            className="text-slate-600 dark:text-slate-400 text-base w-2/3"
+            dangerouslySetInnerHTML={{
+              __html: description,
+            }}
+          />
+        </div>
+      </Card>
+      {!isLast && (
+        <div className="text-blue-500 dark:text-lime-400 text-4xl">
+          ↓
+        </div>
+      )}
+    </div>
   );
 };
 
