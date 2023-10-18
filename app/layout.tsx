@@ -1,9 +1,10 @@
-import { CustomThemeProvider } from '../src/state/context/ThemeContext';
-import '../styles/globals.css';
+import { Analytics } from '@vercel/analytics/react'
+import { CustomThemeProvider } from '../src/state/context/ThemeContext'
+import '../styles/globals.css'
 
 export const metadata = {
   title: 'imjpfeliciano.dev',
-  description: 'Welcome to Jonathan\'s personal page!',
+  description: "Welcome to Jonathan's personal page!",
 }
 export default function RootLayout({
   children,
@@ -13,9 +14,9 @@ export default function RootLayout({
   return (
     <CustomThemeProvider>
       <html lang="en">
-        <body>{children}</body>
+        <body className='className="scroll-smooth"'>{children}</body>
+        <Analytics />
       </html>
     </CustomThemeProvider>
-
   )
 }
