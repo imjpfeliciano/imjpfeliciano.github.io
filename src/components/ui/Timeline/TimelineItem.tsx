@@ -1,12 +1,12 @@
-import Card from "../Card";
+import Card from '../Card'
 
 interface TimelineItem {
-  title: string;
-  company: string;
-  date: string;
-  description: string;
-  color: string;
-  isLast: boolean;
+  title: string
+  company: string
+  date: string
+  description: string
+  color: string
+  isLast?: boolean
 }
 
 const TimelineItem: React.FC<TimelineItem> = ({
@@ -24,7 +24,9 @@ const TimelineItem: React.FC<TimelineItem> = ({
             <h3 className="text-slate-800 dark:text-slate-500 text-lg font-light">
               {`${company} { ${date} }`}
             </h3>
-            <h2 className="text-black dark:text-white font-bold text-xl">{title}</h2>
+            <h2 className="text-black dark:text-white font-bold text-xl">
+              {title}
+            </h2>
           </div>
 
           <div
@@ -36,12 +38,10 @@ const TimelineItem: React.FC<TimelineItem> = ({
         </div>
       </Card>
       {!isLast && (
-        <div className="text-blue-500 dark:text-lime-400 text-4xl">
-          ↓
-        </div>
+        <div className="text-blue-500 dark:text-lime-400 text-4xl">↓</div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default TimelineItem;
+export default TimelineItem
