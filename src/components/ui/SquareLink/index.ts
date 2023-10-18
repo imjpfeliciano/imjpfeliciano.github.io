@@ -1,3 +1,3 @@
-import SquareLink from './SquareLink';
+import SquareLink from './SquareLink'
 
-export default SquareLink;
+export default SquareLink

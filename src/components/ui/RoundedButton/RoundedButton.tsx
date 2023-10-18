@@ -1,13 +1,17 @@
-
 interface RoundedButtonProps {
-  label: string;
-  onClick: () => void;
+  label: string
+  onClick: () => void
 }
 
 const RoundedButton: React.FC<RoundedButtonProps> = ({ label, onClick }) => {
   return (
-    <button className="bg-blue-500 dark:bg-lime-400 cursor-pointer rounded-full py-2 dark:text-white" onClick={onClick}>{label}</button>
-  );
-};
+    <button
+      className="bg-blue-500 dark:bg-lime-400 cursor-pointer rounded-full py-2 dark:text-white"
+      onClick={onClick}
+    >
+      {label}
+    </button>
+  )
+}
 
-export default RoundedButton;
+export default RoundedButton

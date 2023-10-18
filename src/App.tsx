@@ -1,19 +1,17 @@
-import React from "react";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import React from 'react'
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
 import {
   AboutSection,
   ExperienceSection,
-  ServicesSection
-} from "./components/Sections";
-
+  ServicesSection,
+} from './components/Sections'
 
 interface AppProps {
-  theme: 'light' | 'dark';
+  theme: 'light' | 'dark'
 }
 
 const App: React.FC<AppProps> = ({ theme }) => {
-
   return (
     <div className={theme}>
       {/* <ParticlesBackground /> */}
@@ -28,7 +26,7 @@ const App: React.FC<AppProps> = ({ theme }) => {
         <Footer />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

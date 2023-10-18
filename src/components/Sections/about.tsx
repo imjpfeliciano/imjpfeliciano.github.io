@@ -1,9 +1,7 @@
-import ProfileCard from '../ui/ProfileCard';
+import ProfileCard from '../ui/ProfileCard'
 
 const AboutSection = () => {
-    return (
-        <ProfileCard />
-    )
+  return <ProfileCard />
 }
 
-export default AboutSection;
+export default AboutSection

@@ -1,3 +1,3 @@
-import SectionDescription from './SectionDescription';
+import SectionDescription from './SectionDescription'
 
-export default SectionDescription;
+export default SectionDescription
