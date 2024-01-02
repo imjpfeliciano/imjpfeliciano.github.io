@@ -14,7 +14,6 @@ interface AppProps {
 const App: React.FC<AppProps> = ({ theme }) => {
   return (
     <div className={theme}>
-      {/* <ParticlesBackground /> */}
       <div className="bg-white dark:bg-black">
         <Navbar />
         <main className="flex flex-col gap-8 mt-10 pb-[8rem]">
