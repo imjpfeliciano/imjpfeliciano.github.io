@@ -1,7 +1,7 @@
 const fs = require('fs')
 
-const INPUT_FILE = 'eslint-report.json'
-const OUTPUT_FILE = 'eslint-slack-message.json'
+const INPUT_FILE = '/reports/eslint-report-data.json'
+const OUTPUT_FILE = '/reports/eslint-slack-message.json'
 
 try {
   // Read and parse the ESLint report

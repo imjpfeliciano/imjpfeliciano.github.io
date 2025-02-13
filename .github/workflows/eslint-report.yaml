@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Run ESLint Report
-        run: npm run lint:report > eslint-report.json
+        run: npm run lint:report
 
       - name: Process ESLint JSON output
         id: process_report
