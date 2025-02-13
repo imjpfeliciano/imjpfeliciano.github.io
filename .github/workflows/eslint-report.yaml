@@ -23,6 +23,11 @@ jobs:
       - name: Run ESLint Report
         run: npm run lint:report
 
+      - name: Clean JSON Output
+        run: |
+          grep '^{' eslint-report.json > cleaned-eslint-report.json
+          mv cleaned-eslint-report.json eslint-report.json
+
       - name: Upload ESLint Report as Artifact
         uses: actions/upload-artifact@v4
         with:
