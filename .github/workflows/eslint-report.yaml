@@ -21,6 +21,11 @@ jobs:
       - name: Run ESLint Report
         run: npm run lint:report
 
+      - name: Clean JSON Output
+        run: |
+          grep '^{' eslint-report.json > cleaned-eslint-report.json
+          mv cleaned-eslint-report.json eslint-report.json
+
       - name: Generate ESLint Chart
         run: node .github/scripts/generate-eslint-chart.js
 
