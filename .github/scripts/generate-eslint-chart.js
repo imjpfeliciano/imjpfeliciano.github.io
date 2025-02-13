@@ -48,7 +48,7 @@ try {
     // Labels
     ctx.fillStyle = '#000'
     ctx.font = '14px Arial'
-    ctx.fillText(rule, x, HEIGHT - 20)
+    // ctx.fillText(rule, x, HEIGHT - 20)
     ctx.fillText(values[i], x + 10, y - 5)
   })
 
@@ -60,7 +60,7 @@ try {
   const separator = '-'.repeat(columnWidth) + '|------'
 
   // Draw error summary table below chart
-  const tableStartY = height - 80
+  const tableStartY = CHART_HEIGHT - 80
   ctx.font = '14px Arial'
   ctx.fillStyle = 'black'
   ctx.fillText(`${ruleHeader} | ${countHeader}`, 50, tableStartY)
