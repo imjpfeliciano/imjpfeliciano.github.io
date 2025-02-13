@@ -10,8 +10,13 @@ const HEIGHT = 300
 const BAR_WIDTH = 40
 const PADDING = 60
 
-function generateRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`
+function getRandomColor() {
+  const letters = '0123456789ABCDEF'
+  let color = '#'
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)]
+  }
+  return color
 }
 
 try {
@@ -35,7 +40,7 @@ try {
     const x = PADDING + i * (BAR_WIDTH + 30)
     const y = HEIGHT - barHeight - 40
 
-    ctx.fillStyle = generateRandomHexColor()
+    ctx.fillStyle = getRandomColor()
     ctx.fillRect(x, y, BAR_WIDTH, barHeight)
 
     // Labels
