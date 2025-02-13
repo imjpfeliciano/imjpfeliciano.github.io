@@ -1,0 +1,51 @@
+const fs = require('fs')
+const { createCanvas } = require('canvas')
+
+const INPUT_FILE = 'eslint-report.json'
+const OUTPUT_FILE = 'eslint-chart.png'
+
+// Canvas settings
+const WIDTH = 500
+const HEIGHT = 300
+const BAR_WIDTH = 40
+const PADDING = 60
+
+try {
+  const report = JSON.parse(fs.readFileSync(INPUT_FILE, 'utf8'))
+  const { errorCounts } = report
+  const keys = Object.keys(errorCounts)
+  const values = Object.values(errorCounts)
+  const maxCount = Math.max(...values)
+
+  // Create canvas
+  const canvas = createCanvas(WIDTH, HEIGHT)
+  const ctx = canvas.getContext('2d')
+
+  // Background
+  ctx.fillStyle = '#ffffff'
+  ctx.fillRect(0, 0, WIDTH, HEIGHT)
+
+  // Draw bars
+  keys.forEach((rule, i) => {
+    const barHeight = (values[i] / maxCount) * (HEIGHT - 100)
+    const x = PADDING + i * (BAR_WIDTH + 30)
+    const y = HEIGHT - barHeight - 40
+
+    ctx.fillStyle = '#ff4d4d' // Red bars
+    ctx.fillRect(x, y, BAR_WIDTH, barHeight)
+
+    // Labels
+    ctx.fillStyle = '#000'
+    ctx.font = '14px Arial'
+    ctx.fillText(rule, x, HEIGHT - 20)
+    ctx.fillText(values[i], x + 10, y - 5)
+  })
+
+  // Save the image
+  const buffer = canvas.toBuffer('image/png')
+  fs.writeFileSync(OUTPUT_FILE, buffer)
+  console.log('✅ ESLint chart saved as', OUTPUT_FILE)
+} catch (error) {
+  console.error('Error generating ESLint chart:', error)
+  process.exit(1)
+}

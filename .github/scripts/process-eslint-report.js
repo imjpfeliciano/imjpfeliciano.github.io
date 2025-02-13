@@ -1,63 +1,39 @@
-const fs = require('fs')
+const axios = require('axios')
 
-const INPUT_FILE = 'eslint-report.json'
-const OUTPUT_FILE = 'eslint-slack-message.json'
+const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL
+const GITHUB_REPOSITORY = process.env.GITHUB_REPOSITORY
 
-// Define max bar height for visualization
-const MAX_BAR_HEIGHT = 10
+const IMAGE_URL = `${GITHUB_REPOSITORY}/actions/artifacts/eslint-chart.png` // Update with your actual artifact URL
 
-// Function to generate a vertical bar chart
-const generateVerticalBars = (errorCounts) => {
-  const maxCount = Math.max(...Object.values(errorCounts))
-  const rules = Object.keys(errorCounts)
-  const scaledCounts = rules.map((rule) =>
-    Math.round((errorCounts[rule] / maxCount) * MAX_BAR_HEIGHT)
-  )
-
-  let chart = []
-
-  // Build each row from top to bottom
-  for (let i = MAX_BAR_HEIGHT; i > 0; i--) {
-    let row = rules
-      .map((rule, index) => (scaledCounts[index] >= i ? '🟥' : '⬜'))
-      .join(' ')
-    chart.push({ type: 'context', elements: [{ type: 'mrkdwn', text: row }] })
-  }
-
-  // Add rule names below the bars
-  chart.push({
-    type: 'context',
-    elements: [
-      { type: 'mrkdwn', text: rules.map((rule) => `*${rule}*`).join('   ') },
-    ],
-  })
-
-  return chart
-}
-
-try {
-  const report = JSON.parse(fs.readFileSync(INPUT_FILE, 'utf8'))
-  const { errorCounts } = report
-
-  let blocks = [
+const slackMessage = {
+  blocks: [
     {
       type: 'section',
-      text: { type: 'mrkdwn', text: '*ESLint Report* 📊' },
+      text: {
+        type: 'mrkdwn',
+        text: '*ESLint Report* 📊',
+      },
     },
-  ]
-
-  if (Object.keys(errorCounts).length > 0) {
-    blocks.push(...generateVerticalBars(errorCounts))
-  } else {
-    blocks.push({
-      type: 'section',
-      text: { type: 'mrkdwn', text: '✅ No significant ESLint errors found!' },
-    })
-  }
-
-  fs.writeFileSync(OUTPUT_FILE, JSON.stringify({ blocks }, null, 2))
-  console.log('Processed ESLint report successfully.')
-} catch (error) {
-  console.error('Error processing ESLint report:', error)
-  process.exit(1)
+    {
+      type: 'image',
+      image_url: IMAGE_URL,
+      alt_text: 'ESLint Chart',
+    },
+  ],
 }
+
+;(async () => {
+  try {
+    const response = await axios.post(SLACK_WEBHOOK_URL, slackMessage, {
+      headers: { 'Content-Type': 'application/json' },
+    })
+
+    if (response.status === 200) {
+      console.log('✅ ESLint chart sent to Slack!')
+    } else {
+      console.error('❌ Error sending message:', response.data)
+    }
+  } catch (error) {
+    console.error('Error:', error)
+  }
+})()
