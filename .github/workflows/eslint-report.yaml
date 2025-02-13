@@ -41,7 +41,7 @@ jobs:
 
       - name: Upload ESLint Chart to S3
         run: |
-          aws s3 cp ./eslint-chart-${{ steps.get_commit_sha.outputs.sha }}.png s3://${{ secrets.AWS_S3_BUCKET }}/eslint-chart-${{ steps.get_commit_sha.outputs.sha }}.png
+          aws s3 cp ./eslint-chart.png s3://${{ secrets.AWS_S3_BUCKET }}/eslint-chart-${{ steps.get_commit_sha.outputs.sha }}.png
           echo "Image uploaded to S3"
 
       - name: Generate Public URL for S3 Image
