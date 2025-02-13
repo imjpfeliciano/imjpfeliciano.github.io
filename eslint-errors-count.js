@@ -16,4 +16,6 @@ module.exports = function (results) {
 
   // Use `process.stdout.write` to avoid extra newlines
   process.stdout.write(JSON.stringify(report))
+  // write new line
+  process.stdout.write('\n')
 }
