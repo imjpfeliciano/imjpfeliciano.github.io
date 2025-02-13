@@ -1,0 +1,35 @@
+name: ESLint Report
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run ESLint Report
+        run: npm run eslint:report > eslint-report.json
+
+      - name: Process ESLint JSON output
+        id: process_report
+        run: node .github/scripts/process-eslint.js
+
+      - name: Send Slack Notification
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data "@eslint-slack-message.json" \
+          "$SLACK_WEBHOOK_URL"
