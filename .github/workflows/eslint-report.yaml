@@ -23,6 +23,12 @@ jobs:
       - name: Run ESLint Report
         run: npm run lint:report
 
+      - name: Upload ESLint Report as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: eslint-report
+          path: eslint-report.json
+
       - name: Process ESLint JSON output
         id: process_report
         run: node .github/scripts/process-eslint-report.js

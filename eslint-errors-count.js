@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const { stringify } = require('querystring')
 
 module.exports = function (results) {
   const MIN_THRESHOLD = 100 // NOTE: This is to avoid showing too many error types in the chart
@@ -111,21 +112,23 @@ module.exports = function (results) {
     </html>`
 
   // Ensure the reports directory exists
-  const reportsDir = path.join(__dirname, './reports')
-  if (!fs.existsSync(reportsDir)) {
-    fs.mkdirSync(reportsDir)
-  }
+  //   const reportsDir = path.join(__dirname, './reports')
+  //   if (!fs.existsSync(reportsDir)) {
+  //     fs.mkdirSync(reportsDir)
+  //   }
 
   const sanitizedData = JSON.stringify(data, null, 2)
 
-  // Write the data to a file
-  fs.writeFileSync(
-    path.join(__dirname, './reports/eslint-report-data.json'),
-    sanitizedData
-  )
+  console.log(JSON.stringify({ errorCounts, withLessThanThreshold }, null, 2))
 
-  // Write the HTML content to a file
-  fs.writeFileSync(path.join(reportsDir, 'eslint-report.html'), htmlContent)
+  //   // Write the data to a file
+  //   fs.writeFileSync(
+  //     path.join(__dirname, './reports/eslint-report-data.json'),
+  //     sanitizedData
+  //   )
 
-  return sanitizedData
+  //   // Write the HTML content to a file
+  //   fs.writeFileSync(path.join(reportsDir, 'eslint-report.html'), htmlContent)
+
+  //   return sanitizedData
 }
