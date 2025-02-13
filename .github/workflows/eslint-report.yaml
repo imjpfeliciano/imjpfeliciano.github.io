@@ -50,4 +50,4 @@ jobs:
         run: node .github/scripts/send-to-slack.js
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          IMAGE_URL: ${{ env.ARTIFACT_URL }}
+          IMAGE_URL: ${{ env.IMAGE_URL }}
