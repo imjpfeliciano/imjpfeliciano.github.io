@@ -17,7 +17,21 @@ const slackMessage = {
       type: 'section',
       text: {
         type: 'mrkdwn',
-        text: "🎉 *Hey <@frontend> team!* Big shoutout for your ongoing efforts in keeping our code clean! 🧹\n\nHere’s the latest ESLint report for our project. Let's keep improving! 💪",
+        text: '🎉 *Hey <@frontend> team!*',
+      },
+    },
+    {
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: 'Big shoutout for your ongoing efforts in keeping our code clean! 🧹',
+      },
+    },
+    {
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: "Here’s the latest ESLint report for our project. Let's keep improving! 💪",
       },
     },
     {
