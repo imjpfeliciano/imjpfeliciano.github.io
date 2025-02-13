@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL
-const IMAGE_URL = process.env.IMAGE_URL // Pass from GitHub Actions
+const IMAGE_URL = process.env.IMAGE_URL
 
 const slackMessage = {
   blocks: [
@@ -33,9 +33,16 @@ const slackMessage = {
     if (response.status === 200) {
       console.log('✅ ESLint chart sent to Slack!')
     } else {
-      console.error('❌ Error sending message:', response.data)
+      console.error(
+        '❌ Slack returned an error:',
+        response.status,
+        response.data
+      )
     }
   } catch (error) {
-    console.error('Error:', error)
+    console.error(
+      'Error sending Slack message:',
+      error.response ? error.response.data : error.message
+    )
   }
 })()
