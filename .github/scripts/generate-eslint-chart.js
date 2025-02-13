@@ -22,6 +22,11 @@ try {
   const values = Object.values(errorCounts)
   const maxCount = Math.max(...values)
 
+  const longestRule = Object.keys(errorCounts).reduce(
+    (a, b) => (a.length > b.length ? a : b),
+    ''
+  )
+
   // Create canvas
   const canvas = createCanvas(WIDTH, HEIGHT)
   const ctx = canvas.getContext('2d')
@@ -44,6 +49,25 @@ try {
     ctx.font = '14px Arial'
     ctx.fillText(rule, x, HEIGHT - 20)
     ctx.fillText(values[i], x + 10, y - 5)
+  })
+
+  const columnWidth = Math.max(longestRule.length, 10) + 2 // Ensure minimum width
+
+  // Format heading dynamically
+  const ruleHeader = 'Rule'.padEnd(columnWidth)
+  const countHeader = 'Count'
+  const separator = '-'.repeat(columnWidth) + '|------'
+
+  // Draw error summary table below chart
+  const tableStartY = height - 80
+  ctx.font = '14px Arial'
+  ctx.fillStyle = 'black'
+  ctx.fillText(`${ruleHeader} | ${countHeader}`, 50, tableStartY)
+  ctx.fillText(separator, 50, tableStartY + 15)
+
+  Object.entries(errorCounts).forEach(([rule, count], i) => {
+    const formattedRule = rule.padEnd(columnWidth)
+    ctx.fillText(`${formattedRule} | ${count}`, 50, tableStartY + 30 + i * 20)
   })
 
   // Save the image
