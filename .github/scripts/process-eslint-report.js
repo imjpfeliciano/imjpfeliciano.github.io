@@ -3,13 +3,36 @@ const fs = require('fs')
 const INPUT_FILE = 'eslint-report.json'
 const OUTPUT_FILE = 'eslint-slack-message.json'
 
-// Define maximum bar length for visualization
-const MAX_BAR_LENGTH = 20
+// Define max bar height for visualization
+const MAX_BAR_HEIGHT = 10
 
-// Function to generate a bar chart using emojis
-const generateBar = (count, maxCount) => {
-  const length = Math.round((count / maxCount) * MAX_BAR_LENGTH)
-  return '🟥'.repeat(length) + '▫️'.repeat(MAX_BAR_LENGTH - length) // Red bars with placeholders
+// Function to generate a vertical bar chart
+const generateVerticalBars = (errorCounts) => {
+  const maxCount = Math.max(...Object.values(errorCounts))
+  const rules = Object.keys(errorCounts)
+  const scaledCounts = rules.map((rule) =>
+    Math.round((errorCounts[rule] / maxCount) * MAX_BAR_HEIGHT)
+  )
+
+  let chart = []
+
+  // Build each row from top to bottom
+  for (let i = MAX_BAR_HEIGHT; i > 0; i--) {
+    let row = rules
+      .map((rule, index) => (scaledCounts[index] >= i ? '🟥' : '⬜'))
+      .join(' ')
+    chart.push({ type: 'context', elements: [{ type: 'mrkdwn', text: row }] })
+  }
+
+  // Add rule names below the bars
+  chart.push({
+    type: 'context',
+    elements: [
+      { type: 'mrkdwn', text: rules.map((rule) => `*${rule}*`).join('   ') },
+    ],
+  })
+
+  return chart
 }
 
 try {
@@ -19,34 +42,16 @@ try {
   let blocks = [
     {
       type: 'section',
-      text: {
-        type: 'mrkdwn',
-        text: '*ESLint Report* 📊',
-      },
+      text: { type: 'mrkdwn', text: '*ESLint Report* 📊' },
     },
   ]
 
   if (Object.keys(errorCounts).length > 0) {
-    const maxErrorCount = Math.max(...Object.values(errorCounts))
-
-    Object.entries(errorCounts).forEach(([rule, count]) => {
-      blocks.push({
-        type: 'context',
-        elements: [
-          {
-            type: 'mrkdwn',
-            text: `*${rule}* (${count})\n${generateBar(count, maxErrorCount)}`,
-          },
-        ],
-      })
-    })
+    blocks.push(...generateVerticalBars(errorCounts))
   } else {
     blocks.push({
       type: 'section',
-      text: {
-        type: 'mrkdwn',
-        text: '✅ No significant ESLint errors found!',
-      },
+      text: { type: 'mrkdwn', text: '✅ No significant ESLint errors found!' },
     })
   }
 
