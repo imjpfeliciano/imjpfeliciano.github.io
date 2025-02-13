@@ -29,35 +29,15 @@ jobs:
       - name: Generate ESLint Chart
         run: node .github/scripts/generate-eslint-chart.js
 
-      - name: Upload ESLint Chart as Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: eslint-chart
-          path: eslint-chart.png
-
-      - name: Download Artifact (zip)
-        run: |
-          ARTIFACT_URL=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" | \
-            jq -r '.artifacts[0].archive_download_url')
-
-          curl -L -o artifact.zip "$ARTIFACT_URL"
-
-      - name: Unzip Artifact
-        run: |
-          unzip artifact.zip -d ./artifact-content
-          ls ./artifact-content
-
       - name: Set up AWS CLI
         run: |
           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws configure set region us-east-1 # Change this to your region if needed
 
-      - name: Upload Image to S3
+      - name: Upload ESLint Chart to S3
         run: |
-          aws s3 cp ./artifact-content/eslint-chart.png s3://${{ secrets.AWS_S3_BUCKET }}/path/to/eslint-chart.png
+          aws s3 cp ./eslint-chart.png s3://${{ secrets.AWS_S3_BUCKET }}/path/to/eslint-chart.png
           echo "Image uploaded to S3"
 
       - name: Generate Public URL for S3 Image
