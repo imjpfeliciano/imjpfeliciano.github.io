@@ -22,7 +22,7 @@ jobs:
         run: npm run lint:report
 
       - name: Generate ESLint Chart
-        run: node ../scripts/generate-eslint-chart.js
+        run: node .github/scripts/generate-eslint-chart.js
 
       - name: Upload ESLint Chart as Artifact
         uses: actions/upload-artifact@v4
