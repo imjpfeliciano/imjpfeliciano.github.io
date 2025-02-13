@@ -19,7 +19,7 @@ jobs:
         run: npm install
 
       - name: Run ESLint Report
-        run: npm run eslint:report
+        run: npm run lint:report
 
       - name: Generate ESLint Chart
         run: node generate-eslint-chart.js
