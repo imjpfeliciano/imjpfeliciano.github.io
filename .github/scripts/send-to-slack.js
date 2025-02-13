@@ -1,7 +1,9 @@
 const axios = require('axios')
+const fs = require('fs')
 
 const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL
 const IMAGE_URL = process.env.IMAGE_URL
+const INPUT_FILE = 'eslint-report.json'
 
 const slackMessage = {
   text: '🚀 ESLint Report Update!',
@@ -51,6 +53,29 @@ const slackMessage = {
 
 ;(async () => {
   try {
+    // read the report from the file
+    const report = JSON.parse(fs.readFileSync(INPUT_FILE, 'utf8'))
+    const { errorCounts } = report
+
+    // Add the error counts to the Slack message
+    slackMessage.blocks.push({
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: '🚨 *Top Errors*',
+      },
+    })
+
+    Object.entries(errorCounts).forEach(([rule, count], i) => {
+      slackMessage.blocks.push({
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: `${i + 1}. *${rule}* - ${count} errors`,
+        },
+      })
+    })
+
     const response = await axios.post(
       SLACK_WEBHOOK_URL,
       JSON.stringify(slackMessage),
