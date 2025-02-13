@@ -3,6 +3,7 @@ name: ESLint Report
 on:
   push:
     branches:
+      - test/* # Runs on test/* branches
       - main
   schedule:
     - cron: '0 9 * * 1' # Runs every Monday at 9 AM UTC
