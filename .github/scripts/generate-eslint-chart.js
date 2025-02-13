@@ -5,10 +5,11 @@ const INPUT_FILE = 'eslint-report.json'
 const OUTPUT_FILE = 'eslint-chart.png'
 
 // Canvas settings
-const WIDTH = 500
-const HEIGHT = 300
+const WIDTH = 600
+const HEIGHT = 500
 const BAR_WIDTH = 40
 const PADDING = 60
+const CHART_HEIGHT = HEIGHT - 150 // Leave space for table
 
 function getColorForIndex(index, totalBars) {
   const hue = (index / totalBars) * 360 // Hue from 0 to 360 degrees
@@ -37,9 +38,9 @@ try {
 
   // Draw bars
   keys.forEach((rule, i) => {
-    const barHeight = (values[i] / maxCount) * (HEIGHT - 100)
+    const barHeight = (values[i] / maxCount) * (CHART_HEIGHT - 100)
     const x = PADDING + i * (BAR_WIDTH + 30)
-    const y = HEIGHT - barHeight - 40
+    const y = CHART_HEIGHT - barHeight - 40
 
     ctx.fillStyle = getColorForIndex(i, keys.length)
     ctx.fillRect(x, y, BAR_WIDTH, barHeight)
