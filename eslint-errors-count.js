@@ -119,7 +119,7 @@ module.exports = function (results) {
 
   const sanitizedData = JSON.stringify(data, null, 2)
 
-  console.log(JSON.stringify({ errorCounts, withLessThanThreshold }, null, 2))
+  process.stdout.write(sanitizedData)
 
   //   // Write the data to a file
   //   fs.writeFileSync(
