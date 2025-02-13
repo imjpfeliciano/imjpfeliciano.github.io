@@ -10,6 +10,10 @@ const HEIGHT = 300
 const BAR_WIDTH = 40
 const PADDING = 60
 
+function generateRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`
+}
+
 try {
   const report = JSON.parse(fs.readFileSync(INPUT_FILE, 'utf8'))
   const { errorCounts } = report
@@ -31,7 +35,7 @@ try {
     const x = PADDING + i * (BAR_WIDTH + 30)
     const y = HEIGHT - barHeight - 40
 
-    ctx.fillStyle = '#ff4d4d' // Red bars
+    ctx.fillStyle = generateRandomHexColor()
     ctx.fillRect(x, y, BAR_WIDTH, barHeight)
 
     // Labels
