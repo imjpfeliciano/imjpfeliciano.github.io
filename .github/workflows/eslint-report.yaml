@@ -35,14 +35,36 @@ jobs:
           name: eslint-chart
           path: eslint-chart.png
 
-      - name: Get Artifact URL
-        id: get_artifact
+      - name: Download Artifact (zip)
         run: |
-          ARTIFACT_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          ARTIFACT_URL=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
-            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" | jq -r '.artifacts[0].archive_download_url')
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" | \
+            jq -r '.artifacts[0].archive_download_url')
 
-          echo "ARTIFACT_URL=$ARTIFACT_ID" >> $GITHUB_ENV
+          curl -L -o artifact.zip "$ARTIFACT_URL"
+
+      - name: Unzip Artifact
+        run: |
+          unzip artifact.zip -d ./artifact-content
+          ls ./artifact-content
+
+      - name: Set up AWS CLI
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws configure set region us-east-1 # Change this to your region if needed
+
+      - name: Upload Image to S3
+        run: |
+          aws s3 cp ./artifact-content/eslint-chart.png s3://${{ secrets.AWS_S3_BUCKET }}/path/to/eslint-chart.png
+          echo "Image uploaded to S3"
+
+      - name: Generate Public URL for S3 Image
+        id: generate_url
+        run: |
+          IMAGE_URL="https://${{ secrets.AWS_S3_BUCKET }}.s3.amazonaws.com/path/to/eslint-chart.png"
+          echo "IMAGE_URL=$IMAGE_URL" >> $GITHUB_ENV
 
       - name: Send Slack Notification
         run: node .github/scripts/send-to-slack.js
