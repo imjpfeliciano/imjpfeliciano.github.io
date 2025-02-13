@@ -10,13 +10,9 @@ const HEIGHT = 300
 const BAR_WIDTH = 40
 const PADDING = 60
 
-function getRandomColor() {
-  const letters = '0123456789ABCDEF'
-  let color = '#'
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)]
-  }
-  return color
+function getColorForIndex(index, totalBars) {
+  const hue = (index / totalBars) * 360 // Hue from 0 to 360 degrees
+  return `hsl(${hue}, 100%, 50%)` // HSL format
 }
 
 try {
@@ -40,7 +36,7 @@ try {
     const x = PADDING + i * (BAR_WIDTH + 30)
     const y = HEIGHT - barHeight - 40
 
-    ctx.fillStyle = getRandomColor()
+    ctx.fillStyle = getColorForIndex(i, keys.length)
     ctx.fillRect(x, y, BAR_WIDTH, barHeight)
 
     // Labels
