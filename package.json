@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:report": "next lint --format ./eslint-errors-count.js > eslint-report.json || true"
+    "lint:report": "next lint --quiet --format ./eslint-errors-count.js > eslint-report.json || true"
   },
   "dependencies": {
     "@vercel/analytics": "^1.1.1",
