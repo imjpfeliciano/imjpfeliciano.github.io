@@ -1,13 +1,12 @@
 name: ESLint Report
 
 on:
+  schedule:
+    - cron: '0 9 * * 1' # Every Monday at 9:00 AM UTC
   push:
     branches:
       - test/eslint-report-to-slack
-  #     - main
-  # pull_request:
-  #   branches:
-  #     - main
+  workflow_dispatch: # Allows manual triggering of the workflow
 
 jobs:
   eslint:
