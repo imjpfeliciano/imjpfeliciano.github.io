@@ -1,17 +1,15 @@
 name: ESLint Report
 
 on:
-  schedule:
-    - cron: '0 9 * * 1' # Every Monday at 9:00 AM UTC
   push:
     branches:
-      - test/eslint-report-to-slack
-  workflow_dispatch: # Allows manual triggering of the workflow
+      - main
+  schedule:
+    - cron: '0 9 * * 1' # Runs every Monday at 9 AM UTC
 
 jobs:
   eslint:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -20,27 +18,28 @@ jobs:
         run: npm install
 
       - name: Run ESLint Report
-        run: npm run lint:report
+        run: npm run eslint:report
 
-      - name: Clean JSON Output
-        run: |
-          grep '^{' eslint-report.json > cleaned-eslint-report.json
-          mv cleaned-eslint-report.json eslint-report.json
+      - name: Generate ESLint Chart
+        run: node generate-eslint-chart.js
 
-      - name: Upload ESLint Report as Artifact
+      - name: Upload ESLint Chart as Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: eslint-report
-          path: eslint-report.json
+          name: eslint-chart
+          path: eslint-chart.png
 
-      - name: Process ESLint JSON output
-        id: process_report
-        run: node .github/scripts/process-eslint-report.js
+      - name: Get Artifact URL
+        id: get_artifact
+        run: |
+          ARTIFACT_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" | jq -r '.artifacts[0].archive_download_url')
+
+          echo "ARTIFACT_URL=$ARTIFACT_ID" >> $GITHUB_ENV
 
       - name: Send Slack Notification
+        run: node send-to-slack.js
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        run: |
-          curl -X POST -H 'Content-type: application/json' \
-          --data "@eslint-slack-message.json" \
-          "$SLACK_WEBHOOK_URL"
+          IMAGE_URL: ${{ env.ARTIFACT_URL }}

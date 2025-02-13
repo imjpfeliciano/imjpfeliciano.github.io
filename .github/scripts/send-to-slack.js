@@ -1,9 +1,7 @@
 const axios = require('axios')
 
 const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL
-const GITHUB_REPOSITORY = process.env.GITHUB_REPOSITORY
-
-const IMAGE_URL = `${GITHUB_REPOSITORY}/actions/artifacts/eslint-chart.png` // Update with your actual artifact URL
+const IMAGE_URL = process.env.IMAGE_URL // Pass from GitHub Actions
 
 const slackMessage = {
   blocks: [
@@ -24,9 +22,13 @@ const slackMessage = {
 
 ;(async () => {
   try {
-    const response = await axios.post(SLACK_WEBHOOK_URL, slackMessage, {
-      headers: { 'Content-Type': 'application/json' },
-    })
+    const response = await axios.post(
+      SLACK_WEBHOOK_URL,
+      JSON.stringify(slackMessage),
+      {
+        headers: { 'Content-Type': 'application/json' },
+      }
+    )
 
     if (response.status === 200) {
       console.log('✅ ESLint chart sent to Slack!')
