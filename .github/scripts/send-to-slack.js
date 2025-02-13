@@ -4,12 +4,13 @@ const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL
 const IMAGE_URL = process.env.IMAGE_URL
 
 const slackMessage = {
+  text: "🎉 Hey <@frontend> team! Big shoutout for your ongoing efforts in keeping our code clean! 🚀 Here’s the latest ESLint report for our project. Let's keep squashing those errors! 🔥",
   blocks: [
     {
       type: 'section',
       text: {
         type: 'mrkdwn',
-        text: '*ESLint Report* 📊',
+        text: "🎉 *Hey <@frontend> team!* Big shoutout for your ongoing efforts in keeping our code clean! 🚀\n\nHere’s the latest ESLint report for our project. Let's keep squashing those errors! 🔥",
       },
     },
     {
