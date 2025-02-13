@@ -45,7 +45,7 @@ jobs:
           echo "ARTIFACT_URL=$ARTIFACT_ID" >> $GITHUB_ENV
 
       - name: Send Slack Notification
-        run: node send-to-slack.js
+        run: node .github/scripts/send-to-slack.js
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           IMAGE_URL: ${{ env.ARTIFACT_URL }}
