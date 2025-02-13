@@ -25,7 +25,7 @@ jobs:
 
       - name: Process ESLint JSON output
         id: process_report
-        run: node .github/scripts/process-eslint.js
+        run: node .github/scripts/process-eslint-report.js
 
       - name: Send Slack Notification
         env:
