@@ -3,79 +3,54 @@ import { Moon, Sun } from "@lucide/astro";
 ---
 
 <button
-  id="theme-toggle"
-  class="px-4 py-2 rounded-full text-sm h-8 w-fit flex items-center justify-center cursor-pointer border-2 transition-all duration-300"
+  class="theme-toggle-btn px-4 py-2 rounded-full text-sm h-8 w-fit flex items-center justify-center cursor-pointer border-2 transition-all duration-300 bg-white border-green-500 text-black hover:bg-green-600"
   aria-label="Toggle theme"
 >
-  <span id="theme-icon">
+  <span class="theme-icon">
     <Sun class="dark:hidden" />
     <Moon class="hidden dark:block" />
   </span>
 </button>
 
 <script>
-  const themeToggle = document.getElementById("theme-toggle");
-  const themeIcon = document.getElementById("theme-icon");
+  // Initialize theme from localStorage or default to light mode (only once)
+  if (typeof window !== "undefined" && !(window as any).themeInitialized) {
+    const isDarkMode = localStorage.getItem("theme") === "dark";
 
-  if (!themeToggle || !themeIcon) {
-    throw new Error("Theme toggle elements not found");
-  }
-
-  // Function to update button styles based on theme
-  const updateButtonStyles = (isDark: boolean) => {
-    // Remove all theme-related classes
-    themeToggle.classList.remove(
-      "bg-white",
-      "bg-green-500",
-      "border-green-500",
-      "border-black",
-      "text-white",
-      "text-black",
-      "hover:bg-green-600",
-      "hover:bg-green-400"
-    );
-
-    if (isDark) {
-      // Dark mode: black border, green background
-      themeToggle.classList.add(
-        "bg-green-500",
-        "border-black",
-        "text-white",
-        "hover:bg-green-400"
-      );
-    } else {
-      // Light mode: green border, white background
-      themeToggle.classList.add(
-        "bg-white",
-        "border-green-500",
-        "text-black",
-        "hover:bg-green-600"
-      );
-    }
-  };
-
-  // Initialize theme from localStorage or default to light mode
-  let isDarkMode = localStorage.getItem("theme") === "dark";
-
-  // Apply initial theme
-  if (isDarkMode) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-  updateButtonStyles(isDarkMode);
-
-  // Toggle theme on button click
-  themeToggle.addEventListener("click", () => {
-    isDarkMode = !isDarkMode;
-
+    // Apply initial theme
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
     }
-    updateButtonStyles(isDarkMode);
-  });
+
+    (window as any).themeInitialized = true;
+  }
+
+  // Use event delegation to handle clicks on all theme toggle buttons
+  // This ensures all instances work, even if they're added dynamically
+  if (
+    typeof window !== "undefined" &&
+    !(window as any).themeToggleHandlerAttached
+  ) {
+    document.addEventListener("click", (event) => {
+      const target = event.target as HTMLElement;
+      // Check if click is on the button or inside it
+      const button = target.closest(".theme-toggle-btn");
+
+      if (button) {
+        const isDarkMode = document.documentElement.classList.contains("dark");
+
+        if (isDarkMode) {
+          document.documentElement.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        } else {
+          document.documentElement.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        }
+      }
+    });
+
+    (window as any).themeToggleHandlerAttached = true;
+  }
 </script>

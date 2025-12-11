@@ -22,7 +22,7 @@ const links = [
   {
     label: "About",
     href: "/about",
-    isActive: activeLink === "/about",
+    isActive: activeLink.includes("/about"),
   },
 ];
 ---
@@ -50,7 +50,7 @@ const links = [
             "hover:text-green-500",
             "transition-all",
             "duration-300",
-            link.isActive ? "text-green-500 dark:!text-green-400" : "",
+            link.isActive ? "text-green-500 dark:text-green-400!" : "",
           ]}
         >
           {link.label}
