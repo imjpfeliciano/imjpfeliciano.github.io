@@ -1,0 +1,132 @@
+---
+import { MenuIcon } from "@lucide/astro";
+import github from "../assets/github.svg";
+import linkedin from "../assets/linkedin.svg";
+import youtube from "../assets/youtube.svg";
+import ThemeToggle from "./ThemeToggle.astro";
+
+const activeLink = Astro.url.pathname;
+const links = [
+  {
+    label: "Home",
+    href: "/",
+    isActive: activeLink === "/",
+  },
+  // TODO: Implement projects page (with detailed explanation about each project/work experience)
+  // {
+  //     label: "Projects",
+  //     href: "/projects",
+  //     isActive: activeLink === "/projects",
+  // },
+  {
+    label: "About",
+    href: "/about",
+    isActive: activeLink === "/about",
+  },
+];
+---
+
+<div class="md:hidden relative w-fit" id="mobile-menu-container">
+  <button
+    class="bg-white border border-green-500 dark:bg-slate-800 rounded-full p-2 shadow-lg cursor-pointer"
+    id="menu-toggle-button"
+  >
+    <MenuIcon class="w-6 h-6 dark:text-white" />
+  </button>
+  <div
+    class="bg-white dark:bg-black px-8 py-4 flex-col gap-4 w-screen absolute top-16 right-0 z-10 shadow-lg dark:shadow-slate-900 hidden"
+    id="mobile-menu"
+  >
+    {
+      links.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "text-gray-600 dark:text-white text-sm font-medium cursor-pointer",
+            link.isActive ? "text-green-500 dark:text-green-400!" : "",
+          ]}
+          data-menu-link
+        >
+          {link.label}
+        </a>
+      ))
+    }
+    <hr class="border-gray-300 dark:border-gray-700" />
+    <div class="flex flex-row justify-between">
+      <div class="flex flex-row gap-4 items-center">
+        <a
+          href="https://github.com/imjpfeliciano"
+          target="_blank"
+          data-menu-link
+        >
+          <img src={github.src} alt="GitHub" class="w-4 h-4 dark:invert" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/jpfeliciano/"
+          target="_blank"
+          data-menu-link
+        >
+          <img src={linkedin.src} alt="LinkedIn" class="w-4 h-4 dark:invert" />
+        </a>
+
+        <a
+          href="https://youtube.com/@imjpfeliciano"
+          target="_blank"
+          data-menu-link
+        >
+          <img src={youtube.src} alt="YouTube" class="w-4 h-4 dark:invert" />
+        </a>
+      </div>
+      <ThemeToggle />
+    </div>
+  </div>
+</div>
+
+<script>
+  const container = document.getElementById("mobile-menu-container");
+  const menu = document.getElementById("mobile-menu");
+  const toggleButton = document.getElementById("menu-toggle-button");
+  const menuLinks = document.querySelectorAll("[data-menu-link]");
+
+  if (!container || !menu || !toggleButton) {
+    throw new Error("Required menu elements not found");
+  }
+
+  const toggleMenu = () => {
+    const isOpen = menu.classList.contains("flex");
+    if (isOpen) {
+      menu.classList.remove("flex", "flex-col");
+      menu.classList.add("hidden");
+    } else {
+      menu.classList.remove("hidden");
+      menu.classList.add("flex", "flex-col");
+    }
+  };
+
+  const closeMenu = () => {
+    menu.classList.remove("flex", "flex-col");
+    menu.classList.add("hidden");
+  };
+
+  // Toggle menu when clicking the menu icon
+  toggleButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toggleMenu();
+  });
+
+  // Close menu when clicking on any link
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      closeMenu();
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (event) => {
+    if (container && !container.contains(event.target as Node)) {
+      if (menu.classList.contains("flex")) {
+        closeMenu();
+      }
+    }
+  });
+</script>
