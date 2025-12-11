@@ -1,7 +1,10 @@
 ---
 import { School, SquareCode, Users } from "@lucide/astro";
+import { Image } from "astro:assets";
 import Chip from "./Chip.astro";
 import RoleItem from "./RoleItem.astro";
+
+import profileImage from "../assets/profile-hw.jpg";
 
 const technologies = [
   "TypeScript",
@@ -40,8 +43,8 @@ const technologies = [
     </div>
 
     <div class="shrink-0">
-      <img
-        src="/profile-hw.jpg"
+      <Image
+        src={profileImage}
         alt="Profile"
         class="rounded-lg object-cover w-80 h-96 shadow-lg"
       />

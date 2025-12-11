@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import aboutImage from "../assets/pp-teaching.jpg";
 import AboutSection from "../components/AboutSection.astro";
 import Chip from "../components/Chip.astro";
 import ExperienceItem from "../components/ExperienceItem.astro";
@@ -19,8 +21,8 @@ const skills = ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS"];
   >
     Read below to learn more about myself and my journey.
   </p>
-  <img
-    src="/pp-teaching.jpg"
+  <Image
+    src={aboutImage}
     alt="Profile"
     class="rounded-xl object-contain shadow-lg md:max-w-2xl mx-auto max-h-96 my-8"
   />
