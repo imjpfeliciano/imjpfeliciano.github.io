@@ -3,7 +3,6 @@ const role = Astro.props.role;
 const company = Astro.props.company;
 const startDate = Astro.props.startDate;
 const endDate = Astro.props.endDate;
-const description = Astro.props.description;
 ---
 
 <div class="flex flex-col gap-2">
@@ -12,5 +11,7 @@ const description = Astro.props.description;
         <span class="text-gray-600">{company}</span>
     </div>
     <div class="text-gray-600">{startDate} - {endDate}</div>
-    <div class="text-gray-600">{description}</div>
+    <div class="text-gray-600">
+        <slot />
+    </div>
 </div>

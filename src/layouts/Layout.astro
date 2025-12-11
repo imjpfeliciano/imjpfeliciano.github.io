@@ -1,8 +1,10 @@
 ---
+import { SendHorizontal } from "@lucide/astro";
+import background from "../assets/background.svg";
+import Navbar from "../components/Navbar.astro";
 import "../styles/global.css";
-import background from '../assets/background.svg';
-import Navbar from '../components/Navbar.astro';
 ---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -14,24 +16,37 @@ import Navbar from '../components/Navbar.astro';
 	</head>
 	<body>
 		<div class="w-screen h-screen px-4">
-			<img id="background" src={background.src} alt="" fetchpriority="high" />
-			<main class="flex flex-col items-center justify-center w-full">
+			<img
+				id="background"
+				src={background.src}
+				alt=""
+				fetchpriority="high"
+			/>
+			<main
+				class="flex flex-col items-center justify-center w-full border-b-2 border-gray-300 pb-8"
+			>
 				<Navbar />
 				<slot />
 			</main>
-			<div class="border-t border-gray-200 py-8 flex flex-row items-center justify-between max-w-5xl mx-auto">
+			<div
+				class="py-16 px-4 flex flex-row items-center justify-between max-w-5xl mx-auto"
+			>
 				<p class="text-center text-gray-600 text-2xl font-semibold">
 					Interested in working together?
 				</p>
-				<button class="bg-green-500 text-white px-4 py-2 rounded-full text-sm h-8 w-fit flex items-center justify-center cursor-pointer hover:bg-green-600 transition-all duration-300">
-					Send me a message
-				</button>
+				<a
+					href="mailto:jperazafeliciano@gmail.com"
+					class="bg-green-500 text-white font-semibold px-4 py-2 rounded-full text-xl w-fit flex flex-row gap-2 items-center justify-center cursor-pointer hover:bg-green-600 transition-all duration-300 shadow-lg"
+				>
+					Send me a message <SendHorizontal />
+				</a>
 			</div>
-			<footer class="text-center text-sm text-gray-600 border-t border-gray-200 py-4">
+			<footer
+				class="text-center text-sm text-gray-600 border-t-2 border-gray-300 py-4"
+			>
 				Made with ❤️ by Jonathan Peraza
 			</footer>
 		</div>
-		
 	</body>
 </html>
 
@@ -54,7 +69,9 @@ import Navbar from '../components/Navbar.astro';
 	}
 
 	#container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+		font-family:
+			Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
+			sans-serif;
 		height: 100%;
 	}
 </style>
