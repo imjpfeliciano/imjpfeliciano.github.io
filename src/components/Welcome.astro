@@ -3,94 +3,89 @@ import { School, SquareCode, Users } from "@lucide/astro";
 import Chip from "./Chip.astro";
 
 const technologies = [
-	"TypeScript",
-	"React",
-	"NodeJS",
-	"AWS",
-	"Docker",
-	"CI/CD",
+  "TypeScript",
+  "React",
+  "NodeJS",
+  "AWS",
+  "Docker",
+  "CI/CD",
 ];
 ---
 
 <div class="flex flex-col items-center justify-center w-full">
-	<div
-		class="flex flex-row gap-8 justify-between items-center w-full max-w-5xl mx-auto py-16"
-	>
-		<div class="flex flex-col gap-4">
-			<p class="text-6xl font-bold">Hi, I'm Jonathan Peraza.</p>
+  <div
+    class="flex flex-row gap-8 justify-between items-center w-full max-w-5xl mx-auto py-16"
+  >
+    <div class="flex flex-col gap-4">
+      <p class="text-6xl font-bold dark:text-white">Hi, I'm Jonathan Peraza.</p>
 
-			<p class="text-gray-600 text-3xl">
-				A Full Stack software engineer with a passion for building web
-				applications who is currently based in Guadalajara, Mexico.
-			</p>
+      <p class="text-gray-600 text-3xl dark:text-gray-400">
+        A Full Stack software engineer with a passion for building web
+        applications who is currently based in Guadalajara, Mexico.
+      </p>
 
-			<div class="flex flex-row gap-4 flex-wrap w-full">
-				<!-- Chips -->
-				<div class="flex flex-row gap-2">
-					{
-						technologies.map((technology) => (
-							<Chip>{technology}</Chip>
-						))
-					}
-				</div>
-			</div>
-		</div>
+      <div class="flex flex-row gap-4 flex-wrap w-full">
+        <!-- Chips -->
+        <div class="flex flex-row gap-2">
+          {technologies.map((technology) => <Chip>{technology}</Chip>)}
+        </div>
+      </div>
+    </div>
 
-		<div class="shrink-0">
-			<img
-				src="/profile-hw.jpg"
-				alt="Profile"
-				class="rounded-lg object-cover w-80 h-96 shadow-lg"
-			/>
-		</div>
-	</div>
+    <div class="shrink-0">
+      <img
+        src="/profile-hw.jpg"
+        alt="Profile"
+        class="rounded-lg object-cover w-80 h-96 shadow-lg"
+      />
+    </div>
+  </div>
 
-	<div
-		class="border border-gray-300 rounded-lg grid grid-cols-3 gap-4 w-full max-w-5xl mx-auto shadow-lg bg-white p-8"
-	>
-		<div class="flex flex-col gap-2 col-span-1 py-4 px-8">
-			<div
-				class="text-2xl font-bold text-center flex flex-row items-center justify-center gap-2"
-			>
-				<SquareCode />
-				Full Stack Developer
-			</div>
-			<div class="text-gray-600 text-center">
-				I'm a full stack developer with a passion for building web
-				applications who is currently based in Guadalajara, Mexico.
-			</div>
-		</div>
+  <div
+    class="border border-gray-300 dark:border-gray-700 rounded-lg grid grid-cols-3 gap-4 w-full max-w-5xl mx-auto shadow-lg bg-white dark:bg-slate-800 p-8"
+  >
+    <div class="flex flex-col gap-2 col-span-1 py-4 px-8">
+      <div
+        class="text-2xl font-bold text-center flex flex-row items-center justify-center gap-2 dark:text-white"
+      >
+        <SquareCode />
+        Full Stack Developer
+      </div>
+      <div class="text-gray-600 dark:text-gray-400 text-center">
+        I'm a full stack developer with a passion for building web applications
+        who is currently based in Guadalajara, Mexico.
+      </div>
+    </div>
 
-		<div class="flex flex-col gap-2 col-span-1">
-			<div
-				class="text-2xl font-bold text-center flex flex-row items-center justify-center gap-2"
-			>
-				<School />
-				Mentor
-			</div>
-			<div class="text-gray-600 text-center">
-				I'm a mentor who is passionate about helping others learn and
-				grow.
-			</div>
-		</div>
+    <div class="flex flex-col gap-2 col-span-1">
+      <div
+        class="text-2xl font-bold text-center flex flex-row items-center justify-center gap-2 dark:text-white"
+      >
+        <School />
+        Mentor
+      </div>
+      <div class="text-gray-600 dark:text-gray-400 text-center">
+        I'm a mentor who is passionate about helping others learn and grow.
+      </div>
+    </div>
 
-		<div class="flex flex-col gap-2 col-span-1">
-			<div
-				class="text-2xl font-bold text-center flex flex-row items-center justify-center gap-2"
-			>
-				<Users />
-				Interviewer
-			</div>
-			<div class="text-gray-600 text-center">
-				I'm an interviewer who is passionate about helping others
-				prepare for interviews.
-			</div>
-		</div>
-	</div>
+    <div class="flex flex-col gap-2 col-span-1">
+      <div
+        class="text-2xl font-bold text-center flex flex-row items-center justify-center gap-2 dark:text-white"
+      >
+        <Users />
+        Interviewer
+      </div>
+      <div class="text-gray-600 dark:text-gray-400 text-center">
+        I'm an interviewer who is passionate about helping others prepare for
+        interviews.
+      </div>
+    </div>
+  </div>
 
-	<!-- <div class="text-2xl font-bold">Experience</div> -->
+  <!-- <div class="text-2xl font-bold">Experience</div> -->
 
-	<!-- <div class="text-2xl font-bold">Mentions & Feedback</div> -->
+  <!-- <div class="text-2xl font-bold">Mentions & Feedback</div> -->
 
-	<!-- <div class="text-2xl font-bold">Awards</div> -->
+  <!-- <div class="text-2xl font-bold">Awards</div> -->
 </div>
