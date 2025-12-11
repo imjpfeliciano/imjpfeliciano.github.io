@@ -1,0 +1,32 @@
+---
+import Chip from './Chip.astro';
+---
+
+<div class="flex flex-row gap-8 justify-between w-full max-w-3xl mx-auto py-16">
+	<div class="flex flex-col gap-4">
+		
+		<p class="text-2xl font-bold">
+			Hi, I'm Jonathan Peraza.
+		</p>
+	
+		<p class="text-gray-600">
+			A Full Stack software engineer with a passion for building web applications who is currently based in Guadalajara, Mexico.
+		</p>
+
+		<div class="flex flex-row gap-4 flex-wrap w-full">
+			<!-- Chips -->
+ 			<div class="flex flex-row gap-2">
+				<Chip>TypeScript</Chip>
+				<Chip>React</Chip>
+				<Chip>NodeJS</Chip>
+				<Chip>AWS</Chip>
+				<Chip>Docker</Chip>
+				<Chip>CI/CD</Chip>
+			</div>
+		</div>
+	</div>
+
+	<div class="shrink-0">
+		<img src="https://avatars.githubusercontent.com/u/6007230?v=4" alt="Profile" class="rounded-lg object-cover w-80 h-96 shadow-lg" />
+	</div>
+</div>
