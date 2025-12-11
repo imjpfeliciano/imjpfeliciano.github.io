@@ -1,77 +1,92 @@
 ---
-import { Moon, Sun } from '@lucide/astro';
+import { Moon, Sun } from "@lucide/astro";
 ---
 
-<button 
-    id="theme-toggle" 
-    class="px-4 py-2 rounded-full text-sm h-8 w-fit flex items-center justify-center cursor-pointer border-2 transition-all duration-300"
-    aria-label="Toggle theme"
+<button
+  id="theme-toggle"
+  class="px-4 py-2 rounded-full text-sm h-8 w-fit flex items-center justify-center cursor-pointer border-2 transition-all duration-300"
+  aria-label="Toggle theme"
 >
-    <span id="theme-icon">
-        <Sun />
-    </span>
+  <span id="theme-icon">
+    <Sun class="dark:hidden" />
+    <Moon class="hidden dark:block" />
+  </span>
 </button>
 
 <script>
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    
-    if (!themeToggle || !themeIcon) {
-        throw new Error('Theme toggle elements not found');
-    }
-    
-    // Function to update button styles based on theme
-    const updateButtonStyles = (isDark: boolean) => {
-        // Remove all theme-related classes
-        themeToggle.classList.remove(
-            'bg-white', 'bg-green-500', 
-            'border-green-500', 'border-black', 
-            'text-white', 'text-black',
-            'hover:bg-green-600', 'hover:bg-green-400'
-        );
-        
-        if (isDark) {
-            // Dark mode: black border, green background
-            themeToggle.classList.add('bg-green-500', 'border-black', 'text-white', 'hover:bg-green-400');
-        } else {
-            // Light mode: green border, white background
-            themeToggle.classList.add('bg-white', 'border-green-500', 'text-black', 'hover:bg-green-600');
-        }
-    };
-    
-    // Function to update icon based on theme
-    const updateIcon = (isDark: boolean) => {
-        if (isDark) {
-            themeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>`;
-        } else {
-            themeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>`;
-        }
-    };
-    
-    // Initialize theme from localStorage or default to light mode
-    let isDarkMode = localStorage.getItem('theme') === 'dark';
-    
-    // Apply initial theme
-    if (isDarkMode) {
-        document.documentElement.classList.add('dark');
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon");
+
+  if (!themeToggle || !themeIcon) {
+    throw new Error("Theme toggle elements not found");
+  }
+
+  // Function to update button styles based on theme
+  const updateButtonStyles = (isDark: boolean) => {
+    // Remove all theme-related classes
+    themeToggle.classList.remove(
+      "bg-white",
+      "bg-green-500",
+      "border-green-500",
+      "border-black",
+      "text-white",
+      "text-black",
+      "hover:bg-green-600",
+      "hover:bg-green-400"
+    );
+
+    if (isDark) {
+      // Dark mode: black border, green background
+      themeToggle.classList.add(
+        "bg-green-500",
+        "border-black",
+        "text-white",
+        "hover:bg-green-400"
+      );
     } else {
-        document.documentElement.classList.remove('dark');
+      // Light mode: green border, white background
+      themeToggle.classList.add(
+        "bg-white",
+        "border-green-500",
+        "text-black",
+        "hover:bg-green-600"
+      );
+    }
+  };
+
+  // Function to update icon based on theme
+  //   const updateIcon = (isDark: boolean) => {
+  //     if (isDark) {
+  //       themeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>`;
+  //     } else {
+  //       themeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>`;
+  //     }
+  //   };
+
+  // Initialize theme from localStorage or default to light mode
+  let isDarkMode = localStorage.getItem("theme") === "dark";
+
+  // Apply initial theme
+  if (isDarkMode) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+  updateButtonStyles(isDarkMode);
+  //   updateIcon(isDarkMode);
+
+  // Toggle theme on button click
+  themeToggle.addEventListener("click", () => {
+    isDarkMode = !isDarkMode;
+
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
     updateButtonStyles(isDarkMode);
-    updateIcon(isDarkMode);
-    
-    // Toggle theme on button click
-    themeToggle.addEventListener('click', () => {
-        isDarkMode = !isDarkMode;
-        
-        if (isDarkMode) {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-        }
-        updateButtonStyles(isDarkMode);
-        updateIcon(isDarkMode);
-    });
+    // updateIcon(isDarkMode);
+  });
 </script>
