@@ -1,6 +1,7 @@
 ---
 import { School, SquareCode, Users } from "@lucide/astro";
 import Chip from "./Chip.astro";
+import RoleItem from "./RoleItem.astro";
 
 const technologies = [
   "TypeScript",
@@ -50,43 +51,23 @@ const technologies = [
   <div
     class="border border-gray-300 dark:border-gray-700 rounded-lg grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-5xl mx-auto shadow-lg bg-white dark:bg-slate-800 p-8"
   >
-    <div class="flex flex-col gap-2 col-span-1 py-4 px-8">
-      <div
-        class="text-2xl font-bold text-center flex flex-row items-center justify-center gap-2 dark:text-white"
-      >
-        <SquareCode />
-        Full Stack Developer
-      </div>
-      <div class="text-gray-600 dark:text-gray-400 text-center">
-        I'm a full stack developer with a passion for building web applications
-        who is currently based in Guadalajara, Mexico.
-      </div>
-    </div>
+    <RoleItem
+      role="Full Stack SWE"
+      description="I'm a full stack SWE with a passion for building web applications who is currently based in Guadalajara, Mexico."
+      Icon={SquareCode}
+    />
 
-    <div class="flex flex-col gap-2 col-span-1">
-      <div
-        class="text-2xl font-bold text-center flex flex-row items-center justify-center gap-2 dark:text-white"
-      >
-        <School />
-        Mentor
-      </div>
-      <div class="text-gray-600 dark:text-gray-400 text-center">
-        I'm a mentor who is passionate about helping others learn and grow.
-      </div>
-    </div>
+    <RoleItem
+      role="Mentor"
+      description="I'm a mentor who is passionate about helping others learn and grow."
+      Icon={School}
+    />
 
-    <div class="flex flex-col gap-2 col-span-1">
-      <div
-        class="text-2xl font-bold text-center flex flex-row items-center justify-center gap-2 dark:text-white"
-      >
-        <Users />
-        Interviewer
-      </div>
-      <div class="text-gray-600 dark:text-gray-400 text-center">
-        I'm an interviewer who is passionate about helping others prepare for
-        interviews.
-      </div>
-    </div>
+    <RoleItem
+      role="Interviewer"
+      description="I'm an interviewer who is passionate about helping others prepare for interviews."
+      Icon={Users}
+    />
   </div>
 
   <!-- <div class="text-2xl font-bold">Experience</div> -->
