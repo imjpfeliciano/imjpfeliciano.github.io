@@ -1,0 +1,123 @@
+---
+import AboutSection from "../components/AboutSection.astro";
+import Chip from "../components/Chip.astro";
+import ExperienceItem from "../components/ExperienceItem.astro";
+import Layout from "../layouts/Layout.astro";
+
+const skills = ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS"];
+---
+
+<Layout>
+    <h1 class="text-4xl font-bold text-center">About</h1>
+    <p class="text-gray-600 text-center text-xl font-light mx-auto">
+        Thank you for visiting my website.
+    </p>
+    <p class="text-gray-600 text-center text-xl font-light mx-auto">
+        Read below to learn more about myself and my journey.
+    </p>
+    <img
+        src="/pp-teaching.jpg"
+        alt="Profile"
+        class="rounded-xl object-contain shadow-lg max-w-2xl mx-auto max-h-96 my-8"
+    />
+
+    <div class="flex flex-col gap-4 max-w-5xl mx-auto">
+        <AboutSection title="Background">
+            <p class="text-gray-600 col-span-4">
+                I’m a Software Engineer with 8+ years of experience building
+                high-quality, scalable web applications, with a deep
+                specialization in frontend development using React, Next.js, and
+                TypeScript.
+            </p>
+            <p class="text-gray-600 col-span-4">
+                I’ve worked across full-stack roles, but my strongest expertise
+                lies in modern JavaScript-based frontend architectures,
+                including design systems with Storybook, accessibility, unit and
+                E2E testing, and performance optimization. I enjoy creating
+                maintainable UI systems that scale across large teams and
+                products.
+            </p>
+            <p class="text-gray-600 col-span-4">
+                Throughout my career, I’ve collaborated with companies such as
+                Wizeline, HumanAPI, Cerby Inc, Upnify, and PriceTravel Holding,
+                as well as working as an independent contractor for consulting
+                firms.
+            </p>
+            <p class="text-gray-600 col-span-4">
+                I’m a Telematics Engineer graduate with a strong background in
+                competitive programming as both a contestant and mentor since
+                2010, and I’ve also served as a tutor for the Mexican Olympiad
+                in Informatics (Quintana Roo) — a role that reflects my passion
+                for teaching and technical excellence.
+            </p>
+            <p class="text-gray-600 col-span-4">
+                I’m driven by continuous learning, clean architecture, and
+                building products that deliver real business and user impact.
+            </p>
+        </AboutSection>
+        <AboutSection title="Experience">
+            <div class="flex flex-col gap-2">
+                <ExperienceItem
+                    role="Software Engineer"
+                    company="Cerby Inc."
+                    startDate="2023"
+                    endDate="2025"
+                />
+
+                <ExperienceItem
+                    role="Software Engineer"
+                    company="HumanAPI"
+                    startDate="2021"
+                    endDate="2023"
+                />
+
+                <ExperienceItem
+                    role="Software Engineer III"
+                    company="Wizeline"
+                    startDate="2017"
+                    endDate="2021"
+                />
+                <ExperienceItem
+                    role="Software Engineer"
+                    company="SalesUp! (Now Upnify)"
+                    startDate="2016"
+                    endDate="2017"
+                />
+            </div>
+        </AboutSection>
+        <AboutSection title="Education">
+            <ul class="list-disc list-inside">
+                <li>
+                    <span class="font-semibold"
+                        >B.S. in Telematics Engineering</span
+                    >
+                    <span class="text-gray-600"
+                        >Universidad del Caribe - Quintana Roo</span
+                    >
+                    <span class="text-gray-600">2015 - 2020</span>
+                </li>
+            </ul>
+        </AboutSection>
+        <AboutSection title="Skills">
+            <div class="flex flex-wrap gap-2">
+                {skills.map((skill) => <Chip>{skill}</Chip>)}
+            </div>
+        </AboutSection>
+        <AboutSection title="Interests">
+            <ul class="list-disc list-inside">
+                <li>
+                    <span class="font-semibold">Competitive Programming</span>
+                    <span class="text-gray-600">2010 - 2020</span>
+                    <p class="text-gray-600">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quisquam, quos.
+                    </p>
+                </li>
+                <li>
+                    <span class="font-semibold">Teaching</span>
+                    <span class="text-gray-600">2010 - 2020</span>
+                </li>
+            </ul>
+        </AboutSection>
+    </div>
+</Layout>

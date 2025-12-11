@@ -1,0 +1,17 @@
+---
+const role = Astro.props.role;
+const company = Astro.props.company;
+const startDate = Astro.props.startDate;
+const endDate = Astro.props.endDate;
+---
+
+<div class="flex flex-col gap-2">
+    <div class="flex flex-row gap-2">
+        <span class="font-semibold">{role}</span>
+        <span class="text-gray-600">{company}</span>
+    </div>
+    <div class="text-gray-600">{startDate} - {endDate}</div>
+    <div class="text-gray-600">
+        <slot />
+    </div>
+</div>

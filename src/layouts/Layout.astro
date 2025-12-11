@@ -1,0 +1,77 @@
+---
+import { SendHorizontal } from "@lucide/astro";
+import background from "../assets/background.svg";
+import Navbar from "../components/Navbar.astro";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>imjpfeliciano.dev</title>
+	</head>
+	<body>
+		<div class="w-screen h-screen px-4">
+			<img
+				id="background"
+				src={background.src}
+				alt=""
+				fetchpriority="high"
+			/>
+			<main
+				class="flex flex-col items-center justify-center w-full border-b-2 border-gray-300 pb-8"
+			>
+				<Navbar />
+				<slot />
+			</main>
+			<div
+				class="py-16 px-4 flex flex-row items-center justify-between max-w-5xl mx-auto"
+			>
+				<p class="text-center text-gray-600 text-2xl font-semibold">
+					Interested in working together?
+				</p>
+				<a
+					href="mailto:jperazafeliciano@gmail.com"
+					class="bg-green-500 text-white font-semibold px-4 py-2 rounded-full text-xl w-fit flex flex-row gap-2 items-center justify-center cursor-pointer hover:bg-green-600 transition-all duration-300 shadow-lg"
+				>
+					Send me a message <SendHorizontal />
+				</a>
+			</div>
+			<footer
+				class="text-center text-sm text-gray-600 border-t-2 border-gray-300 py-4"
+			>
+				Made with ❤️ by Jonathan Peraza
+			</footer>
+		</div>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	#background {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		filter: blur(100px);
+	}
+
+	#container {
+		font-family:
+			Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
+			sans-serif;
+		height: 100%;
+	}
+</style>
