@@ -14,17 +14,23 @@ const technologies = [
 
 <div class="flex flex-col items-center justify-center w-full">
   <div
-    class="flex flex-row gap-8 justify-between items-center w-full max-w-5xl mx-auto py-16"
+    class="flex flex-col md:flex-row gap-8 justify-between items-center w-full max-w-5xl mx-auto py-16"
   >
     <div class="flex flex-col gap-4">
-      <p class="text-6xl font-bold dark:text-white">Hi, I'm Jonathan Peraza.</p>
+      <p class="text-6xl font-bold dark:text-white text-center md:text-left">
+        Hi, I'm Jonathan Peraza.
+      </p>
 
-      <p class="text-gray-600 text-3xl dark:text-gray-400">
+      <p
+        class="text-gray-600 text-3xl dark:text-gray-400 text-center md:text-left"
+      >
         A Full Stack software engineer with a passion for building web
         applications who is currently based in Guadalajara, Mexico.
       </p>
 
-      <div class="flex flex-row gap-4 flex-wrap w-full">
+      <div
+        class="flex flex-row gap-4 flex-wrap w-full justify-center md:justify-start"
+      >
         <!-- Chips -->
         <div class="flex flex-row gap-2">
           {technologies.map((technology) => <Chip>{technology}</Chip>)}
@@ -42,7 +48,7 @@ const technologies = [
   </div>
 
   <div
-    class="border border-gray-300 dark:border-gray-700 rounded-lg grid grid-cols-3 gap-4 w-full max-w-5xl mx-auto shadow-lg bg-white dark:bg-slate-800 p-8"
+    class="border border-gray-300 dark:border-gray-700 rounded-lg grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-5xl mx-auto shadow-lg bg-white dark:bg-slate-800 p-8"
   >
     <div class="flex flex-col gap-2 col-span-1 py-4 px-8">
       <div
