@@ -36,7 +36,9 @@ const technologies = [
         class="flex flex-row gap-4 flex-wrap w-full justify-center md:justify-start"
       >
         <!-- Chips -->
-        <div class="flex flex-row gap-2">
+        <div
+          class="flex flex-wrap justify-center md:justify-start md:flex-row gap-2"
+        >
           {technologies.map((technology) => <Chip>{technology}</Chip>)}
         </div>
       </div>
