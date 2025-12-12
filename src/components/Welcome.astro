@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 import Chip from "./Chip.astro";
 import RoleItem from "./RoleItem.astro";
 
-import profileImage from "../assets/profile-hw.jpg";
+import profileImage from "../assets/profile-hw.webp";
 
 const technologies = [
   "TypeScript",
@@ -36,7 +36,9 @@ const technologies = [
         class="flex flex-row gap-4 flex-wrap w-full justify-center md:justify-start"
       >
         <!-- Chips -->
-        <div class="flex flex-row gap-2">
+        <div
+          class="flex flex-wrap justify-center md:justify-start md:flex-row gap-2"
+        >
           {technologies.map((technology) => <Chip>{technology}</Chip>)}
         </div>
       </div>
