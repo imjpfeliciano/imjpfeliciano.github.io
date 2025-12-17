@@ -21,12 +21,16 @@ const technologies = [
     class="flex flex-col md:flex-row gap-8 justify-between items-center w-full max-w-5xl mx-auto py-16"
   >
     <div class="flex flex-col gap-4">
-      <p class="text-6xl font-bold dark:text-white text-center md:text-left">
+      <p
+        class="text-6xl font-bold dark:text-white text-center md:text-left"
+        data-translate="welcome.greeting"
+      >
         Hi, I'm Jonathan Peraza.
       </p>
 
       <p
         class="text-gray-600 text-3xl dark:text-gray-400 text-center md:text-left"
+        data-translate="welcome.description"
       >
         A Full Stack software engineer with a passion for building web
         applications who is currently based in Guadalajara, Mexico.
@@ -59,19 +63,25 @@ const technologies = [
   >
     <RoleItem
       role="Full Stack SWE"
+      roleKey="welcome.role.fullstack"
       description="I'm a full stack SWE with a passion for building web applications who is currently based in Guadalajara, Mexico."
+      descriptionKey="welcome.role.fullstack.desc"
       Icon={SquareCode}
     />
 
     <RoleItem
       role="Mentor"
+      roleKey="welcome.role.mentor"
       description="I'm a mentor who is passionate about helping others learn and grow."
+      descriptionKey="welcome.role.mentor.desc"
       Icon={School}
     />
 
     <RoleItem
       role="Interviewer"
+      roleKey="welcome.role.interviewer"
       description="I'm an interviewer who is passionate about helping others prepare for interviews."
+      descriptionKey="welcome.role.interviewer.desc"
       Icon={Users}
     />
   </div>

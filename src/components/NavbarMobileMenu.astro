@@ -3,12 +3,14 @@ import { MenuIcon } from "@lucide/astro";
 import github from "../assets/github.svg";
 import linkedin from "../assets/linkedin.svg";
 import youtube from "../assets/youtube.svg";
+import LanguageSelector from "./LanguageSelector.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 
 const activeLink = Astro.url.pathname;
 const links = [
   {
     label: "Home",
+    labelKey: "nav.home",
     href: "/",
     isActive: activeLink === "/",
   },
@@ -20,6 +22,7 @@ const links = [
   // },
   {
     label: "About",
+    labelKey: "nav.about",
     href: "/about",
     isActive: activeLink.includes("/about"),
   },
@@ -42,6 +45,7 @@ const links = [
       links.map((link) => (
         <a
           href={link.href}
+          data-translate={link.labelKey}
           class:list={[
             "text-gray-600 dark:text-white text-sm font-medium cursor-pointer",
             link.isActive ? "text-green-700 dark:text-green-400!" : "",
@@ -78,7 +82,10 @@ const links = [
           <img src={youtube.src} alt="YouTube" class="w-4 h-4 dark:invert" />
         </a>
       </div>
-      <ThemeToggle />
+      <div class="flex flex-row gap-2 items-center">
+        <LanguageSelector />
+        <ThemeToggle />
+      </div>
     </div>
   </div>
 </div>

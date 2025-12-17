@@ -3,6 +3,7 @@ import github from "../assets/github.svg";
 import linkedin from "../assets/linkedin.svg";
 import youtube from "../assets/youtube.svg";
 
+import LanguageSelector from "./LanguageSelector.astro";
 import NavbarMobileMenu from "./NavbarMobileMenu.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 
@@ -10,6 +11,7 @@ const activeLink = Astro.url.pathname;
 const links = [
   {
     label: "Home",
+    labelKey: "nav.home",
     href: "/",
     isActive: activeLink === "/",
   },
@@ -21,6 +23,7 @@ const links = [
   // },
   {
     label: "About",
+    labelKey: "nav.about",
     href: "/about",
     isActive: activeLink.includes("/about"),
   },
@@ -43,6 +46,7 @@ const links = [
       links.map((link) => (
         <a
           href={link.href}
+          data-translate={link.labelKey}
           class:list={[
             "text-gray-600 dark:text-white",
             "text-sm",
@@ -70,6 +74,7 @@ const links = [
       <img src={youtube.src} alt="YouTube" class="w-6 h-6 dark:invert" />
     </a>
 
+    <LanguageSelector />
     <ThemeToggle />
   </div>
 </div>

@@ -10,14 +10,21 @@ const skills = ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS"];
 ---
 
 <Layout>
-  <h1 class="text-4xl font-bold text-center dark:text-white">About</h1>
+  <h1
+    class="text-4xl font-bold text-center dark:text-white"
+    data-translate="about.title"
+  >
+    About
+  </h1>
   <p
     class="text-gray-600 dark:text-gray-400 text-center text-xl font-light mx-auto"
+    data-translate="about.thankYou"
   >
     Thank you for visiting my website.
   </p>
   <p
     class="text-gray-600 dark:text-gray-400 text-center text-xl font-light mx-auto"
+    data-translate="about.readMore"
   >
     Read below to learn more about myself and my journey.
   </p>
@@ -28,37 +35,52 @@ const skills = ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS"];
   />
 
   <div class="flex flex-col gap-4 max-w-5xl mx-auto">
-    <AboutSection title="Background">
-      <p class="text-gray-600 dark:text-gray-400 col-span-4">
+    <AboutSection title="Background" titleKey="about.section.background">
+      <p
+        class="text-gray-600 dark:text-gray-400 col-span-4"
+        data-translate="about.background.p1"
+      >
         I’m a Software Engineer with 8+ years of experience building
         high-quality, scalable web applications, with a deep specialization in
         frontend development using React, Next.js, and TypeScript.
       </p>
-      <p class="text-gray-600 dark:text-gray-400 col-span-4">
+      <p
+        class="text-gray-600 dark:text-gray-400 col-span-4"
+        data-translate="about.background.p2"
+      >
         I’ve worked across full-stack roles, but my strongest expertise lies in
         modern JavaScript-based frontend architectures, including design systems
         with Storybook, accessibility, unit and E2E testing, and performance
         optimization. I enjoy creating maintainable UI systems that scale across
         large teams and products.
       </p>
-      <p class="text-gray-600 dark:text-gray-400 col-span-4">
+      <p
+        class="text-gray-600 dark:text-gray-400 col-span-4"
+        data-translate="about.background.p3"
+      >
         Throughout my career, I’ve collaborated with companies such as Wizeline,
         HumanAPI, Cerby Inc, Upnify, and PriceTravel Holding, as well as working
         as an independent contractor for consulting firms.
       </p>
-      <p class="text-gray-600 dark:text-gray-400 col-span-4">
+      <p
+        class="text-gray-600 dark:text-gray-400 col-span-4"
+        data-translate="about.background.p4"
+      >
         I’m a Telematics Engineer graduate with a strong background in
         competitive programming as both a contestant and mentor since 2010, and
         I’ve also served as a tutor for the Mexican Olympiad in Informatics
         (Quintana Roo) — a role that reflects my passion for teaching and
         technical excellence.
       </p>
-      <p class="text-gray-600 dark:text-gray-400 col-span-4">
+      <p
+        class="text-gray-600 dark:text-gray-400 col-span-4"
+        data-translate="about.background.p5"
+      >
         I’m driven by continuous learning, clean architecture, and building
         products that deliver real business and user impact.
       </p>
     </AboutSection>
-    <AboutSection title="Experience">
+    <AboutSection title="Experience" titleKey="about.section.experience">
       <div class="flex flex-col gap-2">
         <ExperienceItem
           role="Software Engineer"
@@ -88,39 +110,60 @@ const skills = ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS"];
         />
       </div>
     </AboutSection>
-    <AboutSection title="Education">
+    <AboutSection title="Education" titleKey="about.section.education">
       <ul class="list-disc list-inside">
         <li>
-          <span class="font-semibold dark:text-white"
+          <span
+            class="font-semibold dark:text-white"
+            data-translate="about.education.degree"
             >B.S. in Telematics Engineering</span
           >
-          <span class="text-gray-600 dark:text-gray-400"
+          <span
+            class="text-gray-600 dark:text-gray-400"
+            data-translate="about.education.university"
             >Universidad del Caribe - Quintana Roo</span
           >
-          <span class="text-gray-600 dark:text-gray-400">2015 - 2020</span>
+          <span
+            class="text-gray-600 dark:text-gray-400"
+            data-translate="about.education.years">2015 - 2020</span
+          >
         </li>
       </ul>
     </AboutSection>
-    <AboutSection title="Skills">
+    <AboutSection title="Skills" titleKey="about.section.skills">
       <div class="flex flex-wrap gap-2">
         {skills.map((skill) => <Chip>{skill}</Chip>)}
       </div>
     </AboutSection>
-    <AboutSection title="Interests">
+    <AboutSection title="Interests" titleKey="about.section.interests">
       <ul class="list-disc list-inside text-gray-600 dark:text-gray-400">
         <li>
-          <span class="font-semibold dark:text-white"
+          <span
+            class="font-semibold dark:text-white"
+            data-translate="about.interests.competitive"
             >Competitive Programming</span
           >
-          <span class="text-gray-600 dark:text-gray-400">2010 - 2020</span>
-          <p class="text-gray-600 dark:text-gray-400">
+          <span
+            class="text-gray-600 dark:text-gray-400"
+            data-translate="about.interests.competitive.years">2010 - 2020</span
+          >
+          <p
+            class="text-gray-600 dark:text-gray-400"
+            data-translate="about.interests.competitive.desc"
+          >
             I've been a competitive programming contestant and mentor since
             2010.
           </p>
         </li>
         <li>
-          <span class="font-semibold dark:text-white">Teaching</span>
-          <span class="text-gray-600 dark:text-gray-400">2010 - 2020</span>
+          <span
+            class="font-semibold dark:text-white"
+            data-translate="about.interests.teaching">Teaching</span
+          >
+          <span
+            class="text-gray-600 dark:text-gray-400"
+            data-translate="about.interests.teaching.years">2010 - 2020</span
+          >
         </li>
       </ul>
     </AboutSection>

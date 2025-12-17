@@ -1,0 +1,160 @@
+---
+import { translations } from "../translations";
+---
+
+<div class="language-selector-wrapper relative">
+  <select
+    id="language-selector"
+    class="language-selector px-3 py-1 rounded-full text-sm h-8 w-fit flex items-center justify-center cursor-pointer border-2 transition-all duration-300 bg-white border-green-700 text-black hover:bg-green-600 dark:bg-slate-800 dark:text-white dark:border-green-400 appearance-none pr-8"
+    aria-label="Select language"
+  >
+    <option value="en" data-flag="🇺🇸" data-label="English">🇺🇸 English</option>
+    <option value="es" data-flag="🇲🇽" data-label="Español">🇲🇽 Español</option>
+  </select>
+</div>
+
+<style>
+  .language-selector-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .language-selector {
+    padding-right: 2.5rem;
+    padding-left: 0.75rem;
+    min-width: 7rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  /* Custom arrow for select */
+  .language-selector-wrapper::after {
+    content: "▼";
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 0.6rem;
+    color: currentColor;
+    opacity: 0.7;
+  }
+
+  /* Style options in dropdown */
+  .language-selector option {
+    padding: 0.5rem 0.75rem;
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Dark mode options */
+  .dark .language-selector option {
+    background-color: rgb(30 41 55);
+    color: white;
+  }
+
+  /* Hover state for select */
+  .language-selector:hover {
+    border-color: rgb(22 101 52);
+  }
+
+  .dark .language-selector:hover {
+    border-color: rgb(74 222 128);
+  }
+
+  /* Focus state */
+  .language-selector:focus {
+    outline: none;
+    ring: 2px;
+    ring-color: rgb(22 101 52);
+  }
+
+  .dark .language-selector:focus {
+    ring-color: rgb(74 222 128);
+  }
+</style>
+
+<script define:vars={{ translations }}>
+  // Translations are imported from separate files and passed via define:vars
+  // This ensures type safety - TypeScript will error if keys don't match
+
+  // Initialize language from localStorage or default to English
+  function getCurrentLanguage() {
+    if (typeof window !== "undefined") {
+      const savedLang = localStorage.getItem("language");
+      return savedLang || "en";
+    }
+    return "en";
+  }
+
+  // Update all translatable elements
+  function updateLanguage(lang) {
+    if (typeof window === "undefined") return;
+
+    const langTranslations = translations[lang];
+    if (!langTranslations) return;
+
+    // Find all elements with data-translate attribute
+    const elements = document.querySelectorAll("[data-translate]");
+    elements.forEach((element) => {
+      const key = element.getAttribute("data-translate");
+      if (key && langTranslations[key]) {
+        element.textContent = langTranslations[key];
+      }
+    });
+
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+
+    // Save to localStorage
+    localStorage.setItem("language", lang);
+  }
+
+  // Update select display to show flag and label
+  function updateSelectDisplay() {
+    const selector = document.getElementById("language-selector");
+    if (!selector) return;
+
+    const selectedOption = selector.options[selector.selectedIndex];
+    if (selectedOption) {
+      const flag = selectedOption.getAttribute("data-flag") || "";
+      const label = selectedOption.getAttribute("data-label") || "";
+      // The display is handled by the option content, but we ensure it's set
+      selector.value = selector.value;
+    }
+  }
+
+  // Initialize language on page load
+  if (typeof window !== "undefined" && !window["languageInitialized"]) {
+    const currentLang = getCurrentLanguage();
+    updateLanguage(currentLang);
+
+    // Set the selector value
+    const selector = document.getElementById("language-selector");
+    if (selector) {
+      selector.value = currentLang;
+      updateSelectDisplay();
+    }
+
+    window["languageInitialized"] = true;
+  }
+
+  // Handle language selector change
+  if (typeof window !== "undefined" && !window["languageHandlerAttached"]) {
+    document.addEventListener("change", (event) => {
+      const target = event.target;
+      const selector = target.closest("#language-selector");
+
+      if (selector) {
+        const selectedLang = selector.value;
+        updateLanguage(selectedLang);
+        updateSelectDisplay();
+      }
+    });
+
+    window["languageHandlerAttached"] = true;
+  }
+</script>

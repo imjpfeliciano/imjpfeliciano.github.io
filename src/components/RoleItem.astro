@@ -2,16 +2,22 @@
 const role = Astro.props.role;
 const description = Astro.props.description;
 const Icon = Astro.props.Icon;
+const roleKey = Astro.props.roleKey;
+const descriptionKey = Astro.props.descriptionKey;
 ---
 
 <div class="flex flex-col gap-2 col-span-1 py-4 px-8">
   <div
     class="text-2xl font-bold text-center flex flex-row items-center justify-center gap-2 dark:text-white"
+    data-translate={roleKey}
   >
     <Icon />
     {role}
   </div>
-  <div class="text-gray-600 dark:text-gray-400 text-center">
+  <div
+    class="text-gray-600 dark:text-gray-400 text-center"
+    data-translate={descriptionKey}
+  >
     {description}
   </div>
 </div>
