@@ -1,0 +1,311 @@
+---
+interface OGMeta {
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  [key: string]: string | undefined;
+}
+
+interface Experience {
+  role: string;
+  company: string;
+  startDate: string;
+  endDate: string;
+  url?: string;
+  description?: string;
+  ogMeta?: OGMeta | null;
+}
+
+// Helper function to resolve relative URLs to absolute URLs
+function resolveUrl(baseUrl: string, relativeUrl: string): string {
+  try {
+    return new URL(relativeUrl, baseUrl).href;
+  } catch {
+    return relativeUrl;
+  }
+}
+
+// Helper function to fetch and parse OG meta tags from a URL
+async function fetchOGMeta(url: string) {
+  try {
+    const response = await fetch(url, {
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (compatible; AstroBot/1.0; +https://astro.build/bot)",
+      },
+      // Add timeout to prevent hanging
+      signal: AbortSignal.timeout(10000), // 10 second timeout
+    });
+
+    if (!response.ok) {
+      return null;
+    }
+
+    const html = await response.text();
+
+    // Extract OG meta tags using regex
+    const ogTags: Record<string, string> = {};
+
+    // Match og:property="content" or property="og:..." content="..."
+    const ogPattern =
+      /<meta\s+(?:property=["']og:([^"']+)["']|name=["']og:([^"']+)["'])\s+content=["']([^"']+)["']/gi;
+    let match;
+
+    while ((match = ogPattern.exec(html)) !== null) {
+      const property = match[1] || match[2];
+      const content = match[3];
+      if (property && content) {
+        ogTags[property] = content;
+      }
+    }
+
+    // Also check for twitter:image as fallback
+    const twitterImagePattern =
+      /<meta\s+name=["']twitter:image["']\s+content=["']([^"']+)["']/i;
+    const twitterMatch = html.match(twitterImagePattern);
+    if (twitterMatch && !ogTags.image) {
+      ogTags.image = twitterMatch[1];
+    }
+
+    // Fallback to standard meta tags
+    if (!ogTags.title) {
+      const titleMatch = html.match(/<title>([^<]+)<\/title>/i);
+      if (titleMatch) {
+        ogTags.title = titleMatch[1];
+      }
+    }
+
+    if (!ogTags.description) {
+      const descPattern =
+        /<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i;
+      const descMatch = html.match(descPattern);
+      if (descMatch) {
+        ogTags.description = descMatch[1];
+      }
+    }
+
+    // Resolve relative image URLs to absolute URLs
+    if (ogTags.image && !ogTags.image.startsWith("http")) {
+      ogTags.image = resolveUrl(url, ogTags.image);
+    }
+
+    return Object.keys(ogTags).length > 0 ? ogTags : null;
+  } catch (error) {
+    // Silently fail - don't log errors in production builds
+    if (import.meta.env.DEV) {
+      console.warn(`Could not fetch OG meta for ${url}:`, error);
+    }
+    return null;
+  }
+}
+
+// Experience data - 4 most recent items
+// Add optional `url` and `description` fields
+// If `description` is provided, it will be used instead of OG meta description
+const experiencesData: Omit<Experience, "ogMeta">[] = [
+  {
+    role: "Software Engineer",
+    company: "Cerby Inc.",
+    startDate: "2023",
+    endDate: "2025",
+    url: "https://cerby.com", // Optional: add company URL
+  },
+  {
+    role: "Software Engineer",
+    company: "HumanAPI",
+    startDate: "2021",
+    endDate: "2023",
+    url: "https://risk.lexisnexis.com/products/health-intelligence-ehr", // Optional: add company URL
+  },
+  {
+    role: "Software Engineer III",
+    company: "Wizeline",
+    startDate: "2017",
+    endDate: "2021",
+    url: "https://www.wizeline.ai", // Optional: add company URL
+  },
+  {
+    role: "Software Engineer",
+    company: "SalesUp! (Now Upnify)",
+    startDate: "2016",
+    endDate: "2017",
+    url: "https://upnify.com/es", // Optional: add company URL
+  },
+];
+
+// Fetch OG meta for experiences that have URLs
+const experiences = await Promise.all(
+  experiencesData.map(async (exp) => {
+    let ogMeta = null;
+    if (exp.url) {
+      ogMeta = await fetchOGMeta(exp.url);
+    }
+    return {
+      ...exp,
+      ogMeta,
+    };
+  })
+);
+---
+
+<style>
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .skeleton {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(229, 231, 235, 0) 0%,
+      rgba(229, 231, 235, 0.8) 50%,
+      rgba(229, 231, 235, 0) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  .dark .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(51, 65, 85, 0) 0%,
+      rgba(51, 65, 85, 0.8) 50%,
+      rgba(51, 65, 85, 0) 100%
+    );
+    background-size: 1000px 100%;
+  }
+
+  .image-loading {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .image-loaded {
+    opacity: 1;
+  }
+</style>
+
+<div class="flex flex-col gap-8 w-full max-w-5xl mx-auto py-16">
+  <!-- Header Section -->
+  <div
+    class="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+  >
+    <div class="flex flex-col gap-2">
+      <h2
+        class="text-3xl font-bold dark:text-white"
+        data-translate="home.selectedWork.title"
+      >
+        Selected Work Experience
+      </h2>
+      <p
+        class="text-gray-600 dark:text-gray-400 text-lg"
+        data-translate="home.selectedWork.description"
+      >
+        A selection of my most recent professional experiences and roles.
+      </p>
+    </div>
+    <a
+      href="/work"
+      class="px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors duration-200 w-fit shadow-md"
+      data-translate="home.selectedWork.viewAll"
+    >
+      View All Experience
+    </a>
+  </div>
+
+  <!-- Experience Cards Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {
+      experiences.map((experience) => {
+        // Show skeleton when ogMeta is null and URL exists (fetching or failed)
+        const isLoading = experience.ogMeta === null && experience.url;
+
+        return isLoading ? (
+          // Full Skeleton Card
+          <div class="border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden bg-white dark:bg-slate-800 shadow-md flex flex-col">
+            {/* Image Skeleton */}
+            <div class="w-full aspect-video bg-gray-200 dark:bg-gray-700 skeleton skeleton-shimmer" />
+
+            {/* Content Skeleton */}
+            <div class="flex flex-col gap-3 p-6">
+              <div class="flex flex-col gap-1">
+                {/* Role Skeleton */}
+                <div class="h-6 bg-gray-200 dark:bg-gray-700 rounded skeleton skeleton-shimmer w-2/3" />
+                {/* Company Skeleton */}
+                <div class="h-5 bg-gray-200 dark:bg-gray-700 rounded skeleton skeleton-shimmer w-1/2 mt-1" />
+                {/* Description Skeleton */}
+                <div class="flex flex-col gap-2 mt-2">
+                  <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded skeleton skeleton-shimmer w-full" />
+                  <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded skeleton skeleton-shimmer w-5/6" />
+                </div>
+              </div>
+              {/* Date Skeleton */}
+              <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded skeleton skeleton-shimmer w-1/4" />
+            </div>
+          </div>
+        ) : (
+          // Actual Card
+          <div class="border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden bg-white dark:bg-slate-800 shadow-md hover:shadow-lg transition-shadow duration-200 flex flex-col">
+            {/* OG Image - only show if image exists */}
+            {experience.ogMeta?.image && (
+              <div class="w-full aspect-video overflow-hidden bg-gray-100 dark:bg-gray-700 relative">
+                <img
+                  src={experience.ogMeta.image}
+                  alt={experience.ogMeta.title || experience.company}
+                  class="w-full h-full object-cover image-loading"
+                  loading="lazy"
+                  onload="this.classList.remove('image-loading'); this.classList.add('image-loaded'); this.nextElementSibling?.remove();"
+                />
+                <div class="skeleton skeleton-shimmer absolute inset-0 bg-gray-200 dark:bg-gray-700" />
+              </div>
+            )}
+
+            <div class="flex flex-col gap-3 p-6">
+              <div class="flex flex-col gap-1">
+                <h3 class="text-xl font-bold dark:text-white">
+                  {experience.role}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-400 font-medium">
+                  {experience.company}
+                </p>
+                {/* Description - prioritize provided description over OG meta */}
+                {experience.description || experience.ogMeta?.description ? (
+                  <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 line-clamp-2">
+                    {experience.description || experience.ogMeta?.description}
+                  </p>
+                ) : (
+                  <div class="flex flex-col gap-2 mt-2">
+                    <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded skeleton skeleton-shimmer w-full" />
+                    <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded skeleton skeleton-shimmer w-5/6" />
+                  </div>
+                )}
+              </div>
+              <div class="text-sm text-gray-500 dark:text-gray-500">
+                {experience.startDate} - {experience.endDate}
+              </div>
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</div>

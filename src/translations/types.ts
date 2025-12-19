@@ -40,6 +40,15 @@ export type TranslationKeys = {
   "about.interests.teaching": string;
   "about.interests.teaching.years": string;
 
+  // Home Selected Work Section
+  "home.selectedWork.title": string;
+  "home.selectedWork.description": string;
+  "home.selectedWork.viewAll": string;
+
+  // Home Mentions Section
+  "home.mentions.title": string;
+  "home.mentions.description": string;
+
   // Footer
   "footer.workTogether": string;
   "footer.sendMessage": string;

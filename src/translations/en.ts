@@ -48,6 +48,17 @@ export const en: EnsureAllKeys<TranslationKeys> = {
   "about.interests.teaching": "Teaching",
   "about.interests.teaching.years": "2010 - 2020",
 
+  // Home Selected Work Section
+  "home.selectedWork.title": "Selected Work Experience",
+  "home.selectedWork.description":
+    "A selection of my most recent professional experiences and roles.",
+  "home.selectedWork.viewAll": "View All Experience",
+
+  // Home Mentions Section
+  "home.mentions.title": "Mentions & Contributions",
+  "home.mentions.description":
+    "Posts and articles featuring my contributions and work.",
+
   // Footer
   "footer.workTogether": "Interested in working together?",
   "footer.sendMessage": "Send me a message",

@@ -5,6 +5,8 @@ import Chip from "./Chip.astro";
 import RoleItem from "./RoleItem.astro";
 
 import profileImage from "../assets/profile-hw.webp";
+import HomeMentionsSection from "./HomeMentionsSection.astro";
+import HomeSelectedWorkSection from "./HomeSelectedWorkSection.astro";
 
 const technologies = [
   "TypeScript",
@@ -86,9 +88,9 @@ const technologies = [
     />
   </div>
 
-  <!-- <div class="text-2xl font-bold">Experience</div> -->
+  <HomeSelectedWorkSection />
 
-  <!-- <div class="text-2xl font-bold">Mentions & Feedback</div> -->
+  <HomeMentionsSection />
 
   <!-- <div class="text-2xl font-bold">Awards</div> -->
 </div>
