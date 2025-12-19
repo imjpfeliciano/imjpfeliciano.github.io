@@ -23,6 +23,14 @@ import "../styles/global.css";
           document.documentElement.classList.remove("dark");
         }
       })();
+
+      // Apply language preference immediately
+      (function () {
+        const savedLang = localStorage.getItem("language");
+        if (savedLang) {
+          document.documentElement.lang = savedLang;
+        }
+      })();
     </script>
   </head>
   <body class="bg-slate-100 dark:bg-slate-900">

@@ -13,6 +13,24 @@ import { translations } from "../translations";
   </select>
 </div>
 
+<script is:inline>
+  // Set the select value immediately from localStorage to prevent flash
+  (function () {
+    if (typeof window !== "undefined") {
+      const savedLang = localStorage.getItem("language");
+      if (savedLang) {
+        // Use requestAnimationFrame to ensure DOM is ready
+        requestAnimationFrame(() => {
+          const selector = document.getElementById("language-selector");
+          if (selector) {
+            selector.value = savedLang;
+          }
+        });
+      }
+    }
+  })();
+</script>
+
 <style>
   .language-selector-wrapper {
     position: relative;
@@ -127,19 +145,61 @@ import { translations } from "../translations";
     }
   }
 
-  // Initialize language on page load
-  if (typeof window !== "undefined" && !window["languageInitialized"]) {
-    const currentLang = getCurrentLanguage();
-    updateLanguage(currentLang);
+  // Set select value helper - ensures all selectors show the correct value
+  function setSelectValue(lang) {
+    const selectors = document.querySelectorAll("#language-selector");
+    selectors.forEach((selector) => {
+      if (selector) {
+        // Force set the value
+        selector.value = lang;
+        // Also set selected attribute on the option for extra reliability
+        const option = selector.querySelector(`option[value="${lang}"]`);
+        if (option) {
+          option.selected = true;
+        }
+      }
+    });
+  }
 
-    // Set the selector value
-    const selector = document.getElementById("language-selector");
-    if (selector) {
-      selector.value = currentLang;
-      updateSelectDisplay();
+  // Initialize language on page load
+  function initializeLanguage() {
+    if (typeof window === "undefined") return;
+
+    const currentLang = getCurrentLanguage();
+
+    // Set the selector value first (before updating translations)
+    setSelectValue(currentLang);
+
+    // Update all translations
+    updateLanguage(currentLang);
+  }
+
+  // Run initialization when DOM is ready
+  if (typeof window !== "undefined") {
+    function runInit() {
+      initializeLanguage();
+      // Run again after a short delay to catch any late-rendered components
+      setTimeout(() => {
+        const currentLang = getCurrentLanguage();
+        setSelectValue(currentLang);
+        updateLanguage(currentLang);
+      }, 100);
     }
 
-    window["languageInitialized"] = true;
+    // If DOM is already loaded, run immediately
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", runInit);
+    } else {
+      // DOM is already loaded, run immediately
+      runInit();
+    }
+
+    // Also run on page visibility change (handles back/forward navigation)
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) {
+        setTimeout(initializeLanguage, 0);
+      }
+    });
   }
 
   // Handle language selector change
@@ -150,8 +210,16 @@ import { translations } from "../translations";
 
       if (selector) {
         const selectedLang = selector.value;
+
+        // Update all selectors to show the same value
+        const allSelectors = document.querySelectorAll("#language-selector");
+        allSelectors.forEach((sel) => {
+          if (sel !== selector) {
+            sel.value = selectedLang;
+          }
+        });
+
         updateLanguage(selectedLang);
-        updateSelectDisplay();
       }
     });
 
