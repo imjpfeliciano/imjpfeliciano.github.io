@@ -53,6 +53,7 @@ export const en: EnsureAllKeys<TranslationKeys> = {
   "home.selectedWork.description":
     "A selection of my most recent professional experiences and roles.",
   "home.selectedWork.viewAll": "View All Experience",
+  "home.selectedWork.visitWebsite": "Visit Website",
 
   // Home Mentions Section
   "home.mentions.title": "Mentions & Contributions",

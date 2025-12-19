@@ -54,6 +54,7 @@ export const es: EnsureAllKeys<TranslationKeys> = {
   "home.selectedWork.description":
     "Una selección de mis experiencias profesionales y roles más recientes.",
   "home.selectedWork.viewAll": "Ver Toda la Experiencia",
+  "home.selectedWork.visitWebsite": "Visitar Sitio Web",
 
   // Home Mentions Section
   "home.mentions.title": "Menciones y Contribuciones",

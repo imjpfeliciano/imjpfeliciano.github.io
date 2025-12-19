@@ -44,6 +44,7 @@ export type TranslationKeys = {
   "home.selectedWork.title": string;
   "home.selectedWork.description": string;
   "home.selectedWork.viewAll": string;
+  "home.selectedWork.visitWebsite": string;
 
   // Home Mentions Section
   "home.mentions.title": string;

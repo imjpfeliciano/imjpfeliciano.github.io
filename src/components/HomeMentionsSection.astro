@@ -36,10 +36,22 @@ async function fetchOGMeta(url: string) {
     });
 
     if (!response.ok) {
+      // Facebook and some social media sites often return 403 or redirect to login
+      if (import.meta.env.DEV) {
+        console.warn(`Failed to fetch OG meta for ${url}: HTTP ${response.status} ${response.statusText}`);
+      }
       return null;
     }
 
     const html = await response.text();
+
+    // Check if Facebook redirected to login page (common issue)
+    if (html.includes('facebook.com/login') || html.includes('Log in to Facebook')) {
+      if (import.meta.env.DEV) {
+        console.warn(`Facebook URL ${url} redirected to login page - OG meta unavailable`);
+      }
+      return null;
+    }
 
     // Extract OG meta tags using regex
     const ogTags: Record<string, string> = {};
@@ -217,8 +229,10 @@ const hasMentions = mentions.length > 0;
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       {
         mentions.map((mention) => {
-          // Show skeleton when ogMeta is null (fetching or failed)
-          const isLoading = mention.ogMeta === null;
+          // Show skeleton only if we don't have title/description AND ogMeta is null
+          // If we have title/description provided, show the card even if ogMeta fetch failed
+          const hasFallbackData = !!(mention.title || mention.description);
+          const isLoading = !hasFallbackData && mention.ogMeta === null;
           
           return isLoading ? (
             // Full Skeleton Card

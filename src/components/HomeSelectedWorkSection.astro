@@ -15,6 +15,7 @@ interface Experience {
   url?: string;
   description?: string;
   ogMeta?: OGMeta | null;
+  canRedirect?: boolean;
 }
 
 // Helper function to resolve relative URLs to absolute URLs
@@ -132,6 +133,26 @@ const experiencesData: Omit<Experience, "ogMeta">[] = [
     endDate: "2017",
     url: "https://upnify.com/es", // Optional: add company URL
   },
+  {
+    role: "OMI-QROO Software Engineer",
+    company: "Freelance",
+    startDate: "2010",
+    endDate: "2016",
+    url: "https://www.omi-qroo.com/",
+    description:
+      "Author of the OMI-QROO website which provides information about the Quintana Roo Olympiad in Informatics Team on the Mexican Olympiad in Informatics.",
+    canRedirect: true,
+  },
+  {
+    role: "Alpha Finance - Software Engineer",
+    company: "Freelance",
+    startDate: "2010",
+    endDate: "2016",
+    url: "https://www.alpha-finance.app/",
+    description:
+      "Author of the Alpha Finance platform which helps users manage their accountability and financial goals.",
+    canRedirect: true,
+  },
 ];
 
 // Fetch OG meta for experiences that have URLs
@@ -233,7 +254,7 @@ const experiences = await Promise.all(
   </div>
 
   <!-- Experience Cards Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     {
       experiences.map((experience) => {
         // Show skeleton when ogMeta is null and URL exists (fetching or failed)
@@ -279,7 +300,7 @@ const experiences = await Promise.all(
               </div>
             )}
 
-            <div class="flex flex-col gap-3 p-6">
+            <div class="flex flex-col gap-3 p-6 flex-1">
               <div class="flex flex-col gap-1">
                 <h3 class="text-xl font-bold dark:text-white">
                   {experience.role}
@@ -302,6 +323,18 @@ const experiences = await Promise.all(
               <div class="text-sm text-gray-500 dark:text-gray-500">
                 {experience.startDate} - {experience.endDate}
               </div>
+              {/* CTA Button - show when canRedirect is true and url exists */}
+              {experience.canRedirect && experience.url && (
+                <a
+                  href={experience.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mt-2 px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors duration-200 w-fit text-sm shadow-md"
+                  data-translate="home.selectedWork.visitWebsite"
+                >
+                  Visit Website
+                </a>
+              )}
             </div>
           </div>
         );
