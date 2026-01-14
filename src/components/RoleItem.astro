@@ -1,23 +1,36 @@
 ---
-const role = Astro.props.role;
-const description = Astro.props.description;
-const Icon = Astro.props.Icon;
-const roleKey = Astro.props.roleKey;
-const descriptionKey = Astro.props.descriptionKey;
+const { role, description, Icon, roleKey, descriptionKey } = Astro.props;
 ---
 
-<div class="flex flex-col gap-2 col-span-1 py-4 px-8">
-  <div
-    class="text-2xl font-bold text-center flex flex-row items-center justify-center gap-2 dark:text-white"
-    data-translate={roleKey}
-  >
-    <Icon />
-    {role}
+<div class="flex flex-col gap-6 col-span-1 h-full rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-all duration-300 p-8 md:p-10 group hover:-translate-y-1">
+  <!-- Icon Container -->
+  <div class="flex justify-center">
+    <div class="relative">
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 dark:from-blue-500/30 dark:to-purple-500/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+      <div class="relative bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 rounded-xl p-4 group-hover:scale-110 transition-transform duration-300">
+        <Icon class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400" />
+      </div>
+    </div>
   </div>
+
+  <!-- Title -->
+  <div class="text-center">
+    <h3
+      class="text-xl md:text-2xl font-bold dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300"
+      data-translate={roleKey}
+    >
+      {role}
+    </h3>
+  </div>
+
+  <!-- Divider -->
+  <div class="w-12 h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-transparent mx-auto group-hover:w-20 transition-all duration-300"></div>
+
+  <!-- Description -->
   <div
-    class="text-gray-600 dark:text-gray-400 text-center"
+    class="text-sm md:text-base text-gray-700 dark:text-gray-300 text-center leading-relaxed flex-grow"
     data-translate={descriptionKey}
   >
     {description}
-  </div>
+  </div> 
 </div>

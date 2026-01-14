@@ -1,11 +1,11 @@
 ---
-import { School, SquareCode, Users } from "@lucide/astro";
 import { Image } from "astro:assets";
 import Chip from "./Chip.astro";
-import RoleItem from "./RoleItem.astro";
 
 import profileImage from "../assets/profile-hw.webp";
 import HomeMentionsSection from "./HomeMentionsSection.astro";
+import HomePersonalProjectsSection from "./HomePersonalProjectsSection.astro";
+import HomeProfessionalRolesSection from "./HomeProfessionalRolesSection.astro";
 import HomeSelectedWorkSection from "./HomeSelectedWorkSection.astro";
 
 const technologies = [
@@ -60,35 +60,11 @@ const technologies = [
     </div>
   </div>
 
-  <div
-    class="border border-gray-300 dark:border-gray-700 rounded-lg grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-5xl mx-auto shadow-lg bg-white dark:bg-slate-800 p-8"
-  >
-    <RoleItem
-      role="Full Stack SWE"
-      roleKey="welcome.role.fullstack"
-      description="I'm a full stack SWE with a passion for building web applications who is currently based in Guadalajara, Mexico."
-      descriptionKey="welcome.role.fullstack.desc"
-      Icon={SquareCode}
-    />
-
-    <RoleItem
-      role="Mentor"
-      roleKey="welcome.role.mentor"
-      description="I'm a mentor who is passionate about helping others learn and grow."
-      descriptionKey="welcome.role.mentor.desc"
-      Icon={School}
-    />
-
-    <RoleItem
-      role="Interviewer"
-      roleKey="welcome.role.interviewer"
-      description="I'm an interviewer who is passionate about helping others prepare for interviews."
-      descriptionKey="welcome.role.interviewer.desc"
-      Icon={Users}
-    />
-  </div>
+  <HomeProfessionalRolesSection />
 
   <HomeSelectedWorkSection />
+
+  <HomePersonalProjectsSection />
 
   <HomeMentionsSection />
 

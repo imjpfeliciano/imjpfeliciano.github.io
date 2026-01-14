@@ -11,13 +11,13 @@ export const en: EnsureAllKeys<TranslationKeys> = {
     "A Full Stack software engineer with a passion for building web applications who is currently based in Guadalajara, Mexico.",
   "welcome.role.fullstack": "Full Stack SWE",
   "welcome.role.fullstack.desc":
-    "I'm a full stack SWE with a passion for building web applications who is currently based in Guadalajara, Mexico.",
+    "Full stack engineer with deep expertise in frontend technologies, specializing in React, Next.js, and TypeScript. Passionate about building scalable web applications with clean architecture and modern best practices.",
   "welcome.role.mentor": "Mentor",
   "welcome.role.mentor.desc":
-    "I'm a mentor who is passionate about helping others learn and grow.",
+    "Experienced mentor helping developers grow in web technologies and problem-solving. I guide others through algorithm challenges and share knowledge on modern frontend development practices.",
   "welcome.role.interviewer": "Interviewer",
   "welcome.role.interviewer.desc":
-    "I'm an interviewer who is passionate about helping others prepare for interviews.",
+    "Technical interviewer with extensive experience conducting 200+ interviews focused on algorithms and web technologies including React and Vue. I help assess technical skills and identify top talent.",
 
   // About page
   "about.title": "About",
@@ -59,6 +59,12 @@ export const en: EnsureAllKeys<TranslationKeys> = {
   "home.mentions.title": "Mentions & Contributions",
   "home.mentions.description":
     "Posts and articles featuring my contributions and work.",
+
+  // Home Personal Projects Section
+  "home.personalProjects.title": "Personal Projects",
+  "home.personalProjects.description":
+    "A collection of projects I've developed to solve real-world problems and explore new technologies.",
+  "home.personalProjects.explore": "Explore Project →",
 
   // Footer
   "footer.workTogether": "Interested in working together?",

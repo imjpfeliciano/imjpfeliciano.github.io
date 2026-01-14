@@ -50,6 +50,11 @@ export type TranslationKeys = {
   "home.mentions.title": string;
   "home.mentions.description": string;
 
+  // Home Personal Projects Section
+  "home.personalProjects.title": string;
+  "home.personalProjects.description": string;
+  "home.personalProjects.explore": string;
+
   // Footer
   "footer.workTogether": string;
   "footer.sendMessage": string;

@@ -1,0 +1,49 @@
+---
+import { School, SquareCode, Users } from "@lucide/astro";
+import RoleItem from "./RoleItem.astro";
+
+const professionalRoles = [
+  {
+    role: "Full Stack SWE",
+    roleKey: "welcome.role.fullstack",
+    description:
+      "Full stack engineer with deep expertise in frontend technologies, specializing in React, Next.js, and TypeScript. Passionate about building scalable web applications with clean architecture and modern best practices.",
+    descriptionKey: "welcome.role.fullstack.desc",
+    Icon: SquareCode,
+  },
+  {
+    role: "Mentor",
+    roleKey: "welcome.role.mentor",
+    description:
+      "Experienced mentor helping developers grow in web technologies and problem-solving. I guide others through algorithm challenges and share knowledge on modern frontend development practices.",
+    descriptionKey: "welcome.role.mentor.desc",
+    Icon: School,
+  },
+  {
+    role: "Interviewer",
+    roleKey: "welcome.role.interviewer",
+    description:
+      "Technical interviewer with extensive experience conducting 200+ interviews focused on algorithms and web technologies including React and Vue. I help assess technical skills and identify top talent.",
+    descriptionKey: "welcome.role.interviewer.desc",
+    Icon: Users,
+  },
+];
+---
+
+<div class="flex flex-col gap-8 w-full max-w-5xl mx-auto py-16">
+  <div
+    class="grid grid-cols-1 md:grid-cols-3 gap-8"
+  >
+    {
+      professionalRoles.map((role) => (
+        <RoleItem
+          role={role.role}
+          roleKey={role.roleKey}
+          description={role.description}
+          descriptionKey={role.descriptionKey}
+          Icon={role.Icon}
+        />
+      ))
+    }
+  </div>
+</div>

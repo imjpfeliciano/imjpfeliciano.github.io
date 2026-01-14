@@ -1,0 +1,106 @@
+---
+import { Image } from "astro:assets";
+
+interface PersonalProject {
+  title: string;
+  url: string;
+  description: string;
+  image: ImageMetadata;
+}
+
+// Import placeholder images - replace these with actual project screenshots
+import alphaFinanceImage from "../assets/project-alpha-finance.svg";
+import omiQrooImage from "../assets/project-omi-qroo.svg";
+import opportunityTrackerImage from "../assets/project-opportunity-tracker.svg";
+
+const personalProjects: PersonalProject[] = [
+  {
+    title: "OMI-QROO",
+    url: "https://www.omi-qroo.com/",
+    description:
+      "Website which provides information about the Quintana Roo Olympiad in Informatics Team on the Mexican Olympiad in Informatics.",
+    image: omiQrooImage,
+  },
+  {
+    title: "Alpha Finance",
+    url: "https://www.alpha-finance.app/",
+    description:
+      "A platform that helps users manage their accountability and financial goals.",
+    image: alphaFinanceImage,
+  },
+  {
+    title: "Opportunity Tracker",
+    url: "https://www.opportunity-tracker.app/",
+    description:
+      "A platform that helps users manage their job opportunities, applications, stages, interviews, notes, and outcomes.",
+    image: opportunityTrackerImage,
+  },
+];
+---
+
+<div class="flex flex-col gap-16 w-full max-w-5xl mx-auto py-16">
+  <!-- Header Section -->
+  <div class="flex flex-col gap-2">
+    <h2
+      class="text-3xl font-bold dark:text-white"
+      data-translate="home.personalProjects.title"
+    >
+      Personal Projects
+    </h2>
+    <p
+      class="text-gray-600 dark:text-gray-400 text-lg"
+      data-translate="home.personalProjects.description"
+    >
+      A collection of projects I've developed to solve real-world problems and explore new technologies.
+    </p>
+  </div>
+
+  <!-- Projects List -->
+  <div class="flex flex-col gap-20">
+    {
+      personalProjects.map((project, index) => {
+        const isEven = index % 2 === 0;
+        return (
+          <article class="flex flex-col md:flex-row gap-8 items-center group">
+            <!-- Image Section -->
+            <div class={`w-full md:w-1/2 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
+              >
+                <Image
+                  src={project.image}
+                  alt={`${project.title} preview`}
+                  class="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+
+            <!-- Content Section -->
+            <div class={`w-full md:w-1/2 flex flex-col gap-4 ${isEven ? 'md:order-2 md:pl-8' : 'md:order-1 md:pr-8'}`}>
+              <h3 class="text-2xl md:text-3xl font-bold dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+                {project.title}
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed">
+                {project.description}
+              </p>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-200 w-fit shadow-md hover:shadow-lg hover:scale-105 text-base"
+                data-translate="home.personalProjects.explore"
+              >
+                Explore Project
+                <span class="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+          </article>
+        );
+      })
+    }
+  </div>
+</div>

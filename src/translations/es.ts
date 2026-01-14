@@ -11,13 +11,13 @@ export const es: EnsureAllKeys<TranslationKeys> = {
     "Un ingeniero de software Full Stack con pasión por construir aplicaciones web que actualmente reside en Guadalajara, México.",
   "welcome.role.fullstack": "Ingeniero Full Stack",
   "welcome.role.fullstack.desc":
-    "Soy un ingeniero Full Stack con pasión por construir aplicaciones web que actualmente reside en Guadalajara, México.",
+    "Ingeniero full stack con profunda experiencia en tecnologías frontend, especializado en React, Next.js y TypeScript. Apasionado por construir aplicaciones web escalables con arquitectura limpia y mejores prácticas modernas.",
   "welcome.role.mentor": "Mentor",
   "welcome.role.mentor.desc":
-    "Soy un mentor apasionado por ayudar a otros a aprender y crecer.",
+    "Mentor experimentado ayudando a desarrolladores a crecer en tecnologías web y resolución de problemas. Guío a otros a través de desafíos de algoritmos y comparto conocimiento sobre prácticas modernas de desarrollo frontend.",
   "welcome.role.interviewer": "Entrevistador",
   "welcome.role.interviewer.desc":
-    "Soy un entrevistador apasionado por ayudar a otros a prepararse para entrevistas.",
+    "Entrevistador técnico con amplia experiencia realizando más de 200 entrevistas enfocadas en algoritmos y tecnologías web incluyendo React y Vue. Ayudo a evaluar habilidades técnicas e identificar talento destacado.",
 
   // About page
   "about.title": "Acerca de",
@@ -60,6 +60,12 @@ export const es: EnsureAllKeys<TranslationKeys> = {
   "home.mentions.title": "Menciones y Contribuciones",
   "home.mentions.description":
     "Publicaciones y artículos que destacan mis contribuciones y trabajo.",
+
+  // Home Personal Projects Section
+  "home.personalProjects.title": "Proyectos Personales",
+  "home.personalProjects.description":
+    "Una colección de proyectos que he desarrollado para resolver problemas del mundo real y explorar nuevas tecnologías.",
+  "home.personalProjects.explore": "Explorar Proyecto →",
 
   // Footer
   "footer.workTogether": "¿Interesado en trabajar juntos?",
