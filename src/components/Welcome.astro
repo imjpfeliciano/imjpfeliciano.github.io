@@ -1,72 +1,17 @@
 ---
-import { Image } from "astro:assets";
-import Chip from "./Chip.astro";
-
-import profileImage from "../assets/profile-hw.webp";
-import HomeMentionsSection from "./HomeMentionsSection.astro";
-import HomePersonalProjectsSection from "./HomePersonalProjectsSection.astro";
-import HomeProfessionalRolesSection from "./HomeProfessionalRolesSection.astro";
-import HomeSelectedWorkSection from "./HomeSelectedWorkSection.astro";
-
-const technologies = [
-  "TypeScript",
-  "React",
-  "NodeJS",
-  "AWS",
-  "Docker",
-  "CI/CD",
-];
+import ContactSection from "./sections/ContactSection.astro";
+import FeaturedProjectsSection from "./sections/FeaturedProjectsSection.astro";
+import HeroSection from "./sections/HeroSection.astro";
+import ServicesSection from "./sections/ServicesSection.astro";
+import TechStackSection from "./sections/TechStackSection.astro";
+import WorkHistorySection from "./sections/WorkHistorySection.astro";
 ---
 
-<div class="flex flex-col items-center justify-center w-full">
-  <div
-    class="flex flex-col md:flex-row gap-8 justify-between items-center w-full max-w-5xl mx-auto py-16"
-  >
-    <div class="flex flex-col gap-4">
-      <p
-        class="text-6xl font-bold dark:text-white text-center md:text-left"
-        data-translate="welcome.greeting"
-      >
-        Hi, I'm Jonathan Peraza.
-      </p>
-
-      <p
-        class="text-gray-600 text-3xl dark:text-gray-400 text-center md:text-left"
-        data-translate="welcome.description"
-      >
-        A Full Stack software engineer with a passion for building web
-        applications who is currently based in Guadalajara, Mexico.
-      </p>
-
-      <div
-        class="flex flex-row gap-4 flex-wrap w-full justify-center md:justify-start"
-      >
-        <!-- Chips -->
-        <div
-          class="flex flex-wrap justify-center md:justify-start md:flex-row gap-2"
-        >
-          {technologies.map((technology) => <Chip>{technology}</Chip>)}
-        </div>
-      </div>
-    </div>
-
-    <div class="shrink-0">
-      <Image
-        src={profileImage}
-        alt="Profile"
-        class="rounded-lg object-cover w-80 h-96 shadow-lg"
-        fetchpriority="high"
-      />
-    </div>
-  </div>
-
-  <HomeProfessionalRolesSection />
-
-  <HomeSelectedWorkSection />
-
-  <HomePersonalProjectsSection />
-
-  <HomeMentionsSection />
-
-  <!-- <div class="text-2xl font-bold">Awards</div> -->
+<div class="flex w-full flex-col">
+  <HeroSection />
+  <ServicesSection />
+  <WorkHistorySection />
+  <FeaturedProjectsSection />
+  <TechStackSection />
+  <ContactSection />
 </div>

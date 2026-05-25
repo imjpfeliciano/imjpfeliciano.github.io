@@ -1,0 +1,18 @@
+---
+interface Props {
+  translateKey?: string;
+  class?: string;
+}
+
+const { translateKey, class: className = "" } = Astro.props;
+---
+
+<p
+  class:list={[
+    "text-xs font-semibold uppercase tracking-[0.2em] text-accent",
+    className,
+  ]}
+  data-translate={translateKey}
+>
+  <slot />
+</p>

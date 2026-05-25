@@ -1,21 +1,50 @@
 /**
- * Type definition for translation keys.
- * This ensures all translation files have the same structure.
+ * Static UI translation keys (nav, section headers, forms, about page).
+ * Config-driven content translations are generated from src/config/.
  */
 export type TranslationKeys = {
   // Navbar
-  "nav.home": string;
+  "nav.brand": string;
+  "nav.services": string;
+  "nav.experience": string;
+  "nav.projects": string;
+  "nav.contact": string;
+  "nav.hireMe": string;
   "nav.about": string;
 
-  // Welcome component
-  "welcome.greeting": string;
-  "welcome.description": string;
-  "welcome.role.fullstack": string;
-  "welcome.role.fullstack.desc": string;
-  "welcome.role.mentor": string;
-  "welcome.role.mentor.desc": string;
-  "welcome.role.interviewer": string;
-  "welcome.role.interviewer.desc": string;
+  // Hero
+  "hero.label": string;
+  "hero.headline": string;
+  "hero.description": string;
+  "hero.cta.hireMe": string;
+  "hero.cta.portfolio": string;
+
+  // Section headers
+  "services.label": string;
+  "services.title": string;
+  "work.label": string;
+  "work.title": string;
+  "projects.label": string;
+  "projects.title": string;
+  "projects.liveDemo": string;
+  "projects.github": string;
+  "tech.label": string;
+  "tech.title": string;
+  "tech.updatedLabel": string;
+
+  // Contact
+  "contact.heading": string;
+  "contact.subtext": string;
+  "contact.email": string;
+  "contact.location": string;
+  "contact.form.name": string;
+  "contact.form.email": string;
+  "contact.form.details": string;
+  "contact.form.submit": string;
+
+  // Footer
+  "footer.brand": string;
+  "footer.copyright": string;
 
   // About page
   "about.title": string;
@@ -39,27 +68,10 @@ export type TranslationKeys = {
   "about.interests.competitive.desc": string;
   "about.interests.teaching": string;
   "about.interests.teaching.years": string;
-
-  // Home Selected Work Section
-  "home.selectedWork.title": string;
-  "home.selectedWork.description": string;
-  "home.selectedWork.viewAll": string;
-  "home.selectedWork.visitWebsite": string;
-
-  // Home Mentions Section
-  "home.mentions.title": string;
-  "home.mentions.description": string;
-
-  // Home Personal Projects Section
-  "home.personalProjects.title": string;
-  "home.personalProjects.description": string;
-  "home.personalProjects.explore": string;
-
-  // Footer
-  "footer.workTogether": string;
-  "footer.sendMessage": string;
-  "footer.madeWith": string;
 };
+
+/** Merged static + config-driven translations used at runtime. */
+export type FullTranslationKeys = TranslationKeys & Record<string, string>;
 
 /**
  * Helper type to ensure a translation object has all required keys.

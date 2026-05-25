@@ -2,22 +2,49 @@ import type { EnsureAllKeys, TranslationKeys } from "./types";
 
 export const es: EnsureAllKeys<TranslationKeys> = {
   // Navbar
-  "nav.home": "Inicio",
+  "nav.brand": "Jonathan Peraza",
+  "nav.services": "Servicios",
+  "nav.experience": "Experiencia",
+  "nav.projects": "Proyectos",
+  "nav.contact": "Contacto",
+  "nav.hireMe": "Contrátame",
   "nav.about": "Acerca de",
 
-  // Welcome component
-  "welcome.greeting": "Hola, soy Jonathan Peraza.",
-  "welcome.description":
-    "Un ingeniero de software Full Stack con pasión por construir aplicaciones web que actualmente reside en Guadalajara, México.",
-  "welcome.role.fullstack": "Ingeniero Full Stack",
-  "welcome.role.fullstack.desc":
-    "Ingeniero full stack con profunda experiencia en tecnologías frontend, especializado en React, Next.js y TypeScript. Apasionado por construir aplicaciones web escalables con arquitectura limpia y mejores prácticas modernas.",
-  "welcome.role.mentor": "Mentor",
-  "welcome.role.mentor.desc":
-    "Mentor experimentado ayudando a desarrolladores a crecer en tecnologías web y resolución de problemas. Guío a otros a través de desafíos de algoritmos y comparto conocimiento sobre prácticas modernas de desarrollo frontend.",
-  "welcome.role.interviewer": "Entrevistador",
-  "welcome.role.interviewer.desc":
-    "Entrevistador técnico con amplia experiencia realizando más de 200 entrevistas enfocadas en algoritmos y tecnologías web incluyendo React y Vue. Ayudo a evaluar habilidades técnicas e identificar talento destacado.",
+  // Hero
+  "hero.label": "Hola, soy tu desarrollador",
+  "hero.headline": "Construyendo sistemas robustos, creando interfaces elegantes.",
+  "hero.description":
+    "Ingeniero Full-Stack especializado en arquitectura escalable y UI/UX de alto rendimiento. Ayudo a equipos a lanzar productos confiables con código limpio y diseño cuidadoso.",
+  "hero.cta.hireMe": "Contrátame",
+  "hero.cta.portfolio": "Ver Portafolio",
+
+  // Section headers
+  "services.label": "Especializado en",
+  "services.title": "Servicios de Consultoría",
+  "work.label": "El camino",
+  "work.title": "Historial Laboral",
+  "projects.label": "Portafolio",
+  "projects.title": "Proyectos Destacados",
+  "projects.liveDemo": "Demo en Vivo",
+  "projects.github": "GitHub",
+  "tech.label": "Las herramientas",
+  "tech.title": "Experiencia en tecnologías modernas y escalables.",
+  "tech.updatedLabel": "Actualizado:",
+
+  // Contact
+  "contact.heading": "Construyamos algo juntos.",
+  "contact.subtext":
+    "Disponible para proyectos freelance y oportunidades de tiempo completo. Cuéntame sobre tu proyecto y te responderé en 24 horas.",
+  "contact.email": "jperazafeliciano@gmail.com",
+  "contact.location": "Guadalajara, México",
+  "contact.form.name": "Nombre Completo",
+  "contact.form.email": "Correo Electrónico",
+  "contact.form.details": "Detalles del Proyecto",
+  "contact.form.submit": "Enviar Mensaje",
+
+  // Footer
+  "footer.brand": "JONATHAN PERAZA",
+  "footer.copyright": "© 2026 Jonathan Peraza. Todos los derechos reservados.",
 
   // About page
   "about.title": "Acerca de",
@@ -48,27 +75,4 @@ export const es: EnsureAllKeys<TranslationKeys> = {
     "He sido competidor y mentor de programación competitiva desde 2010.",
   "about.interests.teaching": "Enseñanza",
   "about.interests.teaching.years": "2010 - 2020",
-
-  // Home Selected Work Section
-  "home.selectedWork.title": "Experiencia Laboral Seleccionada",
-  "home.selectedWork.description":
-    "Una selección de mis experiencias profesionales y roles más recientes.",
-  "home.selectedWork.viewAll": "Ver Toda la Experiencia",
-  "home.selectedWork.visitWebsite": "Visitar Sitio Web",
-
-  // Home Mentions Section
-  "home.mentions.title": "Menciones y Contribuciones",
-  "home.mentions.description":
-    "Publicaciones y artículos que destacan mis contribuciones y trabajo.",
-
-  // Home Personal Projects Section
-  "home.personalProjects.title": "Proyectos Personales",
-  "home.personalProjects.description":
-    "Una colección de proyectos que he desarrollado para resolver problemas del mundo real y explorar nuevas tecnologías.",
-  "home.personalProjects.explore": "Explorar Proyecto →",
-
-  // Footer
-  "footer.workTogether": "¿Interesado en trabajar juntos?",
-  "footer.sendMessage": "Envíame un mensaje",
-  "footer.madeWith": "Hecho con ❤️ por Jonathan Peraza",
 };

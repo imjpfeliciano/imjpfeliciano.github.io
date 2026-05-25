@@ -1,0 +1,31 @@
+---
+interface Props {
+  id?: string;
+  name?: string;
+  type?: string;
+  placeholder?: string;
+  translateKey?: string;
+  class?: string;
+}
+
+const {
+  id,
+  name,
+  type = "text",
+  placeholder,
+  translateKey,
+  class: className = "",
+} = Astro.props;
+---
+
+<input
+  id={id}
+  name={name}
+  type={type}
+  placeholder={placeholder}
+  data-translate-placeholder={translateKey}
+  class:list={[
+    "w-full rounded-lg border border-slate-700 bg-slate-900/80 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent",
+    className,
+  ]}
+/>

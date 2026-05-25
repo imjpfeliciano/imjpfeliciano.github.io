@@ -1,0 +1,49 @@
+---
+import Button from "../ui/Button.astro";
+import Label from "../ui/Label.astro";
+---
+
+<section class="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-20 md:py-28">
+  <div class="flex max-w-3xl flex-col gap-6">
+    <Label translateKey="hero.label">Hello, I'm your developer</Label>
+    <h1
+      class="text-4xl font-bold leading-tight tracking-tight text-white md:text-6xl"
+      data-translate="hero.headline"
+    >
+      Building robust systems, crafting elegant interfaces.
+    </h1>
+    <p
+      class="max-w-2xl text-lg leading-relaxed text-muted md:text-xl"
+      data-translate="hero.description"
+    >
+      Full-Stack Engineer specializing in scalable architecture and
+      high-performance UI/UX. I help teams ship reliable products with clean
+      code and thoughtful design.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <Button href="#contact" variant="primary" translateKey="hero.cta.hireMe">
+        Hire Me
+      </Button>
+      <Button href="#projects" variant="outline" translateKey="hero.cta.portfolio">
+        View Portfolio
+      </Button>
+    </div>
+  </div>
+
+  <div
+    class="overflow-hidden rounded-xl border border-slate-800 bg-surface shadow-2xl"
+  >
+    <div class="flex items-center gap-2 border-b border-slate-800 px-4 py-3">
+      <span class="size-3 rounded-full bg-red-500/80"></span>
+      <span class="size-3 rounded-full bg-yellow-500/80"></span>
+      <span class="size-3 rounded-full bg-green-500/80"></span>
+    </div>
+    <pre
+      class="overflow-x-auto p-6 font-mono text-sm leading-relaxed text-slate-400"
+    ><code><span class="text-accent">git commit_ec</span> -m <span class="text-emerald-400">"feat: implement scalable architecture"</span>
+<span class="text-slate-500">[main 8a4f2c1]</span> feat: implement scalable architecture
+<span class="text-slate-500"> 3 files changed, 127 insertions(+), 14 deletions(-)</span>
+<span class="text-accent">git push origin main</span>
+<span class="text-emerald-400">✓ Deployed to production</span></code></pre>
+  </div>
+</section>

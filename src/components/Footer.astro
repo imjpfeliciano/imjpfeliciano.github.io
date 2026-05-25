@@ -1,0 +1,35 @@
+---
+import github from "../assets/github.svg";
+import linkedin from "../assets/linkedin.svg";
+---
+
+<footer
+  class="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-4 border-t border-slate-800 px-4 py-8 text-sm text-slate-500 md:flex-row"
+>
+  <span class="font-semibold tracking-wider text-white" data-translate="footer.brand">
+    JONATHAN PERAZA
+  </span>
+  <p data-translate="footer.copyright">
+    © 2026 Jonathan Peraza. All rights reserved.
+  </p>
+  <div class="flex items-center gap-4">
+    <a
+      href="https://www.linkedin.com/in/jpfeliciano/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="transition-opacity hover:opacity-80"
+      aria-label="LinkedIn"
+    >
+      <img src={linkedin.src} alt="" class="size-5 invert opacity-70" />
+    </a>
+    <a
+      href="https://github.com/imjpfeliciano"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="transition-opacity hover:opacity-80"
+      aria-label="GitHub"
+    >
+      <img src={github.src} alt="" class="size-5 invert opacity-70" />
+    </a>
+  </div>
+</footer>

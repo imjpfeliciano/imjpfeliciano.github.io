@@ -1,0 +1,23 @@
+---
+import Label from "./Label.astro";
+
+interface Props {
+  labelKey: string;
+  titleKey: string;
+  label: string;
+  title: string;
+  class?: string;
+}
+
+const { labelKey, titleKey, label, title, class: className = "" } = Astro.props;
+---
+
+<div class:list={["flex flex-col gap-3", className]}>
+  <Label translateKey={labelKey}>{label}</Label>
+  <h2
+    class="text-3xl font-bold tracking-tight text-white md:text-4xl"
+    data-translate={titleKey}
+  >
+    {title}
+  </h2>
+</div>

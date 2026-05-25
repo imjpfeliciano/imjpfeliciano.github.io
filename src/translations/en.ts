@@ -2,22 +2,49 @@ import type { EnsureAllKeys, TranslationKeys } from "./types";
 
 export const en: EnsureAllKeys<TranslationKeys> = {
   // Navbar
-  "nav.home": "Home",
+  "nav.brand": "Jonathan Peraza",
+  "nav.services": "Services",
+  "nav.experience": "Experience",
+  "nav.projects": "Projects",
+  "nav.contact": "Contact",
+  "nav.hireMe": "Hire Me",
   "nav.about": "About",
 
-  // Welcome component
-  "welcome.greeting": "Hi, I'm Jonathan Peraza.",
-  "welcome.description":
-    "A Full Stack software engineer with a passion for building web applications who is currently based in Guadalajara, Mexico.",
-  "welcome.role.fullstack": "Full Stack SWE",
-  "welcome.role.fullstack.desc":
-    "Full stack engineer with deep expertise in frontend technologies, specializing in React, Next.js, and TypeScript. Passionate about building scalable web applications with clean architecture and modern best practices.",
-  "welcome.role.mentor": "Mentor",
-  "welcome.role.mentor.desc":
-    "Experienced mentor helping developers grow in web technologies and problem-solving. I guide others through algorithm challenges and share knowledge on modern frontend development practices.",
-  "welcome.role.interviewer": "Interviewer",
-  "welcome.role.interviewer.desc":
-    "Technical interviewer with extensive experience conducting 200+ interviews focused on algorithms and web technologies including React and Vue. I help assess technical skills and identify top talent.",
+  // Hero
+  "hero.label": "Hello, I'm your developer",
+  "hero.headline": "Building robust systems, crafting elegant interfaces.",
+  "hero.description":
+    "Full-Stack Engineer specializing in scalable architecture and high-performance UI/UX. I help teams ship reliable products with clean code and thoughtful design.",
+  "hero.cta.hireMe": "Hire Me",
+  "hero.cta.portfolio": "View Portfolio",
+
+  // Section headers
+  "services.label": "Specialized in",
+  "services.title": "Contractor Services",
+  "work.label": "The journey",
+  "work.title": "Work History",
+  "projects.label": "Showcase",
+  "projects.title": "Featured Projects",
+  "projects.liveDemo": "Live Demo",
+  "projects.github": "GitHub",
+  "tech.label": "The tools",
+  "tech.title": "Expertise in modern, scalable technologies.",
+  "tech.updatedLabel": "Updated:",
+
+  // Contact
+  "contact.heading": "Let's build something.",
+  "contact.subtext":
+    "Available for freelance projects and full-time opportunities. Tell me about your project and I'll get back to you within 24 hours.",
+  "contact.email": "jperazafeliciano@gmail.com",
+  "contact.location": "Guadalajara, Mexico",
+  "contact.form.name": "Full Name",
+  "contact.form.email": "Email Address",
+  "contact.form.details": "Project Details",
+  "contact.form.submit": "Send Message",
+
+  // Footer
+  "footer.brand": "JONATHAN PERAZA",
+  "footer.copyright": "© 2026 Jonathan Peraza. All rights reserved.",
 
   // About page
   "about.title": "About",
@@ -47,27 +74,4 @@ export const en: EnsureAllKeys<TranslationKeys> = {
     "I've been a competitive programming contestant and mentor since 2010.",
   "about.interests.teaching": "Teaching",
   "about.interests.teaching.years": "2010 - 2020",
-
-  // Home Selected Work Section
-  "home.selectedWork.title": "Selected Work Experience",
-  "home.selectedWork.description":
-    "A selection of my most recent professional experiences and roles.",
-  "home.selectedWork.viewAll": "View All Experience",
-  "home.selectedWork.visitWebsite": "Visit Website",
-
-  // Home Mentions Section
-  "home.mentions.title": "Mentions & Contributions",
-  "home.mentions.description":
-    "Posts and articles featuring my contributions and work.",
-
-  // Home Personal Projects Section
-  "home.personalProjects.title": "Personal Projects",
-  "home.personalProjects.description":
-    "A collection of projects I've developed to solve real-world problems and explore new technologies.",
-  "home.personalProjects.explore": "Explore Project →",
-
-  // Footer
-  "footer.workTogether": "Interested in working together?",
-  "footer.sendMessage": "Send me a message",
-  "footer.madeWith": "Made with ❤️ by Jonathan Peraza",
 };
