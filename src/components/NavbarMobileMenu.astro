@@ -1,50 +1,26 @@
 ---
 import { MenuIcon } from "@lucide/astro";
-import github from "../assets/github.svg";
-import linkedin from "../assets/linkedin.svg";
-import youtube from "../assets/youtube.svg";
 import LanguageSelector from "./LanguageSelector.astro";
-import ThemeToggle from "./ThemeToggle.astro";
+import Button from "./ui/Button.astro";
 
-const activeLink = Astro.url.pathname;
 const links = [
-  {
-    label: "Home",
-    labelKey: "nav.home",
-    href: "/",
-    isActive: activeLink === "/",
-  },
-  // TODO: Implement projects page (with detailed explanation about each project/work experience)
-  // {
-  //     label: "Projects",
-  //     href: "/projects",
-  //     isActive: activeLink === "/projects",
-  // },
-  {
-    label: "About",
-    labelKey: "nav.about",
-    href: "/about",
-    isActive: activeLink.includes("/about"),
-  },
-  {
-    label: "Work",
-    labelKey: "nav.work",
-    href: "/work",
-    isActive: activeLink.includes("/work"),
-  },
+  { label: "Services", labelKey: "nav.services", href: "/#services" },
+  { label: "Experience", labelKey: "nav.experience", href: "/#experience" },
+  { label: "Projects", labelKey: "nav.projects", href: "/#projects" },
+  { label: "Contact", labelKey: "nav.contact", href: "/#contact" },
 ];
 ---
 
-<div class="md:hidden relative w-fit" id="mobile-menu-container">
+<div class="relative w-fit md:hidden" id="mobile-menu-container">
   <button
-    class="bg-white border border-green-700 dark:bg-slate-800 rounded-full p-2 shadow-lg cursor-pointer"
+    class="cursor-pointer rounded-lg border border-slate-700 bg-surface p-2 text-white transition-colors hover:border-slate-600"
     id="menu-toggle-button"
     aria-label="Toggle menu"
   >
-    <MenuIcon class="w-6 h-6 dark:text-white" />
+    <MenuIcon class="size-5" />
   </button>
   <div
-    class="bg-white dark:bg-black px-8 py-4 flex-col gap-4 w-screen absolute top-16 right-0 z-10 shadow-lg dark:shadow-slate-900 hidden"
+    class="absolute right-0 top-12 z-50 hidden w-56 flex-col gap-4 rounded-xl border border-slate-800 bg-surface p-4 shadow-xl"
     id="mobile-menu"
   >
     {
@@ -52,46 +28,19 @@ const links = [
         <a
           href={link.href}
           data-translate={link.labelKey}
-          class:list={[
-            "text-gray-600 dark:text-white text-sm font-medium cursor-pointer",
-            link.isActive ? "text-green-700 dark:text-green-400!" : "",
-          ]}
+          class="text-sm font-medium text-slate-400 transition-colors hover:text-white"
           data-menu-link
         >
           {link.label}
         </a>
       ))
     }
-    <hr class="border-gray-300 dark:border-gray-700" />
-    <div class="flex flex-row justify-between">
-      <div class="flex flex-row gap-4 items-center">
-        <a
-          href="https://github.com/imjpfeliciano"
-          target="_blank"
-          data-menu-link
-        >
-          <img src={github.src} alt="GitHub" class="w-4 h-4 dark:invert" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/jpfeliciano/"
-          target="_blank"
-          data-menu-link
-        >
-          <img src={linkedin.src} alt="LinkedIn" class="w-4 h-4 dark:invert" />
-        </a>
-
-        <a
-          href="https://youtube.com/@imjpfeliciano"
-          target="_blank"
-          data-menu-link
-        >
-          <img src={youtube.src} alt="YouTube" class="w-4 h-4 dark:invert" />
-        </a>
-      </div>
-      <div class="flex flex-row gap-2 items-center">
-        <LanguageSelector />
-        <ThemeToggle />
-      </div>
+    <hr class="border-slate-800" />
+    <div class="flex flex-col gap-3">
+      <LanguageSelector />
+      <Button href="#contact" variant="primary" translateKey="nav.hireMe" class="w-full text-xs">
+        Hire Me
+      </Button>
     </div>
   </div>
 </div>
@@ -109,33 +58,30 @@ const links = [
   const toggleMenu = () => {
     const isOpen = menu.classList.contains("flex");
     if (isOpen) {
-      menu.classList.remove("flex", "flex-col");
+      menu.classList.remove("flex");
       menu.classList.add("hidden");
     } else {
       menu.classList.remove("hidden");
-      menu.classList.add("flex", "flex-col");
+      menu.classList.add("flex");
     }
   };
 
   const closeMenu = () => {
-    menu.classList.remove("flex", "flex-col");
+    menu.classList.remove("flex");
     menu.classList.add("hidden");
   };
 
-  // Toggle menu when clicking the menu icon
   toggleButton.addEventListener("click", (event) => {
     event.stopPropagation();
     toggleMenu();
   });
 
-  // Close menu when clicking on any link
   menuLinks.forEach((link) => {
     link.addEventListener("click", () => {
       closeMenu();
     });
   });
 
-  // Close menu when clicking outside
   document.addEventListener("click", (event) => {
     if (container && !container.contains(event.target as Node)) {
       if (menu.classList.contains("flex")) {

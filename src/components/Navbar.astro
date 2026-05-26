@@ -1,67 +1,35 @@
 ---
-import github from "../assets/github.svg";
-import linkedin from "../assets/linkedin.svg";
-import youtube from "../assets/youtube.svg";
-
 import LanguageSelector from "./LanguageSelector.astro";
 import NavbarMobileMenu from "./NavbarMobileMenu.astro";
-import ThemeToggle from "./ThemeToggle.astro";
+import Button from "./ui/Button.astro";
 
-const activeLink = Astro.url.pathname;
 const links = [
-  {
-    label: "Home",
-    labelKey: "nav.home",
-    href: "/",
-    isActive: activeLink === "/",
-  },
-  // TODO: Implement projects page (with detailed explanation about each project/work experience)
-  // {
-  //     label: "Projects",
-  //     href: "/projects",
-  //     isActive: activeLink === "/projects",
-  // },
-  {
-    label: "About",
-    labelKey: "nav.about",
-    href: "/about",
-    isActive: activeLink.includes("/about"),
-  },
-  {
-    label: "Work",
-    labelKey: "nav.work",
-    href: "/work",
-    isActive: activeLink.includes("/work"),
-  },
+  { label: "Services", labelKey: "nav.services", href: "/#services" },
+  { label: "Experience", labelKey: "nav.experience", href: "/#experience" },
+  { label: "Projects", labelKey: "nav.projects", href: "/#projects" },
+  { label: "Contact", labelKey: "nav.contact", href: "/#contact" },
 ];
 ---
 
-<div class="flex justify-between items-center w-full py-4">
-  <a href="/">
-    <h1 class="text-2xl font-bold dark:text-white">
-      Jonathan <span class="text-green-700">Peraza</span>
-    </h1>
+<nav class="flex items-center justify-between gap-4 py-4">
+  <a href="/" class="shrink-0">
+    <span
+      class="text-lg font-bold tracking-tight text-white"
+      data-translate="nav.brand"
+    >
+      Jonathan Peraza
+    </span>
   </a>
 
   <NavbarMobileMenu />
 
-  <div
-    class="hidden md:flex items-center gap-4 border-2 border-green-700 rounded-full py-2 px-4"
-  >
+  <div class="hidden items-center gap-8 md:flex">
     {
       links.map((link) => (
         <a
           href={link.href}
           data-translate={link.labelKey}
-          class:list={[
-            "text-gray-600 dark:text-white",
-            "text-sm",
-            "font-medium",
-            "hover:text-green-700",
-            "transition-all",
-            "duration-300",
-            link.isActive ? "text-green-700 dark:text-green-400!" : "",
-          ]}
+          class="text-sm font-medium text-slate-400 transition-colors hover:text-white"
         >
           {link.label}
         </a>
@@ -69,18 +37,10 @@ const links = [
     }
   </div>
 
-  <div class="hidden md:flex items-center gap-4">
-    <a href="https://github.com/imjpfeliciano" target="_blank">
-      <img src={github.src} alt="GitHub" class="w-6 h-6 dark:invert" />
-    </a>
-    <a href="https://www.linkedin.com/in/jpfeliciano/" target="_blank">
-      <img src={linkedin.src} alt="LinkedIn" class="w-6 h-6 dark:invert" />
-    </a>
-    <a href="https://youtube.com/@imjpfeliciano" target="_blank">
-      <img src={youtube.src} alt="YouTube" class="w-6 h-6 dark:invert" />
-    </a>
-
+  <div class="hidden items-center gap-3 md:flex">
     <LanguageSelector />
-    <ThemeToggle />
+    <Button href="#contact" variant="primary" translateKey="nav.hireMe" class="px-5 py-2 text-xs">
+      Hire Me
+    </Button>
   </div>
-</div>
+</nav>

@@ -1,0 +1,87 @@
+---
+import { ExternalLink, Github } from "@lucide/astro";
+import {
+  configTranslationKeys,
+  featuredProjects,
+  getIcon,
+  pickLocalized,
+} from "../../config";
+import Badge from "../ui/Badge.astro";
+import Card from "../ui/Card.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+---
+
+<section id="projects" class="mx-auto w-full max-w-6xl px-4 py-20">
+  <SectionHeader
+    labelKey="projects.label"
+    titleKey="projects.title"
+    label="Showcase"
+    title="Featured Projects"
+    class="mb-12"
+  />
+
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+    {
+      featuredProjects.map((project) => {
+        const Icon = getIcon(project.icon);
+        const badgeKey = configTranslationKeys.projects.badge(project.id);
+        const titleKey = configTranslationKeys.projects.title(project.id);
+        const descKey = configTranslationKeys.projects.description(project.id);
+
+        return (
+          <Card class="flex flex-col gap-4">
+            <div class="flex items-start justify-between">
+              <Icon class="size-7 text-accent" stroke-width={1.5} />
+              <Badge>
+                <span data-translate={badgeKey}>
+                  {pickLocalized(project.badge)}
+                </span>
+              </Badge>
+            </div>
+            <h3
+              class="text-lg font-semibold text-white"
+              data-translate={titleKey}
+            >
+              {pickLocalized(project.title)}
+            </h3>
+            <p
+              class="flex-1 text-sm leading-relaxed text-muted"
+              data-translate={descKey}
+            >
+              {pickLocalized(project.description)}
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <Badge>{tag}</Badge>
+              ))}
+            </div>
+            <div class="flex gap-4 pt-2 text-sm">
+              {project.demoUrl && (
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-accent transition-colors hover:text-white"
+                >
+                  <ExternalLink class="size-3.5" />
+                  <span data-translate="projects.liveDemo">Live Demo</span>
+                </a>
+              )}
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-slate-400 transition-colors hover:text-white"
+                >
+                  <Github class="size-3.5" />
+                  <span data-translate="projects.github">GitHub</span>
+                </a>
+              )}
+            </div>
+          </Card>
+        );
+      })
+    }
+  </div>
+</section>

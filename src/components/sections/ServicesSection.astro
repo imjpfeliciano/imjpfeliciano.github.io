@@ -1,0 +1,54 @@
+---
+import {
+  configTranslationKeys,
+  contractorServices,
+  getIcon,
+  pickLocalized,
+} from "../../config";
+import Badge from "../ui/Badge.astro";
+import Card from "../ui/Card.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+---
+
+<section id="services" class="mx-auto w-full max-w-6xl px-4 py-20">
+  <SectionHeader
+    labelKey="services.label"
+    titleKey="services.title"
+    label="Specialized in"
+    title="Contractor Services"
+    class="mb-12"
+  />
+
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+    {
+      contractorServices.map((service) => {
+        const Icon = getIcon(service.icon);
+        const titleKey = configTranslationKeys.services.title(service.id);
+        const descKey = configTranslationKeys.services.description(service.id);
+
+        return (
+          <Card class="flex flex-col gap-4">
+            <Icon class="size-8 text-accent" stroke-width={1.5} />
+            <h3
+              class="text-lg font-semibold text-white"
+              data-translate={titleKey}
+            >
+              {pickLocalized(service.title)}
+            </h3>
+            <p
+              class="flex-1 text-sm leading-relaxed text-muted"
+              data-translate={descKey}
+            >
+              {pickLocalized(service.description)}
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {service.tags.map((tag) => (
+                <Badge>{tag}</Badge>
+              ))}
+            </div>
+          </Card>
+        );
+      })
+    }
+  </div>
+</section>

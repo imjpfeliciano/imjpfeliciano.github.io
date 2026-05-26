@@ -5,7 +5,7 @@ import { translations } from "../translations";
 <div class="language-selector-wrapper relative">
   <select
     id="language-selector"
-    class="language-selector px-3 py-1 rounded-full text-sm h-8 w-fit flex items-center justify-center cursor-pointer border-2 transition-all duration-300 bg-white border-green-700 text-black hover:bg-green-600 dark:bg-slate-800 dark:text-white dark:border-green-400 appearance-none pr-8"
+    class="language-selector h-8 w-fit min-w-28 cursor-pointer appearance-none rounded-full border border-slate-700 bg-surface px-3 py-1 pr-8 text-sm text-slate-300 transition-colors hover:border-slate-600 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
     aria-label="Select language"
   >
     <option value="en" data-flag="🇺🇸" data-label="English">🇺🇸 English</option>
@@ -61,37 +61,8 @@ import { translations } from "../translations";
   /* Style options in dropdown */
   .language-selector option {
     padding: 0.5rem 0.75rem;
-    background-color: white;
-    color: black;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  /* Dark mode options */
-  .dark .language-selector option {
-    background-color: rgb(30 41 55);
-    color: white;
-  }
-
-  /* Hover state for select */
-  .language-selector:hover {
-    border-color: rgb(22 101 52);
-  }
-
-  .dark .language-selector:hover {
-    border-color: rgb(74 222 128);
-  }
-
-  /* Focus state */
-  .language-selector:focus {
-    outline: none;
-    ring: 2px;
-    ring-color: rgb(22 101 52);
-  }
-
-  .dark .language-selector:focus {
-    ring-color: rgb(74 222 128);
+    background-color: #0f172a;
+    color: #f8fafc;
   }
 </style>
 

@@ -1,3 +1,23 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background: #020617;
+  --color-surface: #0f172a;
+  --color-accent: #c3c2ff;
+  --color-accent-foreground: #020617;
+  --color-muted: #94a3b8;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: #f8fafc;
+}
